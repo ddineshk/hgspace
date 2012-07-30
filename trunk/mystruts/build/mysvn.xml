@@ -1,0 +1,29 @@
+<project>
+	<target name="smoke" depends="checkout,build,test" />
+	<target name="checkout">
+		<svn>
+			<checkout url="http://svn.example.com/repos/project/trunk"
+				destPath="project" />
+		</svn>
+	</target>
+	<target name="build" depends="checkout">
+		<exec dir="project" executable="ant" output="build.log"
+			resultproperty="buildresult">
+			<arg value="build" />
+		</exec>
+	</target>
+	<target name="build-notify" depends="build" if="buildresult">
+		<mail from="testers@example.org" tolist="notification@example.org"
+			subject="Build failure" files="build.log" />
+	</target>
+	<target name="test" depends="build" unless="buildresult">
+		<exec dir="project" executable="ant" output="test.log"
+			resultproperty="testresult">
+			<arg value="test" />
+		</exec>
+	</target>
+	<target name="test-notify" depends="test" if="testresult">
+		<mail from="testers@example.org" tolist="notification@example.org"
+			subject="Test failure" files="test.log" />
+	</target>
+</project>
