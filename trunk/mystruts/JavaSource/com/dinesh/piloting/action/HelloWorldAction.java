@@ -17,7 +17,7 @@ public ActionForward execute(ActionMapping mapping, ActionForm form,
 		HttpServletRequest request, HttpServletResponse response)
 		throws Exception {
 	HelloWorldForm hwForm = (HelloWorldForm) form;
-	hwForm.setMessage("Hello World");
+	hwForm.setMessage("Hello Dinesh");
 	return mapping.findForward("success");
 }
 }
