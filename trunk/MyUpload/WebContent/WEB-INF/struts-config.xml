@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN"
+          "http://struts.apache.org/dtds/struts-config_1_3.dtd">
+<struts-config>
+	<form-beans>
+		<form-bean name="myUploadForm" type="com.dinesh.piloting.struts.form.MyUploadForm" />
+		<form-bean name="loginForm" type="com.dinesh.piloting.struts.form.LoginForm" />
+		<form-bean name="usersLoginForm" type="com.dinesh.piloting.struts.form.UsersLoginForm" />
+		<form-bean name="usersRegForm" type="com.dinesh.piloting.struts.form.UsersRegForm" />
+		<form-bean name="editUserForm" type="com.dinesh.piloting.struts.form.EditUserForm"></form-bean>
+	</form-beans>
+	<global-forwards>
+		<forward name="index" path="/index.jsp" />
+		<forward name="admin_index" path="/admin/index.jsp" />
+	</global-forwards>
+	<action-mappings>
+	<action input="/login.jsp" name="usersLoginForm" path="/UsersLoginAction" scope="request" type="com.dinesh.piloting.struts.action.UsersLoginAction" validate="true" />
+	<action input="/reg.jsp" name="usersRegForm" path="/UsersRegAction" scope="request" type="com.dinesh.piloting.struts.action.UsersRegAction" validate="true">
+    	<forward name="regMsg" path="/regMsg.jsp" />
+    </action>
+	
+	<action path="/OutAction" type="com.dinesh.piloting.struts.action.OutAction" />
+	<action input="/index.jsp?action=4" name="editUserForm" path="/EditUserAction" scope="request" type="com.dinesh.piloting.struts.action.EditUserAction" validate="true" />
+	<action path="/BooksSearchAction" type="com.dinesh.piloting.struts.action.BooksSearchAction" />
+		<!-- <action path="/login" type="com.dinesh.piloting.struts.action.LoginAction"
+			name="loginForm" validate="true" input="/index.jsp">
+			<forward name="success" path="/fileupload.jsp" />
+			<forward name="failure" path="/index.jsp" />
+		</action>
+		<action path="/Upload" type="com.dinesh.piloting.struts.action.MyUploadAction"
+			name="myUploadForm" validate="true" input="/fileupload.jsp">
+			<forward name="success" path="/display.jsp" />
+		</action>
+		<action path="/UploadPage" type="org.apache.struts.actions.ForwardAction"
+			parameter="/fileupload.jsp" /> -->
+	</action-mappings>
+	<!-- Message Resources Configuration -->
+	<message-resources
+		parameter="com.dinesh.piloting.struts.resource.ApplicationResources"></message-resources>
+</struts-config>
+
