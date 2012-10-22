@@ -5,12 +5,12 @@
 		<pathelement location="${basedir}/svnjavahl.jar" />
 	</path> 
 	<path id="build-classpath">
-		<fileset dir="project/mystruts/WebContent/WEB-INF/lib">
+		<fileset dir="mystruts/WebContent/WEB-INF/lib">
 			<include name="*.jar"/>
 		</fileset>
 	</path>
 	<path id="server-classpath">
-		<fileset dir="C:\Program Files\Apache Software Foundation\Tomcat 7.0\lib">
+		<fileset dir="D:/apache-tomcat-7.0.32/lib">
 			<include name="*.jar"/>
 		</fileset>
 	</path>
@@ -19,18 +19,18 @@
 		<echo message="Base Directory : ${basedir}"/>
 	</target>
 	<target name="init">
- 	      <property name="sourceDir" value="project/mystruts/JavaSource" />
+ 	      <property name="sourceDir" value="mystruts/JavaSource" />
 	      <echo message="Creating directories for Compiled classes" />
-	      <mkdir dir="project/mystruts/WebContent/WEB-INF/classes" />
+	      <mkdir dir="mystruts/WebContent/WEB-INF/classes" />
 	      <echo message="Succesfully created directories for Compiled classes" />
-	      <property name="outputDir" value="project/mystruts/WebContent/WEB-INF/classes" />
+	      <property name="outputDir" value="mystruts/WebContent/WEB-INF/classes" />
  	</target>
 
 	<target name="checkout" depends="init">
 		<echo message="Checking out started"/>
 		<svn username="dinesh13284@gmail.com" password="password">
-			<checkout url="https://strutsenterprise.googlecode.com/svn/trunk/"
-				destPath="project" revision="HEAD" />
+			<checkout url="https://strutsenterprise.googlecode.com/svn/trunk/mystruts/"
+				destPath="mystruts" revision="HEAD" />
 		</svn>
 		<echo message="Checking out completed"/>
 	</target>
@@ -43,8 +43,8 @@
 		<echo message="Compiled succesfully."/>
 	</target>
 	<target name="packapp" depends="build" >
-		<war destfile="mystruts.war" webxml="project\mystruts\WebContent\WEB-INF\web.xml" >
-			<fileset dir="project/mystruts/WebContent"/>
+		<war destfile="mystruts.war" webxml="mystruts\WebContent\WEB-INF\web.xml" >
+			<fileset dir="mystruts/WebContent"/>
 		</war>
 	</target>
 </project>
