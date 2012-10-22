@@ -10,11 +10,7 @@ Book List
 </h2></div>
 <div>
 	<form name="form1" method="GET" action="BooksPageAction.do">
-		<!-- search: <select name="search">
-			<option value="1">opt1</option>
-			<option value="2">opt2</option>
-			<option value="3">opt3</option>
-		</select> --> Type: <select name="bookTypeId">
+		Type: <select name="bookTypeId">
 			<b:bookstype>option</b:bookstype>
 		</select> search:<input type="text" name="seachstr" /><input
 			onclick="Search()" type="button" value="Search" />
@@ -26,13 +22,13 @@ Book List
 </tr>
 <c:forEach var="books" items="${requestScope.list}">
 <tr>
-<td>${books.books_Id}</td> <td>${books.books_Name}</td> <td>${books.books_Company}</td> <td><b:bookstype>${books.bookType_Id}</b:bookstype></td> <td>${books.books_Count}</td> <td><a onclick="javascript:window.open('BookCarAction.do?books_Id=${books.books_Id}')" href="#">Borrow</a></td>
+<td>${books.books_Id}</td> <td>${books.books_Name}</td> <td>${books.books_Company}</td> <td><b:bookstype>${books.bookType_Id}</b:bookstype></td> <td>${books.books_Count}</td> <td><a onclick="javascript:window.open('BookCartAction.do?books_Id=${books.books_Id}')" href="#">Borrow</a></td>
 </tr>
 </c:forEach>
 </table>
 <table>
 <tr>
-<td><a href="javascript:BooksPage('${requestScope.page-1<=0?1:requestScope.page-1}','${requestScope.seach}','${requestScope.bookTypeId}','${requestScope.seachstr}')"></a></td><td><a href="javascript:BooksPage('${requestScope.page+1>=requestScope.pagecount?requestScope.pagecount:requestScope.page+1}','${requestScope.seach}','${requestScope.bookTypeId}','${requestScope.seachstr}')"></a></td><td>${requestScope.page}/${requestScope.pagecount}</td>
+<td><a href="javascript:BooksPage('${requestScope.page-1<=0?1:requestScope.page-1}','${requestScope.seach}','${requestScope.bookTypeId}','${requestScope.seachstr}')">prev</a></td><td><a href="javascript:BooksPage('${requestScope.page+1>=requestScope.pagecount?requestScope.pagecount:requestScope.page+1}','${requestScope.seach}','${requestScope.bookTypeId}','${requestScope.seachstr}')">next</a></td><td>${requestScope.page}/${requestScope.pagecount}</td>
 </tr>
 </table>
 

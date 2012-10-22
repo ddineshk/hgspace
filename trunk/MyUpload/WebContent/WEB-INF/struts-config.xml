@@ -23,6 +23,13 @@
 	<action path="/OutAction" type="com.dinesh.piloting.struts.action.OutAction" />
 	<action input="/index.jsp?action=4" name="editUserForm" path="/EditUserAction" scope="request" type="com.dinesh.piloting.struts.action.EditUserAction" validate="true" />
 	<action path="/BooksSearchAction" type="com.dinesh.piloting.struts.action.BooksSearchAction" />
+	<action path="/BookCartAction" type="com.dinesh.piloting.struts.action.BookCartAction">
+      <forward name="success" path="/lend.jsp" />
+    </action>
+        <action path="/BookLendAction" type="com.dinesh.piloting.struts.action.BookLendAction">
+      <forward name="success" path="/lend.jsp" />
+    </action>
+    <action path="/BooksPageAction" type="com.dinesh.piloting.struts.action.BooksPageAction" />
 		<!-- <action path="/login" type="com.dinesh.piloting.struts.action.LoginAction"
 			name="loginForm" validate="true" input="/index.jsp">
 			<forward name="success" path="/fileupload.jsp" />
