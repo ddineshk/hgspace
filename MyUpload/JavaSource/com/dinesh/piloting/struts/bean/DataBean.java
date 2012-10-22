@@ -15,7 +15,8 @@ public class DataBean {
     private java.sql.PreparedStatement prepar = null;
 
     private java.sql.CallableStatement proc = null;
-
+    
+    private java.sql.Statement stmt = null;
     public int pagecount = 0;
     public DataBean() { 
         try {
@@ -39,6 +40,9 @@ public class DataBean {
             }
             if (prepar != null) {
                 prepar.close();
+            }
+            if (stmt != null) {
+                stmt.close();
             }
             if (conn != null) {
                 conn.close();
@@ -382,19 +386,32 @@ public class DataBean {
     }
 
     public String lendBooks(LendBean lb) {
+    	String result = null;
         try {
-            proc = conn.prepareCall("{call LendBook (?,?,?,?,?)}");
-            proc.setInt(1, lb.getUsers_Id());
-            proc.setInt(2, lb.getBooks_Id());
-            proc.setString(3, lb.getBookLend_StarTime());
-            proc.setString(4, lb.getBookLend_EndTime());
-            proc.registerOutParameter(5, Types.VARCHAR);
-            proc.executeUpdate();
-            return proc.getString(5);
+        	
+        	stmt = conn.createStatement();
+        	//String sql = "insert into Lend(Users_Id,Book_Id,BookLend_StartTime,BookLend_EndTime) values (?,?,?,?)";
+            /*prepar = conn.prepareStatement(sql);
+            prepar.setInt(1, lb.getUsers_Id());
+            prepar.setInt(2, lb.getBooks_Id());
+            prepar.setString(3, lb.getBookLend_StarTime());
+            prepar.setString(4, lb.getBookLend_EndTime());
+            int flag = prepar.executeUpdate(sql);*/
+            
+            
+        	String sql = "insert into Lend(Users_Id,Book_Id,BookLend_StartTime,BookLend_EndTime) values (";
+        	sql+="'"+lb.getUsers_Id()+"',";
+        	sql+="'"+lb.getBooks_Id()+"',";
+        	sql+="'"+lb.getBookLend_StarTime()+"',";
+        	sql+="'"+lb.getBookLend_EndTime()+"')";
+        	stmt.executeUpdate(sql);
+        	result = "success";
+        	
         } catch (SQLException ex) {
+        	result = "failure";
             ex.printStackTrace();
         }
-        return "success";
+        return result;
     }
 
     public int getDateCha(String stra, String end) {

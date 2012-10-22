@@ -14,7 +14,8 @@ public class MyDate {
         Calendar MyDate = Calendar.getInstance();
         MyDate.setTime(new java.util.Date());
         java.util.Date date = MyDate.getTime();
-        lFormat = new SimpleDateFormat("yyyyMMddHHmmss");
+        //lFormat = new SimpleDateFormat("yyyyMMddHHmmss");
+        lFormat = new SimpleDateFormat("yyyyMMdd");
         String gRtnStr = lFormat.format(date);
         return gRtnStr;
     }
