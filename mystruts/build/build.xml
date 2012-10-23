@@ -1,5 +1,6 @@
 <project default="smoke" basedir=".">
 	<path id="path.svnant">
+		<!-- test -->
 		<pathelement location="${basedir}/svnant.jar" />
 		<pathelement location="${basedir}/svnClientAdapter.jar" />
 		<pathelement location="${basedir}/svnjavahl.jar" />
