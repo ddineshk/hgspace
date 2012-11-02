@@ -8,13 +8,19 @@
 	<constant name="struts.custom.i18n.resources"
         value="ApplicationResources" />
     <package name="default" extends="struts-default" namespace="/">
+    	<result-types>
+    		<result-type name="tiles" class="org.apache.struts2.views.tiles.TilesResult"/>
+    	</result-types>
         <action name="login" method="execute" class="com.dinesh.piloting.struts2.action.LoginAction">
-            <result name="success">Welcome.jsp</result>
+            <result name="success" type="tiles">/welcome.tiles</result>
             <result name="error">Login.jsp</result>
         </action>
         <action name="customer" method="addCustomer" class="com.dinesh.piloting.struts2.action.CustomerAction">
-		    <result name="success">SuccessCustomer.jsp</result>
-    		<result name="input">Customer.jsp</result>
+		    <result name="success" type="tiles">/customer.success.tiles</result>
+    		<result name="input" type="tiles">/customer.tiles</result>
+		</action>
+		<action name="customer-form">
+			<result name="success" type="tiles">/customer.tiles</result>
 		</action>
     </package>
 </struts>
