@@ -11,7 +11,17 @@
     	<result-types>
     		<result-type name="tiles" class="org.apache.struts2.views.tiles.TilesResult"/>
     	</result-types>
+    	<interceptors>
+			<interceptor name="mylogging" class="com.dinesh.piloting.struts2.interceptor.MyLoggingInterceptor">
+			</interceptor>
+			<interceptor-stack name="loggingStack">
+				<interceptor-ref name="mylogging"/>
+				<interceptor-ref name="defaultStack"/>
+			</interceptor-stack>
+		</interceptors>
+		<default-interceptor-ref name="defaultStack"></default-interceptor-ref>
         <action name="login" method="execute" class="com.dinesh.piloting.struts2.action.LoginAction">
+  			<interceptor-ref name="loggingStack"></interceptor-ref>      
             <result name="success" type="tiles">/welcome.tiles</result>
             <result name="error">Login.jsp</result>
         </action>
@@ -21,6 +31,17 @@
 		</action>
 		<action name="customer-form">
 			<result name="success" type="tiles">/customer.tiles</result>
+		</action>
+		<action name="userImage" class="com.dinesh.piloting.struts2.FileUploadAction">
+			<interceptor-ref name="fileUpload">
+				<param name="maximumSize">2097152</param>
+				<param name="allowedTypes">
+            		image/png,image/gif,image/jpeg,image/pjpeg
+       	 		</param>
+			</interceptor-ref>
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+    		<result name="success">SuccessUserImage.jsp</result>
+    		<result name="input">UserImage.jsp</result>
 		</action>
     </package>
 </struts>
