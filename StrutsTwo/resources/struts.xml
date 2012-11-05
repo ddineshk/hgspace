@@ -43,5 +43,9 @@
     		<result name="success">SuccessUserImage.jsp</result>
     		<result name="input">UserImage.jsp</result>
 		</action>
+		<action name="ajaxdemo" class="com.dinesh.piloting.struts2.AjaxAutoComplete">
+    		<interceptor-ref name="loggingStack"></interceptor-ref>
+    		<result name="success" type="tiles">AjaxDemo.jsp</result>
+		</action>
     </package>
 </struts>
