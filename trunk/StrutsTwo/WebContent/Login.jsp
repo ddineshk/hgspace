@@ -11,9 +11,14 @@
 <h3>Login Application</h3>
 <s:actionerror/>
 <s:form action="login.action" method="post">
-	<s:textfield name="userName" key="label.userName" size="20" />
-    <s:password name="passWord" key="label.passWord" size="20" />
-    <s:submit method="execute" key="label.login" align="center" />
+	<table>
+	<tr><td><s:textfield name="userName" key="label.userName" size="20" /></td></tr>
+	<tr><td><s:password name="passWord" key="label.passWord" size="20" /></td></tr>
+	<tr><td><img src="Captcha.jpg" border="0"></td></tr>
+	<tr><td><s:textfield label="Code" name="j_captcha_response" size="20" maxlength="10"/></td></tr>
+	<tr><td><s:submit method="execute" key="label.login" align="center" /></td></tr>
+	</table>
+    
 </s:form> 
 </body>
 </html>
