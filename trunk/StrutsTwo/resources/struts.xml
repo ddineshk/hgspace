@@ -32,7 +32,7 @@
 		<action name="customer-form">
 			<result name="success" type="tiles">/customer.tiles</result>
 		</action>
-		<action name="userImage" class="com.dinesh.piloting.struts2.FileUploadAction">
+		<action name="userImage" class="com.dinesh.piloting.struts2.action.FileUploadAction">
 			<interceptor-ref name="fileUpload">
 				<param name="maximumSize">2097152</param>
 				<param name="allowedTypes">
@@ -46,6 +46,10 @@
 		<action name="ajaxdemo" class="com.dinesh.piloting.struts2.AjaxAutoComplete">
     		<interceptor-ref name="loggingStack"></interceptor-ref>
     		<result name="success" type="tiles">AjaxDemo.jsp</result>
+		</action>
+		<action name="doCaptcha" class="com.dinesh.piloting.struts2.action.CaptchaAction">
+			<result name="error">captcha.jsp</result>
+			<result>captcha.jsp</result>
 		</action>
     </package>
 </struts>
