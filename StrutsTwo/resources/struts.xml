@@ -47,9 +47,5 @@
     		<interceptor-ref name="loggingStack"></interceptor-ref>
     		<result name="success" type="tiles">AjaxDemo.jsp</result>
 		</action>
-		<action name="doCaptcha" class="com.dinesh.piloting.struts2.action.CaptchaAction">
-			<result name="error">captcha.jsp</result>
-			<result>captcha.jsp</result>
-		</action>
     </package>
 </struts>
