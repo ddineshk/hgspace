@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.GradientPaint;
 import java.awt.Graphics2D;
+import java.awt.RenderingHints;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.io.OutputStream;
@@ -46,6 +47,9 @@ public class CaptchaServlet extends HttpServlet {
 	    String ch = token.substring(0,6);
 	    Color c = new Color(0.6662f, 0.4569f, 0.3232f);
 	    GradientPaint gp = new GradientPaint(30, 30, c, 15, 25, Color.white, true);
+	    RenderingHints rh = new RenderingHints(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+	    rh.put(RenderingHints.KEY_RENDERING, RenderingHints.VALUE_RENDER_QUALITY);
+	    graphics2D.setRenderingHints(rh);
 	    graphics2D.setPaint(gp);
 	    Font font=new Font("Verdana", Font.CENTER_BASELINE , 26);
 	    graphics2D.setFont(font);
