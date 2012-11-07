@@ -1,4 +1,4 @@
-package com.dinesh.piloting.struts2;
+package com.dinesh.piloting.struts2.action;
 
 import java.io.File;
 
