@@ -14,7 +14,8 @@
 
 <bean:write name="helloWorldForm" property="message"/><br/><br/>
 &#149; Add an Employee<br/>
-&#149; <html:link forward="search">Search an Employee</html:link>
+&#149; <html:link forward="search">Search an Employee</html:link><br/>
+&#149; <html:link href="reg.do?method=load">Register Employee</html:link>
 
 </body>
 </html>
