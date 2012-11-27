@@ -9,6 +9,7 @@
     <form-beans>
     	<form-bean name="helloWorldForm" type="com.dinesh.piloting.form.HelloWorldForm"/>
     	<form-bean name="searchForm" type="com.dinesh.piloting.form.SearchForm" />
+    	<form-bean name="regForm" type="com.dinesh.piloting.form.RegForm"></form-bean>
     </form-beans>
 
 	<global-forwards>
@@ -21,6 +22,9 @@
         	<forward name="success" path="/helloWorld.jsp" />
         </action>    
         <action path="/search" type="com.dinesh.piloting.action.SearchAction" name="searchForm" scope="request" validate="true" input="/search.jsp"></action>
+        <action path="/reg" type="com.dinesh.piloting.action.RegAction" name="regForm" scope="request" parameter="method">
+        	<forward name="success" path="/Reg.jsp"/>
+        </action>
     </action-mappings>
 <!-- Message Resources Configuration -->
 <message-resources parameter="com.dinesh.piloting.resource.ApplicationResources"></message-resources>

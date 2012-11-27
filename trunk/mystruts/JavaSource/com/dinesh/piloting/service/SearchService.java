@@ -35,4 +35,13 @@ public class SearchService {
 		}
 		return resultList;
 	}
+	//get all employees
+	public ArrayList<Employee> getAllEmployees(){
+		ArrayList<Employee> resultList = new ArrayList<Employee>();
+		for (int i = 0; i < employees.length; i++) {
+			resultList.add(employees[i]);
+		}
+		
+		return resultList;
+	}
 }
