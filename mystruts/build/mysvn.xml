@@ -1,3 +1,4 @@
+<!DOCTYPE project PUBLIC "-//ANT//DTD project//EN" "build.dtd">
 <project default="smoke" basedir=".">
 	<path id="path.svnant">
 		<pathelement location="${basedir}/svnant.jar" />

@@ -1,0 +1,55 @@
+<!ELEMENT checkout EMPTY >
+<!ATTLIST checkout destPath NMTOKEN #REQUIRED >
+<!ATTLIST checkout revision NMTOKEN #REQUIRED >
+<!ATTLIST checkout url CDATA #REQUIRED >
+
+<!ELEMENT classpath EMPTY >
+<!ATTLIST classpath refid NMTOKEN #REQUIRED >
+
+<!ELEMENT echo EMPTY >
+<!ATTLIST echo message CDATA #REQUIRED >
+
+<!ELEMENT fileset ( include? ) >
+<!ATTLIST fileset dir CDATA #REQUIRED >
+
+<!ELEMENT include EMPTY >
+<!ATTLIST include name CDATA #REQUIRED >
+
+<!ELEMENT javac ( classpath+ ) >
+<!ATTLIST javac destdir CDATA #REQUIRED >
+<!ATTLIST javac includeantruntime NMTOKEN #REQUIRED >
+<!ATTLIST javac srcdir CDATA #REQUIRED >
+
+<!ELEMENT mkdir EMPTY >
+<!ATTLIST mkdir dir CDATA #REQUIRED >
+
+<!ELEMENT path ( fileset | pathelement )* >
+<!ATTLIST path id NMTOKEN #REQUIRED >
+
+<!ELEMENT pathelement EMPTY >
+<!ATTLIST pathelement location CDATA #REQUIRED >
+
+<!ELEMENT project ( path+, typedef, target+ ) >
+<!ATTLIST project basedir NMTOKEN #REQUIRED >
+<!ATTLIST project default NMTOKEN #REQUIRED >
+
+<!ELEMENT property EMPTY >
+<!ATTLIST property name NMTOKEN #REQUIRED >
+<!ATTLIST property value CDATA #REQUIRED >
+
+<!ELEMENT svn ( checkout ) >
+<!ATTLIST svn password NMTOKEN #REQUIRED >
+<!ATTLIST svn username CDATA #REQUIRED >
+
+<!ELEMENT target ( echo | javac | mkdir | property | svn | war )* >
+<!ATTLIST target depends CDATA #IMPLIED >
+<!ATTLIST target name NMTOKEN #REQUIRED >
+
+<!ELEMENT typedef EMPTY >
+<!ATTLIST typedef classpathref NMTOKEN #REQUIRED >
+<!ATTLIST typedef resource CDATA #REQUIRED >
+
+<!ELEMENT war ( fileset ) >
+<!ATTLIST war destfile NMTOKEN #REQUIRED >
+<!ATTLIST war webxml CDATA #REQUIRED >
+
