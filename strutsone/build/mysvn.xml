@@ -6,7 +6,7 @@
 		<pathelement location="${basedir}/svnjavahl.jar" />
 	</path> 
 	<path id="build-classpath">
-		<fileset dir="project/mystruts/WebContent/WEB-INF/lib">
+		<fileset dir="project/strutsone/WebContent/WEB-INF/lib">
 			<include name="*.jar"/>
 		</fileset>
 	</path>
@@ -20,11 +20,11 @@
 		<echo message="Base Directory : ${basedir}"/>
 	</target>
 	<target name="init">
-	      <property name="sourceDir" value="project/mystruts/JavaSource" />
+	      <property name="sourceDir" value="project/strutsone/JavaSource" />
 	      <echo message="Creating directories for Compiled classes" />
-	      <mkdir dir="project/mystruts/WebContent/WEB-INF/classes" />
+	      <mkdir dir="project/strutsone/WebContent/WEB-INF/classes" />
 	      <echo message="Succesfully created directories for Compiled classes" />
-	      <property name="outputDir" value="project/mystruts/WebContent/WEB-INF/classes" />
+	      <property name="outputDir" value="project/strutsone/WebContent/WEB-INF/classes" />
   	</target>
 
 	<target name="checkout" depends="init">
@@ -44,8 +44,8 @@
 		<echo message="Compiled succesfully."/>
 	</target>
 	<target name="packapp" depends="build" >
-		<war destfile="mystruts.war" webxml="project\mystruts\WebContent\WEB-INF\web.xml" >
-			<fileset dir="project/mystruts/WebContent"/>
+		<war destfile="strutsone.war" webxml="project\strutsone\WebContent\WEB-INF\web.xml" >
+			<fileset dir="project/strutsone/WebContent"/>
 		</war>
 	</target>
 
