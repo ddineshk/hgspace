@@ -12,7 +12,7 @@
 	<br>
 	<hr width="100%" noshade="noshade">
 
-	<html:errors />
+	<%-- <html:errors /> --%>
 
 	<html:form action="/search">
 
