@@ -1,5 +1,6 @@
 package com.dinesh.piloting.action;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
@@ -33,6 +34,8 @@ public class SearchAction extends Action {
 		}
 		// Place search results in SearchForm for access by JSP.
 		searchForm.setResults(results);
+		if(results.size()<1)
+			throw new IOException();
 		// Forward control to this Action's input page.
 		return mapping.getInputForward();
 	}

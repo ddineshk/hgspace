@@ -11,7 +11,9 @@
     	<form-bean name="searchForm" type="com.dinesh.piloting.form.SearchForm" />
     	<form-bean name="regForm" type="com.dinesh.piloting.form.RegForm"></form-bean>
     </form-beans>
-
+	<global-exceptions>
+    	<exception type="java.io.IOException" path="/error.jsp" key="error.message"></exception>
+    </global-exceptions>
 	<global-forwards>
         <forward name="helloWorld" path="/helloWorld.do"/>
         <forward name="search" path="/search.jsp" />
@@ -25,7 +27,11 @@
         <action path="/reg" type="com.dinesh.piloting.action.RegAction" name="regForm" scope="request" parameter="method">
         	<forward name="success" path="/Reg.jsp"/>
         </action>
+        <action path="/*UserAction" type="com.dinesh.piloting.action.UserAction" parameter="{1}User">
+        	<forward name="success" path="/{1}User.jsp"></forward>
+        </action>
     </action-mappings>
+    
 <!-- Message Resources Configuration -->
 <message-resources parameter="com.dinesh.piloting.resource.ApplicationResources"></message-resources>
 </struts-config>
