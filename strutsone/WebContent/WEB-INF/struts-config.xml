@@ -12,7 +12,9 @@
     	<form-bean name="regForm" type="com.dinesh.piloting.form.RegForm"></form-bean>
     </form-beans>
 	<global-exceptions>
-    	<exception type="java.io.IOException" path="/error.jsp" key="error.message"></exception>
+    	<exception type="java.io.IOException" path="/error.jsp" key="error.ioexcep"></exception>
+    	<exception type="com.dinesh.piloting.exp.MyException" path="/error.jsp" key="error.myexcep" 
+    	handler="com.dinesh.piloting.exp.MyExceptionHandler"></exception>
     </global-exceptions>
 	<global-forwards>
         <forward name="helloWorld" path="/helloWorld.do"/>

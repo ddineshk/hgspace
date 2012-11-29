@@ -11,6 +11,7 @@ import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 
+import com.dinesh.piloting.exp.MyException;
 import com.dinesh.piloting.form.SearchForm;
 import com.dinesh.piloting.obj.Employee;
 import com.dinesh.piloting.service.SearchService;
@@ -36,6 +37,9 @@ public class SearchAction extends Action {
 		searchForm.setResults(results);
 		if(results.size()<1)
 			throw new IOException();
+		if(results.size()>0){
+			throw new MyException();
+		}
 		// Forward control to this Action's input page.
 		return mapping.getInputForward();
 	}
