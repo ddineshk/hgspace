@@ -18,7 +18,7 @@
 
 		<table>
 			<tr>
-				<td align="right">Name:</td>
+				<td align="right"><bean:message key="label.search.name"/></td>
 				<td><html:text property="name" /></td>
 			</tr>
 			<tr>
@@ -26,7 +26,7 @@
 				<td>-- or --</td>
 			</tr>
 			<tr>
-				<td align="right">SSN:</td>
+				<td align="right"><bean:message key="label.search.ssNum"/></td>
 				<td><html:text property="ssNum" /> (xxx-xx-xxxx)</td>
 			</tr>
 			<tr>
