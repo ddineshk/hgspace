@@ -100,6 +100,7 @@ public class User {
 		Query query = session.createQuery((new StringBuilder(
 				"from User u where u.firstName = '")).append(firstName)
 				.append("' and u.password = '"+password+"'").toString());
+		@SuppressWarnings("rawtypes")
 		List users = query.list();
 		User user = null;
 		if (users != null && users.size() > 0)
@@ -128,6 +129,7 @@ public class User {
 		user.setLastName(lastName);
 		user.setEmail(email);
 		user.setPassword(password);
+		@SuppressWarnings("rawtypes")
 		List list;
 		Query query = session.createQuery("select max(u.id) from User u");
 		list = query.list();
