@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping SYSTEM "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="org.ddk.spring.store.domain">
+	<class name="Inventory" table="Inventory" lazy="true">
+		<cache usage="read-write" />
+		<id name="id" type="long" column="InventoryId" unsaved-value="null" access="field">
+			<generator class="foreign">
+				<param name="property">item</param>
+			</generator>
+		</id>
+		<version name="version" access="org.hibernate.property.DirectPropertyAccessor" />
+		<one-to-one name="item" class="Item" constrained="true" />
+		<property name="dateAdded" type="timestamp" update="false"
+			not-null="true" access="field" />
+		<property name="quantity" type="integer" not-null="true" />
+	</class>
+</hibernate-mapping>
