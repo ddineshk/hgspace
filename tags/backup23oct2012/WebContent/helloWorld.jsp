@@ -6,13 +6,15 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>DNash Systems</title>
+<title>DNash Systems test</title>
 </head>
 <body>
 <center><font size="+1">DNash System's Portal</font></center><br>
 <hr width="100%" noshade="noshade"/>
 
 <bean:write name="helloWorldForm" property="message"/><br/><br/>
+&#149; Add an Employee<br/>
+&#149; Add an Employee<br/>
 &#149; Add an Employee<br/>
 &#149; <html:link forward="search">Search an Employee</html:link>
 
