@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="GBK"?>
-<!DOCTYPE struts-config PUBLIC
-"-//Apache Software Foundation//DTD Struts Configuration 1.1//EN"
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN"
 "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
 
 <struts-config>
@@ -56,20 +55,10 @@
                 name="workingAccountForm" scope="session" validate="false">
             <forward name="success" path="/WEB-INF/jsp/NewAccountForm.jsp"/>
         </action>
-        
         <action path="/newOrderForm" type="org.ddk.spring.store.web.struts.NewOrderFormAction"
                 name="workingOrderForm" scope="session" validate="false">
             <forward name="success" path="/WEB-INF/jsp/NewOrderForm.jsp"/>
         </action>
-        
-        <!--
-    <action path="/newOrder" type="org.ddk.spring.store.web.struts.NewOrderAction"
-            name="workingOrderForm" scope="session" validate="true" input="/WEB-INF/jsp/NewOrderForm.jsp">
-      <forward name="confirm" path="/WEB-INF/jsp/ConfirmOrder.jsp"/>
-      <forward name="shipping" path="/WEB-INF/jsp/ShippingForm.jsp"/>
-      <forward name="success" path="/WEB-INF/jsp/ViewOrder.jsp"/>
-    </action>
-    -->
         <action path="/newOrderStep1" type="org.ddk.spring.store.web.struts.NewOrderAction"
                 name="workingOrderForm" scope="session" validate="true" input="/newOrderForm.do">
             <forward name="confirm" path="/WEB-INF/jsp/ConfirmOrder.jsp"/>
@@ -83,8 +72,6 @@
                 name="workingOrderForm" scope="session" validate="true" input="/WEB-INF/jsp/NewOrderForm.jsp">
             <forward name="success" path="/WEB-INF/jsp/ViewOrder.jsp"/>
         </action>
-        <!-- fixed end -->
-    
         <action path="/removeItemFromCart" type="org.ddk.spring.store.web.struts.RemoveItemFromCartAction"
                 name="cartForm" scope="session" validate="false">
             <forward name="success" path="/WEB-INF/jsp/Cart.jsp"/>
@@ -125,5 +112,4 @@
             <forward name="success" path="/WEB-INF/jsp/Product.jsp"/>
         </action>
     </action-mappings>
-    
 </struts-config>

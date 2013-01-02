@@ -5,10 +5,6 @@
 	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
 		<property name="driverClass" value="${jdbc.driverClassName}" />
 		<property name="jdbcUrl" value="${jdbc.url}" />
-		<!-- <property name="minPoolSize" value="5" />
-		<property name="maxPoolSize" value="20" />
-		<property name="maxIdleTime" value="1800" />
-		<property name="maxStatements" value="50" /> -->
 	</bean>
 	<bean id="sessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />
@@ -41,8 +37,7 @@
 		<property name="eventListeners">
 			<map>
 				<entry key="merge">
-					<bean
-						class="org.springframework.orm.hibernate3.support.IdTransferringMergeEventListener" />
+					<bean class="org.springframework.orm.hibernate3.support.IdTransferringMergeEventListener" />
 				</entry>
 			</map>
 		</property>
@@ -51,6 +46,7 @@
 	<bean id="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
+	
 	<bean id="accountDao" class="org.ddk.spring.store.dao.hibernate.HibernateAccountDao">
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
@@ -70,5 +66,4 @@
 	<bean id="orderDao" class="org.ddk.spring.store.dao.hibernate.HibernateOrderDao">
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
-
 </beans>

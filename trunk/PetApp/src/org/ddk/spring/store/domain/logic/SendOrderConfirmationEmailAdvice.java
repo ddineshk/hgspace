@@ -53,10 +53,8 @@ public class SendOrderConfirmationEmailAdvice implements AfterReturningAdvice, I
         }
         
         StringBuffer text = new StringBuffer();
-        text.append("Dear ").append(account.getFirstname()).
-                append(' ').append(account.getLastname());
-        text.append(", thank your for your order from Store. " +
-                "Please note that your order number is ");
+        text.append("Dear ").append(account.getFirstname()).append(' ').append(account.getLastname());
+        text.append(", thank your for your order from Store. Please note that your order number is ");
         text.append(order.getId());
         
         SimpleMailMessage mailMessage = new SimpleMailMessage();
