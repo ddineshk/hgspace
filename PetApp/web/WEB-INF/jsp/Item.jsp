@@ -33,12 +33,12 @@
 				</td>
 			</tr>
 			<tr bgcolor="#FFFF88">
-				<td><fmt:formatNumber value="${item.listPrice}" pattern="$#,##0.00" /></td>
+				<td><fmt:formatNumber value="${item.listPrice}" pattern="Rs #,##0.00" /></td>
 			</tr>
 
 			<tr bgcolor="#FFFF88">
 				<td><html:link paramId="workingItemName" paramName="item" paramProperty="itemName" page="/addItemToCart.do" transaction="true">
-					<img border="0" src="../images/button_add_to_cart.gif" />
+					<img border="0" src="images/button_add_to_cart.gif" />
 				</html:link></td>
 			</tr>
 		</table>

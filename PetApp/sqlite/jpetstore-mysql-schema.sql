@@ -43,7 +43,7 @@ CREATE TABLE  `hjpetstore`.`account` (
   `phone` varchar(80) NOT NULL,
   `langPreference` varchar(80) NOT NULL,
   `favCategoryId` bigint(20) default NULL,
-  `displayMylist` bit(1) default NULL,
+  `displayMyList` bit(1) default NULL,
   `displayBanner` bit(1) default NULL,
   PRIMARY KEY  (`accountId`),
   UNIQUE KEY `username` (`username`),

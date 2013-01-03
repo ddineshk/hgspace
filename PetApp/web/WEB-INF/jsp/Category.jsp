@@ -21,20 +21,24 @@
 		<c:forEach var="product" items="${productList.pageList}">
 		<tr bgcolor="#FFFF88">
 			<td><b><a href="<c:url value="/viewProduct.do"><c:param name="productNumber" value="${product.productNumber}"/></c:url>">
-						<font color="BLACK"><c:out value="${product.productNumber}" /></font>
+						<c:out value="${product.productNumber}" />
 				</a></b>
 			</td>
 			<td><c:out value="${product.productName}" /></td>
 		</tr>
 		</c:forEach>
+		<c:if test="${!productList.firstPage || !productList.lastPage}">
 		<tr>
-			<td><c:if test="${!productList.firstPage}">
+			<td>
+				<c:if test="${!productList.firstPage}">
 				<a href="?page=previous"><font color="white"><B>&lt;&lt;Prev</B></font></a>
-				</c:if> <c:if test="${!productList.lastPage}">
+				</c:if> 
+				<c:if test="${!productList.lastPage}">
 					<a href="?page=next"><font color="white"><B>Next&gt;&gt;</B></font></a>
 				</c:if>
 			</td>
 		</tr>
+		</c:if>
 	</table>
 </center>
 <%@ include file="IncludeBottom.jsp"%>

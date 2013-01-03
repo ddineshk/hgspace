@@ -10,7 +10,7 @@
 				<area alt="Cats" coords="225,240,295,310" href="viewCategory.do?categoryName=CATS" shape="RECT" />
 				<area alt="Birds" coords="280,180,350,250" href="viewCategory.do?categoryName=BIRDS" shape="RECT" />
 			</map>
-			<img border="0" height="355" src="../images/splash.gif" usemap="#estoremap" width="350" />
+			<img border="0" height="355" src="images/splash.gif" usemap="#estoremap" width="350" />
 		</td>
 	</tr>
 </table>

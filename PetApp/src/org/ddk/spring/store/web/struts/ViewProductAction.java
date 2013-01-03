@@ -1,9 +1,9 @@
 package org.ddk.spring.store.web.struts;
 
-import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -12,7 +12,6 @@ import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 import org.ddk.spring.store.domain.Item;
 import org.ddk.spring.store.domain.Product;
-
 import org.springframework.beans.support.PagedListHolder;
 
 public class ViewProductAction extends BaseAction {
@@ -34,7 +33,7 @@ public class ViewProductAction extends BaseAction {
 				item.setVersion((Integer) object[1]);
 				item.setItemName((String) object[2]);
 
-				item.setListPrice(new BigDecimal((Double) object[4]));
+				item.setListPrice((Double) object[4]);
 				item.setAttr1((String) object[8]);
 				item.setAttr2((String) object[9]);
 				item.setAttr3((String) object[10]);

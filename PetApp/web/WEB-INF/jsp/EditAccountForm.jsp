@@ -30,7 +30,7 @@
 	</table>
 	<br />
 	<center>
-		<input type="image" src="../images/button_submit.gif" style="border: 0;"
+		<input type="image" src="images/button_submit.gif" style="border: 0;"
 			name="submit" value="Save Account Information" />
 	</center>
 </html:form>

@@ -13,7 +13,7 @@ import org.hibernate.Session;
 
 public class HibernateDataPopulate {
   private static Log log = LogFactory.getLog(HibernateDataPopulate.class);
-  /** Creates a new instance of HibernateDataPopulate */
+  
   public HibernateDataPopulate() {
   }
   
@@ -55,35 +55,35 @@ public class HibernateDataPopulate {
     
     Category c = new Category();
     c.setCategoryName("Fish");
-    c.setCategoryDesc("<image src=\"../images/fish_icon.gif\"><font size=\"5\" color=\"blue\"> Fish</font>");
+    c.setCategoryDesc("<image src=\"images/fish_icon.gif\"><font size=\"5\" color=\"blue\"> Fish</font>");
     
     s.persist(c);
     
     c = null;
     c = new Category();
     c.setCategoryName("DogS");
-    c.setCategoryDesc("<image src=\"../images/dogs_icon.gif\"><font size=\"5\" color=\"blue\"> Dogs</font>");
+    c.setCategoryDesc("<image src=\"images/dogs_icon.gif\"><font size=\"5\" color=\"blue\"> Dogs</font>");
     
     s.persist(c);
     
     c = null;
     c = new Category();
     c.setCategoryName("REPTILES");
-    c.setCategoryDesc("<image src=\"../images/reptiles_icon.gif\"><font size=\"5\" color=\"blue\"> Reptiles</font>");
+    c.setCategoryDesc("<image src=\"images/reptiles_icon.gif\"><font size=\"5\" color=\"blue\"> Reptiles</font>");
     
     s.persist(c);
    
     c = null;
     c = new Category();
     c.setCategoryName("Cats");
-    c.setCategoryDesc("<image src=\"../images/cats_icon.gif\"><font size=\"5\" color=\"blue\"> Cats</font>");
+    c.setCategoryDesc("<image src=\"images/cats_icon.gif\"><font size=\"5\" color=\"blue\"> Cats</font>");
     
     s.persist(c);
     
     c = null;
     c = new Category();
     c.setCategoryName("Birds");
-    c.setCategoryDesc("<image src=\"../images/birds_icon.gif\"><font size=\"5\" color=\"blue\"> Birds</font>");
+    c.setCategoryDesc("<image src=\"images/birds_icon.gif\"><font size=\"5\" color=\"blue\"> Birds</font>");
     
     s.persist(c);
    
@@ -102,35 +102,35 @@ public class HibernateDataPopulate {
    
     Banner b = new Banner();
     b.setFavCategory(c1);
-    b.setBannerName("<image src=\"../images/banner_fish.gif\">");
+    b.setBannerName("<image src=\"images/banner_fish.gif\">");
     
     s.persist(b);
    
     b = null;
     b = new Banner();
     b.setFavCategory(c4);
-    b.setBannerName("<image src=\"../images/banner_cats.gif\">");
+    b.setBannerName("<image src=\"images/banner_cats.gif\">");
     
     s.persist(b);
     
     b = null;
     b = new Banner();
     b.setFavCategory(c3);
-    b.setBannerName("<image src=\"../images/banner_dogs.gif\">");
+    b.setBannerName("<image src=\"images/banner_dogs.gif\">");
     
     s.persist(b);
    
     b = null;
     b = new Banner();
     b.setFavCategory(c2);
-    b.setBannerName("<image src=\"../images/banner_reptiles.gif\">");
+    b.setBannerName("<image src=\"images/banner_reptiles.gif\">");
     
     s.persist(b);
     
     b = null;
     b = new Banner();
     b.setFavCategory(c5);
-    b.setBannerName("<image src=\"../images/banner_birds.gif\">");
+    b.setBannerName("<image src=\"images/banner_birds.gif\">");
     
     s.persist(b);
    
@@ -252,7 +252,7 @@ public class HibernateDataPopulate {
     p.setProductNumber("FI-SW-01");
     p.setCategory(c1);
     p.setProductName("Angelfish");
-    p.setProductDesc("<image src=\"../images/fish1.jpg\">Salt Water fish from Australia");
+    p.setProductDesc("<image src=\"images/fish1.jpg\">Salt Water fish from Australia");
     
     s.persist(p);
     s.flush();
@@ -263,7 +263,7 @@ public class HibernateDataPopulate {
     p.setProductNumber("FI-SW-02");
     p.setCategory(c1);
     p.setProductName("Tiger Shark");
-    p.setProductDesc("<image src=\"../images/fish4.jpg\">Salt Water fish from Australia");
+    p.setProductDesc("<image src=\"images/fish4.jpg\">Salt Water fish from Australia");
     
     s.persist(p);
     s.flush();
@@ -274,7 +274,7 @@ public class HibernateDataPopulate {
     p.setProductNumber("FI-FW-01");
     p.setCategory(c1);
     p.setProductName("Koi");
-    p.setProductDesc("<image src=\"../images/fish3.gif\">Fresh Water fish from Japan");
+    p.setProductDesc("<image src=\"images/fish3.gif\">Fresh Water fish from Japan");
     
     s.persist(p);
     s.flush();
@@ -285,7 +285,7 @@ public class HibernateDataPopulate {
     p.setProductNumber("FI-FW-02");
     p.setCategory(c1);
     p.setProductName("Goldfish");
-    p.setProductDesc("<image src=\"../images/fish2.gif\">Fresh Water fish from China");
+    p.setProductDesc("<image src=\"images/fish2.gif\">Fresh Water fish from China");
     
     s.persist(p);
     s.flush();
@@ -296,7 +296,7 @@ public class HibernateDataPopulate {
     p.setProductNumber("K9-BD-01");
     p.setCategory(c2);
     p.setProductName("Bulldog");
-    p.setProductDesc("<image src=\"../images/dog2.gif\">Friendly dog from England");
+    p.setProductDesc("<image src=\"images/dog2.gif\">Friendly dog from England");
     
     s.persist(p);
     s.flush();
@@ -307,7 +307,7 @@ public class HibernateDataPopulate {
     p.setProductNumber("K9-PO-02");
     p.setCategory(c2);
     p.setProductName("Poodle");
-    p.setProductDesc("<image src=\"../images/dog6.gif\">Cute dog from France");
+    p.setProductDesc("<image src=\"images/dog6.gif\">Cute dog from France");
     
     s.persist(p);
     s.flush();
@@ -318,7 +318,7 @@ public class HibernateDataPopulate {
     p.setProductNumber("K9-DL-01");
     p.setCategory(c2);
     p.setProductName("Dalmation");
-    p.setProductDesc("<image src=\"../images/dog5.gif\">Great dog for a Fire Station");
+    p.setProductDesc("<image src=\"images/dog5.gif\">Great dog for a Fire Station");
     
     s.persist(p);
     s.flush();
@@ -329,7 +329,7 @@ public class HibernateDataPopulate {
     p.setProductNumber("K9-RT-01");
     p.setCategory(c2);
     p.setProductName("Golden Retriever");
-    p.setProductDesc("<image src=\"../images/dog1.gif\">Great family dog");
+    p.setProductDesc("<image src=\"images/dog1.gif\">Great family dog");
     
     s.persist(p);
     s.flush();
@@ -340,73 +340,73 @@ public class HibernateDataPopulate {
     p.setProductNumber("K9-RT-02");
     p.setCategory(c2);
     p.setProductName("Labrador Retriever");
-    p.setProductDesc("<image src=\"../images/dog5.gif\">Great hunting dog");
+    p.setProductDesc("<image src=\"images/dog5.gif\">Great hunting dog");
     
     s.persist(p);
     s.flush();
     
-    // 10
+  
     p = null;
     p = new Product();
     p.setProductNumber("K9-CW-01");
     p.setCategory(c2);
     p.setProductName("Chihuahua");
-    p.setProductDesc("<image src=\"../images/dog4.gif\">Great companion dog");
+    p.setProductDesc("<image src=\"images/dog4.gif\">Great companion dog");
     
     s.persist(p);
     s.flush();
     
-    // 11
+  
     p = null;
     p = new Product();
     p.setProductNumber("RP-SN-01");
     p.setCategory(c3);
     p.setProductName("Rattlesnake");
-    p.setProductDesc("<image src=\"../images/lizard3.gif\">Doubles as a watch dog");
+    p.setProductDesc("<image src=\"images/lizard3.gif\">Doubles as a watch dog");
     
     s.persist(p);
     s.flush();
     
-    // 12
+   
     p = null;
     p = new Product();
     p.setProductNumber("RP-LI-02");
     p.setCategory(c3);
     p.setProductName("Iguana");
-    p.setProductDesc("<image src=\"../images/lizard2.gif\">Friendly green friend");
+    p.setProductDesc("<image src=\"images/lizard2.gif\">Friendly green friend");
     
     s.persist(p);
     s.flush();
     
-    // 13
+    
     p = null;
     p = new Product();
     p.setProductNumber("FL-DSH-01");
     p.setCategory(c4);
     p.setProductName("Manx");
-    p.setProductDesc("<image src=\"../images/cat3.gif\">Great for reducing mouse populations");
+    p.setProductDesc("<image src=\"images/cat3.gif\">Great for reducing mouse populations");
     
     s.persist(p);
     s.flush();
     
-    // 14
+    
     p = null;
     p = new Product();
     p.setProductNumber("FL-DLH-02");
     p.setCategory(c4);
     p.setProductName("Persian");
-    p.setProductDesc("<image src=\"../images/cat1.gif\">Friendly house cat, doubles as a princess");
+    p.setProductDesc("<image src=\"images/cat1.gif\">Friendly house cat, doubles as a princess");
     
     s.persist(p);
     s.flush();
     
-    // 15
+   
     p = null;
     p = new Product();
     p.setProductNumber("AV-CB-01");
     p.setCategory(c5);
     p.setProductName("Amazon Parrot");
-    p.setProductDesc("<image src=\"../images/bird4.gif\">Great companion for up to 75 years");
+    p.setProductDesc("<image src=\"images/bird4.gif\">Great companion for up to 75 years");
     
     s.persist(p);
     s.flush();
@@ -417,7 +417,7 @@ public class HibernateDataPopulate {
     p.setProductNumber("AV-SB-02");
     p.setCategory(c5);
     p.setProductName("Finch");
-    p.setProductDesc("<image src=\"../images/bird1.gif\">Great stress reliever");
+    p.setProductDesc("<image src=\"images/bird1.gif\">Great stress reliever");
     
     s.persist(p);
     s.flush();
@@ -426,445 +426,10 @@ public class HibernateDataPopulate {
   }
   
   private static void insertItems(Session s) {
-//    log.info("populating Item ...");
-//    Supplier sp1 = (Supplier)s.get(Supplier.class, Long.valueOf(1));
-//    Supplier sp2 = (Supplier)s.get(Supplier.class, Long.valueOf(2));
-//    
-//    // FI-SW-01
-//    Product p1 = (Product)s.get(Product.class, Long.valueOf(1));
-//    // FI-SW-02
-//    Product p2 = (Product)s.get(Product.class, Long.valueOf(2));
-//    // FI-FW-01
-//    Product p3 = (Product)s.get(Product.class, Long.valueOf(3));
-//    // FI-FW-02
-//    Product p4 = (Product)s.get(Product.class, Long.valueOf(4));
-//    // K9-BD-01
-//    Product p5 = (Product)s.get(Product.class, Long.valueOf(5));
-//    // K9-PO-02
-//    Product p6 = (Product)s.get(Product.class, Long.valueOf(6));
-//    // K9-DL-01
-//    Product p7 = (Product)s.get(Product.class, Long.valueOf(7));
-//    // K9-RT-01
-//    Product p8 = (Product)s.get(Product.class, Long.valueOf(8));
-//    // K9-RT-02
-//    Product p9 = (Product)s.get(Product.class, Long.valueOf(9));
-//    // K9-CW-01
-//    Product p10 = (Product)s.get(Product.class, Long.valueOf(10));
-//    // RP-SN-01
-//    Product p11 = (Product)s.get(Product.class, Long.valueOf(11));
-//    // RP-LI-02
-//    Product p12 = (Product)s.get(Product.class, Long.valueOf(12));
-//    // FL-DSH-01
-//    Product p13 = (Product)s.get(Product.class, Long.valueOf(13));
-//    // FL-DLH-02
-//    Product p14 = (Product)s.get(Product.class, Long.valueOf(14));
-//    // AV-CB-01
-//    Product p15 = (Product)s.get(Product.class, Long.valueOf(15));
-//    // AV-SB-02
-//    Product p16 = (Product)s.get(Product.class, Long.valueOf(16));
-//    
-//    // 1
-//    Item i = new Item();
-//    i.setItemName("EST-1");
-//    i.setProduct(p1);
-//    i.setListPrice(BigDecimal.valueOf(16.50));
-//    i.setUnitCost(BigDecimal.valueOf(10.00));
-//    i.setSupplier(sp1);
-//    i.setStatus("P");
-//    i.setAttr1("Large");
-//    
-//    s.persist(i);
-//    s.flush();
-//    
-//    // 2
-//    i = null;
-//    i = new Item();
-//    i.setItemName("EST-2");
-//    i.setProduct(p1);
-//    i.setListPrice(BigDecimal.valueOf(16.50));
-//    i.setUnitCost(BigDecimal.valueOf(10.00));
-//    i.setSupplier(sp1);
-//    i.setStatus("P");
-//    i.setAttr1("Small");
-//    
-//    s.persist(i);
-//    s.flush();
-//    
-//    // 3
-//    i = null;
-//    i = new Item();
-//    i.setItemName("EST-3");
-//    i.setProduct(p2);
-//    i.setListPrice(BigDecimal.valueOf(16.50));
-//    i.setUnitCost(BigDecimal.valueOf(12.00));
-//    i.setSupplier(sp1);
-//    i.setStatus("P");
-//    i.setAttr1("Toothless");
-//    
-//    s.persist(i);
-//    s.flush();
-//    
-//    // 4
-//    i = null;
-//    i = new Item();
-//    i.setItemName("EST-4");
-//    i.setProduct(p3);
-//    i.setListPrice(BigDecimal.valueOf(18.50));
-//    i.setUnitCost(BigDecimal.valueOf(12.00));
-//    i.setSupplier(sp1);
-//    i.setStatus("P");
-//    i.setAttr1("Spotted");
-//    
-//    s.persist(i);
-//    s.flush();
-//    
-//    // 5
-//    i = null;
-//    i = new Item();
-//    i.setItemName("EST-5");
-//    i.setProduct(p3);
-//    i.setListPrice(BigDecimal.valueOf(18.50));
-//    i.setUnitCost(BigDecimal.valueOf(12.00));
-//    i.setSupplier(sp1);
-//    i.setStatus("P");
-//    i.setAttr1("Spotless");
-//    
-//    s.persist(i);
-//    s.flush();
-//    
-//    // 6
-//    i = null;
-//    i = new Item();
-//    i.setItemName("EST-6");
-//    i.setProduct(p5);
-//    i.setListPrice(BigDecimal.valueOf(18.50));
-//    i.setUnitCost(BigDecimal.valueOf(12.00));
-//    i.setSupplier(sp1);
-//    i.setStatus("P");
-//    i.setAttr1("Male Adult");
-//    
-//    s.persist(i);
-//    s.flush();
-//    
-//    // 7
-//    i = null;
-//    i = new Item();
-//    i.setItemName("EST-7");
-//    i.setProduct(p5);
-//    i.setListPrice(BigDecimal.valueOf(18.50));
-//    i.setUnitCost(BigDecimal.valueOf(12.00));
-//    i.setSupplier(sp1);
-//    i.setStatus("P");
-//    i.setAttr1("Female Puppy");
-//    
-//    s.persist(i);
-//    s.flush();
-//    
-//    // 8
-//    i = null;
-//    i = new Item();
-//    i.setItemName("EST-8");
-//    i.setProduct(p6);
-//    i.setListPrice(BigDecimal.valueOf(18.50));
-//    i.setUnitCost(BigDecimal.valueOf(12.00));
-//    i.setSupplier(sp1);
-//    i.setStatus("P");
-//    i.setAttr1("Male Puppy");
-//    
-//    s.persist(i);
-//    s.flush();
-//    
-//    // 9
-//    i = null;
-//    i = new Item();
-//    i.setItemName("EST-9");
-//    i.setProduct(p7);
-//    i.setListPrice(BigDecimal.valueOf(18.50));
-//    i.setUnitCost(BigDecimal.valueOf(12.00));
-//    i.setSupplier(sp1);
-//    i.setStatus("P");
-//    i.setAttr1("Spotless Male Puppy");
-//    
-//    s.persist(i);
-//    s.flush();
-//    
-//    // 10
-//    i = null;
-//    i = new Item();
-//    i.setItemName("EST-10");
-//    i.setProduct(p7);
-//    i.setListPrice(BigDecimal.valueOf(18.50));
-//    i.setUnitCost(BigDecimal.valueOf(12.00));
-//    i.setSupplier(sp1);
-//    i.setStatus("P");
-//    i.setAttr1("Spotted Adult Female");
-//    
-//    s.persist(i);
-//    s.flush();
-//    
-//    // 11
-//    i = null;
-//    i = new Item();
-//    i.setItemName("EST-11");
-//    i.setProduct(p11);
-//    i.setListPrice(BigDecimal.valueOf(18.50));
-//    i.setUnitCost(BigDecimal.valueOf(12.00));
-//    i.setSupplier(sp1);
-//    i.setStatus("P");
-//    i.setAttr1("Venomless");
-//    
-//    s.persist(i);
-//    s.flush();
-//    
-//    // 12
-//    i = null;
-//    i = new Item();
-//    i.setItemName("EST-12");
-//    i.setProduct(p11);
-//    i.setListPrice(BigDecimal.valueOf(18.50));
-//    i.setUnitCost(BigDecimal.valueOf(12.00));
-//    i.setSupplier(sp1);
-//    i.setStatus("P");
-//    i.setAttr1("Rattleless");
-//    
-//    s.persist(i);
-//    s.flush();
-//    
-//    // 13
-//    i = null;
-//    i = new Item();
-//    i.setItemName("EST-13");
-//    i.setProduct(p12);
-//    i.setListPrice(BigDecimal.valueOf(18.50));
-//    i.setUnitCost(BigDecimal.valueOf(12.00));
-//    i.setSupplier(sp1);
-//    i.setStatus("P");
-//    i.setAttr1("Green Adult");
-//    
-//    s.persist(i);
-//    s.flush();
-//    
-//    // 14
-//    i = null;
-//    i = new Item();
-//    i.setItemName("EST-14");
-//    i.setProduct(p13);
-//    i.setListPrice(BigDecimal.valueOf(58.50));
-//    i.setUnitCost(BigDecimal.valueOf(12.00));
-//    i.setSupplier(sp1);
-//    i.setStatus("P");
-//    i.setAttr1("Tailless");
-//    
-//    s.persist(i);
-//    s.flush();
-//    
-//    // 15
-//    i = null;
-//    i = new Item();
-//    i.setItemName("EST-15");
-//    i.setProduct(p13);
-//    i.setListPrice(BigDecimal.valueOf(58.50));
-//    i.setUnitCost(BigDecimal.valueOf(12.00));
-//    i.setSupplier(sp1);
-//    i.setStatus("P");
-//    i.setAttr1("With tail");
-//    
-//    s.persist(i);
-//    s.flush();
-//    
-//    // 16
-//    i = null;
-//    i = new Item();
-//    i.setItemName("EST-16");
-//    i.setProduct(p14);
-//    i.setListPrice(BigDecimal.valueOf(93.50));
-//    i.setUnitCost(BigDecimal.valueOf(12.00));
-//    i.setSupplier(sp1);
-//    i.setStatus("P");
-//    i.setAttr1("Adult Female");
-//    
-//    s.persist(i);
-//    s.flush();
-//    
-//    // 17
-//    i = null;
-//    i = new Item();
-//    i.setItemName("EST-17");
-//    i.setProduct(p14);
-//    i.setListPrice(BigDecimal.valueOf(93.50));
-//    i.setUnitCost(BigDecimal.valueOf(12.00));
-//    i.setSupplier(sp1);
-//    i.setStatus("P");
-//    i.setAttr1("Adult Male");
-//    
-//    s.persist(i);
-//    s.flush();
-//    
-//    // 18
-//    i = null;
-//    i = new Item();
-//    i.setItemName("EST-17");
-//    i.setProduct(p15);
-//    i.setListPrice(BigDecimal.valueOf(193.50));
-//    i.setUnitCost(BigDecimal.valueOf(92.00));
-//    i.setSupplier(sp1);
-//    i.setStatus("P");
-//    i.setAttr1("Adult Male");
-//    
-//    s.persist(i);
-//    s.flush();
-//    
-//    // 19
-//    i = null;
-//    i = new Item();
-//    i.setItemName("EST-19");
-//    i.setProduct(p16);
-//    i.setListPrice(BigDecimal.valueOf(15.50));
-//    i.setUnitCost(BigDecimal.valueOf(2.00));
-//    i.setSupplier(sp1);
-//    i.setStatus("P");
-//    i.setAttr1("Adult Male");
-//    
-//    s.persist(i);
-//    s.flush();
-//    
-//    // 20
-//    i = null;
-//    i = new Item();
-//    i.setItemName("EST-20");
-//    i.setProduct(p2);
-//    i.setListPrice(BigDecimal.valueOf(5.50));
-//    i.setUnitCost(BigDecimal.valueOf(2.00));
-//    i.setSupplier(sp1);
-//    i.setStatus("P");
-//    i.setAttr1("Adult Male");
-//    
-//    s.persist(i);
-//    s.flush();
-//    
-//    // 21
-//    i = null;
-//    i = new Item();
-//    i.setItemName("EST-21");
-//    i.setProduct(p2);
-//    i.setListPrice(BigDecimal.valueOf(5.29));
-//    i.setUnitCost(BigDecimal.valueOf(1.00));
-//    i.setSupplier(sp1);
-//    i.setStatus("P");
-//    i.setAttr1("Adult Female");
-//    
-//    s.persist(i);
-//    s.flush();
-//    
-//    // 22
-//    i = null;
-//    i = new Item();
-//    i.setItemName("EST-22");
-//    i.setProduct(p9);
-//    i.setListPrice(BigDecimal.valueOf(135.50));
-//    i.setUnitCost(BigDecimal.valueOf(100.00));
-//    i.setSupplier(sp1);
-//    i.setStatus("P");
-//    i.setAttr1("Adult Male");
-//    
-//    s.persist(i);
-//    s.flush();
-//    
-//    // 23
-//    i = null;
-//    i = new Item();
-//    i.setItemName("EST-23");
-//    i.setProduct(p9);
-//    i.setListPrice(BigDecimal.valueOf(145.50));
-//    i.setUnitCost(BigDecimal.valueOf(100.00));
-//    i.setSupplier(sp1);
-//    i.setStatus("P");
-//    i.setAttr1("Adult Female");
-//    
-//    s.persist(i);
-//    s.flush();
-//    
-//    // 24
-//    i = null;
-//    i = new Item();
-//    i.setItemName("EST-24");
-//    i.setProduct(p9);
-//    i.setListPrice(BigDecimal.valueOf(255.50));
-//    i.setUnitCost(BigDecimal.valueOf(92.00));
-//    i.setSupplier(sp1);
-//    i.setStatus("P");
-//    i.setAttr1("Adult Male");
-//    
-//    s.persist(i);
-//    s.flush();
-//    
-//    // 25
-//    i = null;
-//    i = new Item();
-//    i.setItemName("EST-25");
-//    i.setProduct(p9);
-//    i.setListPrice(BigDecimal.valueOf(325.29));
-//    i.setUnitCost(BigDecimal.valueOf(90.00));
-//    i.setSupplier(sp1);
-//    i.setStatus("P");
-//    i.setAttr1("Adult Male");
-//    
-//    s.persist(i);
-//    s.flush();
-//    
-//    // 26
-//    i = null;
-//    i = new Item();
-//    i.setItemName("EST-26");
-//    i.setProduct(p10);
-//    i.setListPrice(BigDecimal.valueOf(125.50));
-//    i.setUnitCost(BigDecimal.valueOf(92.00));
-//    i.setSupplier(sp1);
-//    i.setStatus("P");
-//    i.setAttr1("Adult Male");
-//    
-//    s.persist(i);
-//    s.flush();
-//    
-//    // 27
-//    i = null;
-//    i = new Item();
-//    i.setItemName("EST-27");
-//    i.setProduct(p10);
-//    i.setListPrice(BigDecimal.valueOf(155.29));
-//    i.setUnitCost(BigDecimal.valueOf(90.00));
-//    i.setSupplier(sp1);
-//    i.setStatus("P");
-//    i.setAttr1("Adult Female");
-//    
-//    s.persist(i);
-//    s.flush();
-//    // 28
-//    i = null;
-//    i = new Item();
-//    i.setItemName("EST-28");
-//    i.setProduct(p8);
-//    i.setListPrice(BigDecimal.valueOf(155.29));
-//    i.setUnitCost(BigDecimal.valueOf(90.00));
-//    i.setSupplier(sp1);
-//    i.setStatus("P");
-//    i.setAttr1("Adult Female");
-//    
-//    s.persist(i);
-//    s.flush();
-//    log.info("populating Item end.");
+
   }
   
   private static void insertInventories(Session s) {
-//    log.info("populating Inventory ...");
-//    for (int k = 1; k < 29; k++) {
-//      Item i = (Item)s.get(Item.class, Long.valueOf(k));
-//      Inventory in = new Inventory();
-//      in.setItem(i);
-//      in.setDateAdded(new Date());
-//      in.setQuantity(10000);
-//      s.persist(in);
-//    }
-//    log.info("populating Inventory end.");
+
   }
 }

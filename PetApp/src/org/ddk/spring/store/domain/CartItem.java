@@ -1,7 +1,6 @@
 package org.ddk.spring.store.domain;
 
 import java.io.Serializable;
-import java.math.BigDecimal;
 
 public class CartItem implements Serializable {
     
@@ -34,11 +33,11 @@ public class CartItem implements Serializable {
 		this.quantity = quantity;
 	}
 
-	public BigDecimal getTotalPrice() {
+	public Double getTotalPrice() {
 		if (item != null) {
-			return item.getListPrice().multiply(BigDecimal.valueOf(quantity));
+			return item.getListPrice()*quantity;
 		} else {
-			return BigDecimal.ZERO;
+			return new Double(0);
 		}
 	}
     public void incrementQuantity() {

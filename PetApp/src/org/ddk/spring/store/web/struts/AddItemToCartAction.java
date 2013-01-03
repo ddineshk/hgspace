@@ -1,8 +1,8 @@
 package org.ddk.spring.store.web.struts;
 
-import java.math.BigDecimal;
 import java.util.Iterator;
 import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -41,7 +41,7 @@ public class AddItemToCartAction extends BaseAction {
 					item.setItemName((String)object[2]);
 					product = new Product();
 					product.setId((Long)object[3]);
-					item.setListPrice(new BigDecimal((Double)object[4]));
+					item.setListPrice((Double)object[4]);
 					item.setAttr1((String)object[8]);
 					item.setAttr2((String)object[9]);
 					item.setAttr3((String)object[10]);

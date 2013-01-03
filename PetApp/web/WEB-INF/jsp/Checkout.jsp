@@ -37,12 +37,12 @@
 					</td>
 					<td align="center"><c:out value="${cartItem.inStock}" /></td>
 					<td align="center"><c:out value="${cartItem.quantity}" /></td>
-					<td align="right"><fmt:formatNumber value="${cartItem.item.listPrice}" pattern="$#,##0.00" /></td>
-					<td align="right"><fmt:formatNumber value="${cartItem.totalPrice}" pattern="$#,##0.00" /></td>
+					<td align="right"><fmt:formatNumber value="${cartItem.item.listPrice}" pattern="Rs #,##0.00" /></td>
+					<td align="right"><fmt:formatNumber value="${cartItem.totalPrice}" pattern="Rs #,##0.00" /></td>
 				</tr>
 				</c:forEach>
 				<tr bgcolor="#FFFF88">
-					<td colspan="7" align="right"><b>Sub Total: <fmt:formatNumber value="${cartForm.cart.subTotal}" pattern="$#,##0.00" /></b><br />
+					<td colspan="7" align="right"><b>Sub Total: <fmt:formatNumber value="${cartForm.cart.subTotal}" pattern="Rs #,##0.00" /></b><br />
 					</td>
 				</tr>
 			</table> 
@@ -53,7 +53,7 @@
 			<a href="checkout.do?page=nextCart"><font color="green"><B>Next&gt;&gt;</B></font></a>
 			</c:if><br/>
 			<html:link page="/newOrderForm.do" transaction="true">
-				<img border="0" src="../images/button_continue.gif" />
+				<img border="0" src="images/button_continue.gif" />
 			</html:link>
 		</td>
 		<td valign="top" width="20%" align="right">&nbsp;</td>

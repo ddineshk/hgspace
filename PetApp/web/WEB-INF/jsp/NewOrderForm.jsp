@@ -65,7 +65,7 @@
 	</TABLE>
 	</div>
 	<P align="center">
-		<input type="image" src="../images/button_submit.gif">
+		<input type="image" src="images/button_submit.gif">
 	</P>
 </html:form>
 <%@ include file="IncludeBottom.jsp"%>

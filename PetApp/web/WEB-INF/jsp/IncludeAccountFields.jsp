@@ -48,7 +48,7 @@
                 <html:options name="workingAccountForm" property="categories" />
             </html:select>
     </TD></TR><TR bgcolor="#FFFF88"><TD colspan=2>
-            <html:checkbox name="workingAccountForm" property="account.displayMylist"/> Display My Favorite List
+            <html:checkbox name="workingAccountForm" property="account.displayMyList"/> Display My Favorite List
     </TD></TR><TR bgcolor="#FFFF88"><TD colspan=2>
             <html:checkbox name="workingAccountForm" property="account.displayBanner"/> Display the Banner
     </TD></TR>

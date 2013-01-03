@@ -96,7 +96,7 @@
 <p>
 <center>
 	<html:link page="/newOrderStep3.do?step=3&newOrder=true" transaction="true">
-		<img border="0" src="../images/button_continue.gif" />
+		<img border="0" src="images/button_continue.gif" />
 	</html:link>
 </center>
 <%@ include file="IncludeBottom.jsp"%>

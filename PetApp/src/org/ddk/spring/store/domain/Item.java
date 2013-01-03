@@ -1,25 +1,19 @@
 package org.ddk.spring.store.domain;
 
-import java.math.BigDecimal;
 
 public class Item implements java.io.Serializable, Comparable<Object> {
 	private static final long serialVersionUID = -5413105874790315292L;
 	private Long id;
 	private int version;
 	private String itemName;
-
 	private Product product;
-
-	/**
-	 * @param product the product to set
-	 */
 	public void setProduct(Product product) {
 		this.product = product;
 	}
 
-	private BigDecimal ListPrice;
+	private Double listPrice;
 
-	private BigDecimal unitCost;
+	private Double unitCost;
 
 	private Supplier supplier;
 	private String status;
@@ -59,19 +53,19 @@ public class Item implements java.io.Serializable, Comparable<Object> {
 		return product;
 	}
 
-	public BigDecimal getListPrice() {
-		return ListPrice;
+	public Double getListPrice() {
+		return listPrice;
 	}
 
-	public void setListPrice(BigDecimal ListPrice) {
-		this.ListPrice = ListPrice;
+	public void setListPrice(Double listPrice) {
+		this.listPrice = listPrice;
 	}
 
-	public BigDecimal getUnitCost() {
+	public Double getUnitCost() {
 		return unitCost;
 	}
 
-	public void setUnitCost(BigDecimal unitCost) {
+	public void setUnitCost(Double unitCost) {
 		this.unitCost = unitCost;
 	}
 

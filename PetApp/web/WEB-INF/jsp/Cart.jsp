@@ -46,16 +46,16 @@
 							<td align="center">
 								<input type="text" size="3" name="<c:out value="${cartItem.item.itemName}"/>" value="<c:out value="${cartItem.quantity}"/>" />
 							</td>
-							<td align="right"><fmt:formatNumber value="${cartItem.item.listPrice}" pattern="$#,##0.00" /></td>
-							<td align="right"><fmt:formatNumber value="${cartItem.totalPrice}" pattern="$#,##0.00" /></td>
+							<td align="right"><fmt:formatNumber value="${cartItem.item.listPrice}" pattern="Rs #,##0.00" /></td>
+							<td align="right"><fmt:formatNumber value="${cartItem.totalPrice}" pattern="Rs #,##0.00" /></td>
 							<td><a href="<c:url value="/removeItemFromCart.do"><c:param name="workingItemName" value="${cartItem.item.itemName}"/></c:url>">
-									<img border="0" src="../images/button_remove.gif" /></a>
+									<img border="0" src="images/button_remove.gif" /></a>
 							</td>
 						</tr>
 						</c:forEach>
 						<tr bgcolor="#FFFF88">
-							<td colspan="7" align="right"><b>Sub Total: <fmt:formatNumber value="${cartForm.cart.subTotal}" pattern="$#,##0.00" /></b><br/>
-								<input type="image" style="border: 0;" src="../images/button_update_cart.gif" name="update" /></td>
+							<td colspan="7" align="right"><b>Sub Total: <fmt:formatNumber value="${cartForm.cart.subTotal}" pattern="Rs #,##0.00" /></b><br/>
+								<input type="image" style="border: 0;" src="images/button_update_cart.gif" name="update" /></td>
 							<td>&nbsp;</td>
 						</tr>
 					</table>
@@ -70,13 +70,13 @@
 			</form> 
 			<c:if test="${cartForm.cart.numberOfItems > 0}"><br/>
 			<center>
-				<a href="<c:url value="/checkout.do"/>"> <img border="0" src="../images/button_checkout.gif" /></a>
+				<a href="<c:url value="/checkout.do"/>"> <img border="0" src="images/button_checkout.gif" /></a>
 			</center>
 			</c:if>
 		</td>
 		<td valign="top" width="20%" align="right">
 		<c:if test="${!empty accountForm.account.username}">
-			<c:if test="${accountForm.account.displayMylist}">
+			<c:if test="${accountForm.account.displayMyList}">
 				<%@ include file="IncludeMyList.jsp"%>
 			</c:if>
 		</c:if></td>

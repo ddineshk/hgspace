@@ -121,8 +121,8 @@
               </td>
               <td><c:out value="${lineItem.quantity}"/></td>
               
-              <td align="right"><fmt:formatNumber value="${lineItem.unitPrice}" pattern="$#,##0.00"/></td>
-              <td align="right"><fmt:formatNumber value="${lineItem.totalPrice}" pattern="$#,##0.00"/></td>
+              <td align="right"><fmt:formatNumber value="${lineItem.unitPrice}" pattern="Rs #,##0.00"/></td>
+              <td align="right"><fmt:formatNumber value="${lineItem.totalPrice}" pattern="Rs #,##0.00"/></td>
             </tr>
           </c:forEach>
         </c:if>
@@ -145,13 +145,13 @@
               </td>
               <td><c:out value="${lineItem.quantity}"/></td>
               
-              <td align="right"><fmt:formatNumber value="${lineItem.unitPrice}" pattern="$#,##0.00"/></td>
-              <td align="right"><fmt:formatNumber value="${lineItem.totalPrice}" pattern="$#,##0.00"/></td>
+              <td align="right"><fmt:formatNumber value="${lineItem.unitPrice}" pattern="Rs #,##0.00"/></td>
+              <td align="right"><fmt:formatNumber value="${lineItem.totalPrice}" pattern="Rs #,##0.00"/></td>
             </tr>
           </c:forEach>
         </c:if>
         <tr bgcolor="#FFFF88">
-          <td colspan="5" align="right"><b>Total: <fmt:formatNumber value="${order.totalPrice}" pattern="$#,##0.00"/></b></td>
+          <td colspan="5" align="right"><b>Total: <fmt:formatNumber value="${order.totalPrice}" pattern="Rs #,##0.00"/></b></td>
         </tr>
       </table>
   </td></tr>
