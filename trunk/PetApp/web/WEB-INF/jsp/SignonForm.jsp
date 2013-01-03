@@ -22,7 +22,7 @@
 			</tr>
 			<tr>
 				<td>&nbsp;</td>
-				<td><input type="image" style="border: 0;" src="../images/button_submit.gif" name="update" /></td>
+				<td><input type="image" style="border: 0;" src="images/button_submit.gif" name="update" /></td>
 			</tr>
 		</table>
 	</div>
@@ -30,7 +30,7 @@
 
 <center>
 	<a href="<c:url value="/newAccountForm.do"/>"> <img border="0"
-		src="../images/button_register_now.gif" />
+		src="images/button_register_now.gif" />
 	</a>
 </center>
 

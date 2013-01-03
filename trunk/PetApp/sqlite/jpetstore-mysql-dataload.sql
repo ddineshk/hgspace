@@ -4,18 +4,18 @@
 
 use hjpetstore;
 
-INSERT INTO category VALUES (1, 1234, 'FISH','<image src="../images/fish_icon.gif"><font size="5" color="blue"> Fish</font>');
-INSERT INTO category VALUES (2, 5678, 'DOGS','<image src="../images/dogs_icon.gif"><font size="5" color="blue"> Dogs</font>');
-INSERT INTO category VALUES (3, 2535, 'REPTILES','<image src="../images/reptiles_icon.gif"><font size="5" color="blue"> Reptiles</font>');
-INSERT INTO category VALUES (4, 38879, 'CATS','<image src="../images/cats_icon.gif"><font size="5" color="blue"> Cats</font>');
-INSERT INTO category VALUES (5, 9645, 'BIRDS','<image src="../images/birds_icon.gif"><font size="5" color="blue"> Birds</font>');
+INSERT INTO category VALUES (1, 1234, 'FISH','<image src="images/fish_icon.gif"><font size="5" color="blue"> Fish</font>');
+INSERT INTO category VALUES (2, 5678, 'DOGS','<image src="images/dogs_icon.gif"><font size="5" color="blue"> Dogs</font>');
+INSERT INTO category VALUES (3, 2535, 'REPTILES','<image src="images/reptiles_icon.gif"><font size="5" color="blue"> Reptiles</font>');
+INSERT INTO category VALUES (4, 38879, 'CATS','<image src="images/cats_icon.gif"><font size="5" color="blue"> Cats</font>');
+INSERT INTO category VALUES (5, 9645, 'BIRDS','<image src="images/birds_icon.gif"><font size="5" color="blue"> Birds</font>');
 commit;
 
-INSERT INTO banner VALUES (1, 7945,1, '<image src="../images/banner_fish.gif">');
-INSERT INTO banner VALUES (2, 8432442,2,'<image src="../images/banner_cats.gif">');
-INSERT INTO banner VALUES (3, 234264, 3,'<image src="../images/banner_dogs.gif">');
-INSERT INTO banner VALUES (4, 35323, 4,'<image src="../images/banner_reptiles.gif">');
-INSERT INTO banner VALUES (5, 23555, 5, '<image src="../images/banner_birds.gif">');
+INSERT INTO banner VALUES (1, 7945,1, '<image src="images/banner_fish.gif">');
+INSERT INTO banner VALUES (2, 8432442,2,'<image src="images/banner_cats.gif">');
+INSERT INTO banner VALUES (3, 234264, 3,'<image src="images/banner_dogs.gif">');
+INSERT INTO banner VALUES (4, 35323, 4,'<image src="images/banner_reptiles.gif">');
+INSERT INTO banner VALUES (5, 23555, 5, '<image src="images/banner_birds.gif">');
 commit;
 
 INSERT INTO account VALUES (1, 843757,'j2ee', 'j2ee', 'ABC', 'XYX', 'test@pprun.org', 'OK', '901 San Antonio Road', 'MS UCUP02-206', 'Palo Alto', 'CA', '94303', 'USA',  '555-555-5555', 'english', 2, true, true);
@@ -26,22 +26,22 @@ INSERT INTO supplier VALUES (1,37257, 'XYZ Pets','AC','600 Avon Way','','Los Ang
 INSERT INTO supplier VALUES (2, 347237,'ABC Pets','AC','700 Abalone Way','','San Francisco ','CA','94024', 'USA', '415-947-0797');
 commit;
 
-INSERT INTO product VALUES (1, 43882,'FI-SW-01',1,'Angelfish','<image src="../images/fish1.jpg">Salt Water fish from Australia');
-INSERT INTO product VALUES (2, 2886,'FI-SW-02',1,'Tiger Shark','<image src="../images/fish4.gif">Salt Water fish from Australia');
-INSERT INTO product VALUES (3, 542238,'FI-FW-01',1, 'Koi','<image src="../images/fish3.gif">Fresh Water fish from Japan');
-INSERT INTO product VALUES (4, 268,'FI-FW-02',1, 'Goldfish','<image src="../images/fish2.gif">Fresh Water fish from China');
-INSERT INTO product VALUES (5, 35828,'K9-BD-01',2,'Bulldog','<image src="../images/dog2.gif">Friendly dog from England');
-INSERT INTO product VALUES (6, 2477,'K9-PO-02',2,'Poodle','<image src="../images/dog6.gif">Cute dog from France');
-INSERT INTO product VALUES (7, 9479,'K9-DL-01',2, 'Dalmation','<image src="../images/dog5.gif">Great dog for a Fire Station');
-INSERT INTO product VALUES (8, 569402,'K9-RT-01',2, 'Golden Retriever','<image src="../images/dog1.gif">Great family dog');
-INSERT INTO product VALUES (9, 12237,'K9-RT-02',2, 'Labrador Retriever','<image src="../images/dog5.gif">Great hunting dog');
-INSERT INTO product VALUES (10, 562364, 'K9-CW-01',2, 'Chihuahua','<image src="../images/dog4.gif">Great companion dog');
-INSERT INTO product VALUES (11, 5684,'RP-SN-01',3,'Rattlesnake','<image src="../images/lizard3.gif">Doubles as a watch dog');
-INSERT INTO product VALUES (12, 67964,'RP-LI-02',3,'Iguana','<image src="../images/lizard2.gif">Friendly green friend');
-INSERT INTO product VALUES (13, 666667,'FL-DSH-01',4,'Manx','<image src="../images/cat3.gif">Great for reducing mouse populations');
-INSERT INTO product VALUES (14, 432222,'FL-DLH-02',4,'Persian','<image src="../images/cat1.gif">Friendly house cat, doubles as a princess');
-INSERT INTO product VALUES (15, 3444444,'AV-CB-01',5,'Amazon Parrot','<image src="../images/bird4.gif">Great companion for up to 75 years');
-INSERT INTO product VALUES (16, 37222246,'AV-SB-02',5,'Finch','<image src="../images/bird1.gif">Great stress reliever');
+INSERT INTO product VALUES (1, 43882,'FI-SW-01',1,'Angelfish','<image src="images/fish1.jpg">Salt Water fish from Australia');
+INSERT INTO product VALUES (2, 2886,'FI-SW-02',1,'Tiger Shark','<image src="images/fish4.gif">Salt Water fish from Australia');
+INSERT INTO product VALUES (3, 542238,'FI-FW-01',1, 'Koi','<image src="images/fish3.gif">Fresh Water fish from Japan');
+INSERT INTO product VALUES (4, 268,'FI-FW-02',1, 'Goldfish','<image src="images/fish2.gif">Fresh Water fish from China');
+INSERT INTO product VALUES (5, 35828,'K9-BD-01',2,'Bulldog','<image src="images/dog2.gif">Friendly dog from England');
+INSERT INTO product VALUES (6, 2477,'K9-PO-02',2,'Poodle','<image src="images/dog6.gif">Cute dog from France');
+INSERT INTO product VALUES (7, 9479,'K9-DL-01',2, 'Dalmation','<image src="images/dog5.gif">Great dog for a Fire Station');
+INSERT INTO product VALUES (8, 569402,'K9-RT-01',2, 'Golden Retriever','<image src="images/dog1.gif">Great family dog');
+INSERT INTO product VALUES (9, 12237,'K9-RT-02',2, 'Labrador Retriever','<image src="images/dog5.gif">Great hunting dog');
+INSERT INTO product VALUES (10, 562364, 'K9-CW-01',2, 'Chihuahua','<image src="images/dog4.gif">Great companion dog');
+INSERT INTO product VALUES (11, 5684,'RP-SN-01',3,'Rattlesnake','<image src="images/lizard3.gif">Doubles as a watch dog');
+INSERT INTO product VALUES (12, 67964,'RP-LI-02',3,'Iguana','<image src="images/lizard2.gif">Friendly green friend');
+INSERT INTO product VALUES (13, 666667,'FL-DSH-01',4,'Manx','<image src="images/cat3.gif">Great for reducing mouse populations');
+INSERT INTO product VALUES (14, 432222,'FL-DLH-02',4,'Persian','<image src="images/cat1.gif">Friendly house cat, doubles as a princess');
+INSERT INTO product VALUES (15, 3444444,'AV-CB-01',5,'Amazon Parrot','<image src="images/bird4.gif">Great companion for up to 75 years');
+INSERT INTO product VALUES (16, 37222246,'AV-SB-02',5,'Finch','<image src="images/bird1.gif">Great stress reliever');
 commit;
 
 INSERT INTO item (itemId, version, itemName, productId, listPrice, unitCost, supplierId, status, attr1) VALUES (1, 3275727,'EST-1',1,16.50,10.00,1,'P','Large');

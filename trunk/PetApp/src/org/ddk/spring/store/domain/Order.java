@@ -1,6 +1,5 @@
 package org.ddk.spring.store.domain;
 
-import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
@@ -17,7 +16,7 @@ public class Order implements java.io.Serializable, Comparable<Object> {
 	private Address shipAddr;
 	private Address billAddr;
 	private String courier;
-	private BigDecimal totalPrice;
+	private Double totalPrice;
 	private String billToFirstname;
 	private String billToLastname;
 	private String shipToFirstname;
@@ -65,11 +64,11 @@ public class Order implements java.io.Serializable, Comparable<Object> {
 		this.billAddr = billAddr;
 	}
 
-	public BigDecimal getTotalPrice() {
+	public Double getTotalPrice() {
 		return totalPrice;
 	}
 
-	public void setTotalPrice(BigDecimal totalPrice) {
+	public void setTotalPrice(Double totalPrice) {
 		this.totalPrice = totalPrice;
 	}
 

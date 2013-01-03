@@ -1,6 +1,5 @@
 package org.ddk.spring.store.domain;
 
-import java.math.BigDecimal;
 
 public class LineItem implements java.io.Serializable, Comparable<Object> {
 
@@ -49,12 +48,12 @@ public class LineItem implements java.io.Serializable, Comparable<Object> {
 		this.quantity = quantity;
 	}
 
-	public BigDecimal getUnitPrice() {
+	public Double getUnitPrice() {
 		return item.getListPrice();
 	}
 
-	public BigDecimal getTotalPrice() {
-		return this.getUnitPrice().multiply(BigDecimal.valueOf(quantity));
+	public Double getTotalPrice() {
+		return this.getUnitPrice()*quantity;
 	}
 
 	public boolean equals(Object o) {

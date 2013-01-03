@@ -27,7 +27,7 @@
 </div>
 <BR>
 <div align="center">
-	<input style="border: 0;" type="image" src="../images/button_submit.gif" />
+	<input style="border: 0;" type="image" src="images/button_submit.gif" />
 </div>
 
 </html:form>

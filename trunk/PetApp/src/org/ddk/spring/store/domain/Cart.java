@@ -1,7 +1,6 @@
 package org.ddk.spring.store.domain;
 
 import java.io.Serializable;
-import java.math.BigDecimal;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -67,17 +66,16 @@ public class Cart implements Serializable {
 		cartItem.setQuantity(quantity);
 	}
 
-	public BigDecimal getSubTotal() {
-		BigDecimal subTotal = BigDecimal.ZERO;
+	public Double getSubTotal() {
+		Double subTotal = new Double(0.0);
 		Iterator items = getAllCartItems();
 		while (items.hasNext()) {
 			CartItem cartItem = (CartItem) items.next();
 			Item item = cartItem.getItem();
-			BigDecimal ListPrice = item.getListPrice();
+			Double listPrice = item.getListPrice();
 			int quantity = cartItem.getQuantity();
-			subTotal = subTotal.add(ListPrice.multiply(BigDecimal.valueOf((long) quantity)));
+			subTotal = subTotal+(listPrice*quantity);
 		}
-
 		return subTotal;
 	}
 
