@@ -29,7 +29,7 @@
 			<property name="country" column="billCountry" type="string" length="20" not-null="true" />
 		</component>
 		<property name="courier" type="string" length="80" not-null="true" />
-		<property name="totalPrice" type="big_decimal" precision="10" scale="2" />
+		<property name="totalPrice" type="double" precision="10" scale="2" />
 		<property name="billToFirstname" type="string" length="80" not-null="true" />
 		<property name="billToLastname" type="string" length="80" not-null="true" />
 		<property name="shipToFirstname" type="string" length="80" not-null="true" />
