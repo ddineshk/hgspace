@@ -66,6 +66,7 @@ public class SendOrderConfirmationEmailAdvice implements AfterReturningAdvice, I
             this.mailSender.send(mailMessage);
         } catch (MailException ex) {
             logger.warn("An exception occured when trying to send email", ex);
+            ex.printStackTrace();
         }
     }
     

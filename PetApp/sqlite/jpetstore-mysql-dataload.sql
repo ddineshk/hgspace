@@ -18,8 +18,8 @@ INSERT INTO banner VALUES (4, 35323, 4,'<image src="images/banner_reptiles.gif">
 INSERT INTO banner VALUES (5, 23555, 5, '<image src="images/banner_birds.gif">');
 commit;
 
-INSERT INTO account VALUES (1, 843757,'j2ee', 'j2ee', 'ABC', 'XYX', 'test@pprun.org', 'OK', '901 San Antonio Road', 'MS UCUP02-206', 'Palo Alto', 'CA', '94303', 'USA',  '555-555-5555', 'english', 2, true, true);
-INSERT INTO account VALUES (2, 58738, 'test',  'test', 'ABC', 'XYX', 'test@pprun.org', 'OK', '901 San Antonio Road', 'MS UCUP02-206', 'Palo Alto', 'CA', '94303', 'USA', '555-555-5555', 'english', 4, true, true);
+INSERT INTO account VALUES (1, 843757,'j2ee', 'j2ee', 'ABC', 'XYX', 'ddurairaj@csc.com', 'OK', '901 San Antonio Road', 'MS UCUP02-206', 'Palo Alto', 'CA', '94303', 'USA',  '555-555-5555', 'english', 2, true, true);
+INSERT INTO account VALUES (2, 58738, 'test',  'test', 'ABC', 'XYX', 'ddurairaj@csc.com', 'OK', '901 San Antonio Road', 'MS UCUP02-206', 'Palo Alto', 'CA', '94303', 'USA', '555-555-5555', 'english', 4, true, true);
 commit;
 
 INSERT INTO supplier VALUES (1,37257, 'XYZ Pets','AC','600 Avon Way','','Los Angeles','CA','94024', 'USA', '212-947-0797');
