@@ -15,9 +15,9 @@
 <script src="js/index.js" type="text/javascript"></script>
 </head>
 <body bgcolor="white">
-	<table style="width: 100%; border: 0; background-image: url('images/bkg-topbar.gif'); background-color: #aaa;">
+	<table style="width: 100%; border: 0; /*background-image: url('images/bkg-topbar.gif');*/ background-color: #aaa;">
 		<tr>
-			<td><a href="<c:url value="/index.do"/>"> <img border="0" src="images/logo-topbar1.gif" /></a></td>
+			<td><a href="<c:url value="/index.do"/>"><img border="0" src="images/logo-topbar1.gif" /></a></td>
 			<td align="right" valign="bottom">
 				<table>
 					<tr align="center">

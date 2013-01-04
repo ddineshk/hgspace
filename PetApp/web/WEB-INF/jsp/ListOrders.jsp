@@ -21,7 +21,7 @@
 			<td><fmt:formatDate value="${order.orderDate}"
 					pattern="yyyy/MM/dd hh:mm:ss" /></td>
 			<td><fmt:formatNumber value="${order.totalPrice}"
-					pattern="Rs #,##0.00" /></td>
+					pattern="र #,##0.00" /></td>
 		</tr>
 	</c:forEach>
 </table>

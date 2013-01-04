@@ -29,6 +29,10 @@ public class Product implements java.io.Serializable, Comparable<Object> {
 		return version;
 	}
 
+	public void setVersion(int version) {
+		this.version = version;
+	}
+
 	public String getProductNumber() {
 		return productNumber;
 	}

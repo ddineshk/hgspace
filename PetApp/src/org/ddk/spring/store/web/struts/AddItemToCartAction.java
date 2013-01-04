@@ -42,12 +42,17 @@ public class AddItemToCartAction extends BaseAction {
 					product = new Product();
 					product.setId((Long)object[3]);
 					item.setListPrice((Double)object[4]);
+					item.setUnitCost((Double)object[5]);
+					item.setStatus((String)object[7]);
 					item.setAttr1((String)object[8]);
 					item.setAttr2((String)object[9]);
 					item.setAttr3((String)object[10]);
 					item.setAttr4((String)object[11]);
 					item.setAttr5((String)object[12]);
+					product.setVersion((Integer)object[14]);
 					product.setProductNumber((String)object[15]);
+					product.setProductName((String)object[17]);
+					product.setProductDesc((String)object[18]);
 					item.setProduct(product);
 				}
 
