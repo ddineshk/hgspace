@@ -35,12 +35,10 @@
                 name="workingAccountForm" scope="session"	validate="false">
             <forward name="success" path="/WEB-INF/jsp/EditAccountForm.jsp"/>
         </action>
-        <action path="/index" type="org.ddk.spring.store.web.struts.DoNothingAction"
-                validate="false">
+        <action path="/index" type="org.ddk.spring.store.web.struts.MyDefaultAction" validate="false">
             <forward name="success" path="/WEB-INF/jsp/index.jsp"/>
         </action>
-        <action path="/help" type="org.ddk.spring.store.web.struts.DoNothingAction"
-                validate="false">
+        <action path="/help" type="org.ddk.spring.store.web.struts.MyDefaultAction" validate="false">
             <forward name="success" path="/WEB-INF/jsp/help.jsp"/>
         </action>
         <action path="/listOrders" type="org.ddk.spring.store.web.struts.ListOrdersAction"
@@ -84,7 +82,7 @@
                 name="accountForm" scope="session" validate="false">
             <forward name="success" path="/index.do"/>
         </action>
-        <action path="/signonForm" type="org.ddk.spring.store.web.struts.DoNothingAction" validate="false">
+        <action path="/signonForm" type="org.ddk.spring.store.web.struts.MyDefaultAction" validate="false">
             <forward name="success" path="/WEB-INF/jsp/SignonForm.jsp"/>
         </action>
         <action path="/updateCartQuantities" type="org.ddk.spring.store.web.struts.UpdateCartQuantitiesAction"
