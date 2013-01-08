@@ -8,6 +8,7 @@
 </div>
 <div align="center">
 	<table style="background-color: #6468e7;border: 0;">
+		<c:if test="${!empty productList.pageList}">
 		<tr bgcolor="#CCCCCC">
 			<td>&nbsp;</td>
 			<td><b>Product Number</b></td>
@@ -33,6 +34,10 @@
 			</c:if>
 			</td>
 		</tr>
+		</c:if>
+		<c:if test="${empty productList.pageList}">
+		<tr><td>No Result found</td></tr>
+		</c:if>
 	</table>
 </div>
 <%@ include file="IncludeBottom.jsp"%>
