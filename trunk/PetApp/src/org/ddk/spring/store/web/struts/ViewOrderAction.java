@@ -21,10 +21,10 @@ public class ViewOrderAction extends SecureBaseAction {
 
 		AccountActionForm acctForm = (AccountActionForm) form;
 		long id = Integer.parseInt(request.getParameter("id"));
-		List List = getStore().getOrderAndUserName(id);
+		List list = getStore().getOrderAndUserName(id);
 		Order order = null;
 		String username = null;
-		for (Iterator it = List.iterator(); it.hasNext();) {
+		for (Iterator it = list.iterator(); it.hasNext();) {
 			Object[] pair = (Object[]) it.next();
 			order = (Order) pair[0];
 			username = (String) pair[1];

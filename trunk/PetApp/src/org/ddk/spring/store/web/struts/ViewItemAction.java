@@ -19,11 +19,11 @@ public class ViewItemAction extends BaseAction {
     
     String itemName = request.getParameter("itemName");
     
-    List List = getStore().getItem(itemName);
+    List list = getStore().getItem(itemName);
     Item item = new Item();
     Product product = new Product();
 
-    for (Iterator it = List.iterator(); it.hasNext();) {
+    for (Iterator it = list.iterator(); it.hasNext();) {
         Object[] object = (Object[]) it.next();
 		item.setId((Long)object[0]);
 		item.setVersion((Integer)object[1]);
