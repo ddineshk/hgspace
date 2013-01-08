@@ -17,8 +17,8 @@ public class HibernateOrderDao extends HibernateDaoSupport implements OrderDao {
 	public List getOrderAndUserName(long id) throws DataAccessException {
 		Long orderId = new Long(id);
 
-		List List = getHibernateTemplate().find("select o, o.user.username " + "from Order o where o.id = ?", orderId);
-		return List;
+		List list = getHibernateTemplate().find("select o, o.user.username " + "from Order o where o.id = ?", orderId);
+		return list;
 	}
 
 	public Order getOrder(int id) throws DataAccessException {

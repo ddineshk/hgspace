@@ -29,10 +29,10 @@ public class AddItemToCartAction extends BaseAction {
 				cart.incrementQuantityByItemName(workingItemName);
 			} else {
 				boolean isInStock = getStore().isItemInStock(workingItemName);
-				List List = getStore().getItem(workingItemName);
+				List list = getStore().getItem(workingItemName);
 				Item item = null;
 				Product product = null;
-				for (Iterator it = List.iterator(); it.hasNext();) {
+				for (Iterator it = list.iterator(); it.hasNext();) {
 					Object[] object = (Object[]) it.next();
 					item = new Item();
 					
