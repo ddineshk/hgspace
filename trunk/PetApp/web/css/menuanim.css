@@ -5,6 +5,9 @@ ul{
 	margin:0;
 	padding:0;
 }
+#acc li{
+	float: left;
+}
 
 #menu li{
 	width:150px;

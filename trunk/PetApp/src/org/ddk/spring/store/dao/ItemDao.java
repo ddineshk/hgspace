@@ -18,4 +18,6 @@ public interface ItemDao {
   
   List getItem(Item item) throws DataAccessException;
   int getItemQuantity(String itemName) throws DataAccessException;
+  
+  List getAllItem() throws DataAccessException;
 }

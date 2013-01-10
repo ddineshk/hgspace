@@ -124,5 +124,9 @@ public class StoreImpl implements StoreFacade, OrderService {
 	public List getOrdersByUsername(String username) {
 		return this.orderDao.getOrdersByUsername(username);
 	}
+	
+	public List getAllItem(){
+		return this.itemDao.getAllItem();
+	}
 
 }
