@@ -37,8 +37,6 @@ public class MyDefaultAction extends BaseAction {
 			for (Iterator iterator = ls.iterator(); iterator.hasNext();) {
 				object = (Object[]) iterator.next();
 				if(((String)object[19]).equals(category)){
-					System.out.println("Category : "+category);
-					
 					item = new Item();
 					item.setId((Long)object[0]);
 					item.setVersion((Integer)object[1]);
