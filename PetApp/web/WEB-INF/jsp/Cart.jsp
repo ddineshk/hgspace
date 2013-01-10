@@ -1,8 +1,32 @@
 <%@ include file="IncludeTop.jsp"%>
+<link rel="stylesheet" href="css/jquery-ui.css"/>
+<script src="js/jquery-1.7.2.js" type="text/javascript"></script>
+<script src="js/jquery-ui.js" type="text/javascript"></script>
+<script type="text/javascript">
+$(function() {
+    $( "#accordion" ).accordion({
+        heightStyle: "fill",
+        collapsible: true
+    });
+    
+    $('.item').draggable({
+        revert: true,
+        proxy: 'clone',
+        onStartDrag: function() {
+            $(this).draggable('options').cursor = 'not-allowed';
+            $(this).draggable('proxy').css('z-index', 10);
+        },
+        onStopDrag: function() {
+            $(this).draggable('options').cursor = 'move';
+        }
+    });
+    
+});
 
+</script>
 <table style="width: 100%;">
 	<tr>
-		<td valign="top" width="20%" align="left">
+		<td valign="top" width="27%" align="left">
 			<table style="background-color: #6468e7; border: 0;">
 				<tr>
 					<td bgcolor="#FFFF88">
@@ -10,6 +34,18 @@
 					</td>
 				</tr>
 			</table>
+			<div id="accordion">
+				<c:forEach items="${allList}" var="myLs">
+				<h3>${myLs.key}</h3>
+					<!-- <div> -->
+					<span>
+					<c:forEach var="item" items="${myLs.value}">
+					 <div class="item">${item.itemName} - ${item.product.productName} </div>
+					</c:forEach>
+					</span>
+				<!-- </div> -->
+				</c:forEach>
+			</div>
 		</td>
 		<td valign="top" align="center">
 			<h2 align="center">Shopping Cart</h2>

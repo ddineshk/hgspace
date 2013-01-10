@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.support.PagedListHolder;
@@ -12,6 +13,21 @@ public class Cart implements Serializable {
 	private static final long serialVersionUID = -4007908519271229769L;
 	private final Map itemMap = Collections.synchronizedMap(new HashMap());
 	private final PagedListHolder itemList = new PagedListHolder();
+	public HashMap<String, List> allItems = new HashMap<String, List>();
+
+	/**
+	 * @return the allItems
+	 */
+	public HashMap<String, List> getAllItems() {
+		return allItems;
+	}
+
+	/**
+	 * @param allItems the allItems to set
+	 */
+	public void setAllItems(HashMap<String, List> allItems) {
+		this.allItems = allItems;
+	}
 
 	public Cart() {
 		this.itemList.setPageSize(4);

@@ -48,5 +48,7 @@ public interface StoreFacade {
 	List getOrderAndUserName(long id);
 
 	List getOrdersByUsername(String username);
+	
+	List getAllItem();
 
 }

@@ -79,4 +79,13 @@ public class HibernateItemDao extends HibernateDaoSupport implements ItemDao {
 
 		return quantity;
 	}
+	public List getAllItem() throws DataAccessException {
+		List list = getHibernateTemplate().find("select item.id, item.version, item.itemName," +
+				"item.product.id, item.listPrice, item.unitCost, item.supplier.id, item.status," +
+				"item.attr1, item.attr2, item.attr3, item.attr4, item.attr5, product.id, product.version," +
+				"product.productNumber,product.category.id, product.productName, product.productDesc, category.categoryName " +
+				"from Item item, Product product,Category category "+ 
+				"where item.product.id = product.id and product.category.id = category.id");
+		return list;
+	}
 }
