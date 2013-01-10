@@ -1,9 +1,12 @@
+body{
+	margin: 0px;
+}
 ul{
 	margin:0;
 	padding:0;
 }
 
-li{
+#menu li{
 	width:150px;
 	height:50px;
 	float:left;

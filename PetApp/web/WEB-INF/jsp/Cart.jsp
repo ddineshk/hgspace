@@ -13,7 +13,7 @@
 		</td>
 		<td valign="top" align="center">
 			<h2 align="center">Shopping Cart</h2>
-			<form action="<c:url value="/updateCartQuantities.do"/>" method="post">
+			<form action="<c:url value="/updateCartQuantities.do"/>" method="post" accept-charset="utf-8">
 				<div align="center">
 					<table style="background-color: #6468e7;border :0;">
 						<tr bgcolor="#cccccc">

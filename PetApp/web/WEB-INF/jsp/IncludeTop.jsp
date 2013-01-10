@@ -42,17 +42,28 @@
             setTimeout('spinText()', delay);
         }
     }
-
+    function stickyFooter(){
+	    jQuery("#stickyFooter").css({position: "absolute",top:($(window).scrollTop()+$(window).height()-$("#stickyFooter").height())+"px"});
+    }
+     
+    jQuery(function(){
+        stickyFooter();
+        jQuery(window)
+            .scroll(stickyFooter)
+            .resize(stickyFooter);
+    });
+     
 </script>
 </head>
-<body id="my" bgcolor="white" 
+<body bgcolor="white" topmargin="0" style="padding:0px; margin:0px;" 
 	<c:if test="${empty accountForm.account}"> onload="drawMyText('user','Guest');"</c:if>
 	<c:if test="${!empty accountForm.account}"> onload="drawMyText('user','${accountForm.account.firstname}');"</c:if>>
-	<table style="width: 100%;/*background-image: url('images/bkg-topbar.gif'); */background-color: #27B600;">
+	<div></div>
+	<table style="width: 100%;/* background-color: #27B600; */">
 		<tr>
-			<td><a href="<c:url value="/index.do"/>"><img border="0" src="images/logo-topbar1.gif" /></a></td>
+			<td><a href="<c:url value="/index.do"/>">Home<!-- <img border="0" src="images/logo-topbar1.gif" /> --></a></td>
 			<td align="right">
-				<table border="1">
+				<table>
 					<tr>
 						<td>
 						<c:if test="${empty accountForm.account}">
@@ -89,49 +100,53 @@
 			</td>
 		</tr>
 	</table>
-	<table><tr><td>
-	<div align="center" style="border: 1;position:relative;height: 130px;">
-		<ul>
-			<li class="green">
-				<p>FISH</p>
-				<p class="subtext">
-					<a href="<c:url value="/viewCategory.do?categoryName=FISH"/>">
-						<img border="0" src="images/fish_menu.gif"/>
-					</a>
-				</p>
-			</li>
-			<li class="yellow">
-				<p>DOGS</p>
-				<p class="subtext">
-					<a href="<c:url value="/viewCategory.do?categoryName=DOGS"/>">
-						<img border="0" src="images/dog_menu.gif" />
-					</a>
-				</p>
-			</li>
-			<li class="red">
-				<p>REPTILES</p>
-				<p class="subtext">
-					<a href="<c:url value="/viewCategory.do?categoryName=REPTILES"/>">
-						<img border="0" src="images/reptile_menu.gif" />
-					</a>
-				</p>
-			</li>
-			<li class="blue">
-				<p>CATS</p>
-				<p class="subtext">
-					<a href="<c:url value="/viewCategory.do?categoryName=CATS"/>">
-						<img border="0" src="images/cat_menu.gif" />
-					</a>
-				</p>
-			</li>
-			<li class="purple">
-				<p>BIRDS</p>
-				<p class="subtext">
-					<a href="<c:url value="/viewCategory.do?categoryName=BIRDS"/>">
-						<img border="0" src="images/bird_menu.gif" />
-					</a>
-				</p>
-			</li>
-		</ul>
-	</div></td></tr>
+	<table>
+		<tr>
+			<td>
+				<div align="center" style="border: 1;position:relative;height: 130px;">
+					<ul id="menu">
+						<li class="drop">
+							<p>FISH</p>
+							<p class="subtext">
+								<a href="<c:url value="/viewCategory.do?categoryName=FISH"/>">
+									<img border="0" src="images/fish_menu.gif"/>
+								</a>
+							</p>
+						</li>
+						<li class="drop">
+							<p>DOGS</p>
+							<p class="subtext">
+								<a href="<c:url value="/viewCategory.do?categoryName=DOGS"/>">
+									<img border="0" src="images/dog_menu.gif" />
+								</a>
+							</p>
+						</li>
+						<li class="drop">
+							<p>REPTILES</p>
+							<p class="subtext">
+								<a href="<c:url value="/viewCategory.do?categoryName=REPTILES"/>">
+									<img border="0" src="images/reptile_menu.gif" />
+								</a>
+							</p>
+						</li>
+						<li class="drop">
+							<p>CATS</p>
+							<p class="subtext">
+								<a href="<c:url value="/viewCategory.do?categoryName=CATS"/>">
+									<img border="0" src="images/cat_menu.gif" />
+								</a>
+							</p>
+						</li>
+						<li class="drop">
+							<p>BIRDS</p>
+							<p class="subtext">
+								<a href="<c:url value="/viewCategory.do?categoryName=BIRDS"/>">
+									<img border="0" src="images/bird_menu.gif" />
+								</a>
+							</p>
+						</li>
+					</ul>
+				</div>
+			</td>
+		</tr>
 	</table>
