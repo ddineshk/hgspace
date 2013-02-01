@@ -9,10 +9,12 @@
 <META HTTP-EQUIV="Cache-Control" CONTENT="no-cache">
 <meta http-equiv="expires" content="0">
 <META HTTP-EQUIV="Pragma" CONTENT="no-cache">
-<link rel="stylesheet" href="css/menuanim.css"/>
+<link rel="stylesheet" type="text/css" href="css/menuanim.css"/>
+<link rel="stylesheet" type="text/css" href="css/jquerycssmenu.css" />
 <script src="js/jquery-1.7.2.js" type="text/javascript"></script>
 <script src="js/easing.js" type="text/javascript"></script>
 <script src="js/index.js" type="text/javascript"></script>
+<script src="js/jquerycssmenu.js" type="text/javascript" ></script>
 <script type="text/javascript">
 	var can, ctx,addAngle, addScale,step, steps = 50, delay = 20;
 	var txt = '';
@@ -52,26 +54,27 @@
             .scroll(stickyFooter)
             .resize(stickyFooter);
     });
-     
 </script>
 </head>
 <body bgcolor="white" topmargin="0" style="padding:0px; margin:0px;" 
-	<c:if test="${empty accountForm.account}"> onload="drawMyText('user','Guest');"</c:if>
-	<c:if test="${!empty accountForm.account}"> onload="drawMyText('user','${accountForm.account.firstname}');"</c:if>>
-	<div></div>
+	<%-- <c:if test="${empty accountForm.account}"> onload="drawMyText('user','Guest');"</c:if>
+	<c:if test="${!empty accountForm.account}"> onload="drawMyText('user','${accountForm.account.firstname}');"</c:if> --%>>
 	<table style="width: 100%;/* background-color: #27B600; */">
 		<tr>
-			<td><a href="<c:url value="/index.do"/>">Home<!-- <img border="0" src="images/logo-topbar1.gif" /> --></a></td>
+			<td><a href="<c:url value="/index.do"/>">Home<%-- <img border="0" src="images/logo-topbar1.gif" /> --%></a></td>
 			<td align="right">
 				<table>
 					<tr>
 						<td>
 						<c:if test="${empty accountForm.account}">
-							<canvas id="user" width="100" height="15"></canvas>
+							<%-- <canvas id="user" width="100" height="15"></canvas> --%>
+							Guest
 							<img border="0" src="images/separator.gif" />
 						</c:if>
 						<c:if test="${!empty accountForm.account}">
-							<a href="<c:url value="/editAccountForm.do"/>"><canvas id="user" width="110" height="15"></canvas></a>
+							<a href="<c:url value="/editAccountForm.do"/>">
+							${accountForm.account.firstname}
+							<%-- <canvas id="user" width="110" height="15"></canvas> --%></a>
 							<img border="0" src="images/separator.gif" />
 						</c:if>
 						</td>
@@ -92,7 +95,7 @@
 						<td colspan="4" align="right"> 
 							<form action="<c:url value="/searchProducts.do"/>" method="post">
 								<input type="hidden" name="search" value="true" />
-								<input name="keyword" size="14" /> <input style="border: 0;" src="images/search.gif" type="image" name="search" />
+								<input name="keyword" size="14" /> <input src="images/search.gif" type="image" name="search" />
 							</form>
 						</td>
 					</tr>
@@ -100,10 +103,10 @@
 			</td>
 		</tr>
 	</table>
-	<table>
+	<%-- <table>
 		<tr>
 			<td>
-				<div align="center" style="border: 1;position:relative;height: 130px;">
+				<div align="center" style="position:relative;height: 130px;">
 					<ul id="menu">
 						<li class="drop">
 							<p>FISH</p>
@@ -149,4 +152,19 @@
 				</div>
 			</td>
 		</tr>
-	</table>
+	</table> --%>
+<div id="myjquerymenu" class="jquerycssmenu">
+<ul>
+<li><a href="<c:url value="/index.do"/>">Home</a></li>
+
+<li><a href="#">Categories</a>
+  <ul>
+  <c:forEach items="${allList}" var="myLs">
+	<a href="<c:url value="/viewCategory.do?categoryName=${myLs.key}"/>">${myLs.key}</a>
+  </c:forEach>
+  </ul>
+</li>
+<li><a href="#">Contact Us</a></li>
+</ul>
+<br style="clear: left" />
+</div>
