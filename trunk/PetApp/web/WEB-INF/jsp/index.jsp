@@ -1,5 +1,5 @@
 <%@ include file="IncludeTop.jsp"%>
-<table style="width: 100%;">
+<%-- <table style="width: 100%;">
 	<tr>
 		<td align="center" bgcolor="white" height="300" width="100%">
 			<map name="estoremap">
@@ -13,6 +13,7 @@
 			<img border="0" height="355" src="images/splash.gif" usemap="#estoremap" width="350" />
 		</td>
 	</tr>
-</table>
+</table> --%>
+
 <%@ include file="IncludeBanner.jsp"%>
 <%@ include file="IncludeBottom.jsp"%>

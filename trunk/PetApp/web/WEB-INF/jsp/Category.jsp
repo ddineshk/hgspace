@@ -1,13 +1,5 @@
 <%@ include file="IncludeTop.jsp"%>
-<div align="left">
-	<table style="background-color: #6468e7; border: 0;">
-		<tr>
-			<td bgcolor="#FFFF88"><a href="<c:url value="/index.do"/>"><b>
-				<font color="BLACK" size="2">&lt;&lt; Main Menu</font></b></a>
-			</td>
-		</tr>
-	</table>
-</div>
+
 <p>
 <center>
 	<h2>
@@ -41,4 +33,14 @@
 		</c:if>
 	</table>
 </center>
+<br>
+<div align="left">
+	<table style="background-color: #6468e7; border: 0;">
+		<tr>
+			<td bgcolor="#FFFF88"><a href="<c:url value="/index.do"/>"><b>
+				<font color="BLACK" size="2">&lt;&lt; Main Menu</font></b></a>
+			</td>
+		</tr>
+	</table>
+</div>
 <%@ include file="IncludeBottom.jsp"%>

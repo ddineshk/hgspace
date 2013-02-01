@@ -1,6 +1,6 @@
 <%@ include file="IncludeTop.jsp"%>
 <link rel="stylesheet" href="css/jquery-ui.css"/>
-<script src="js/jquery-1.7.2.js" type="text/javascript"></script>
+<!-- <script src="js/jquery-1.7.2.js" type="text/javascript"></script> -->
 <script src="js/jquery-ui.js" type="text/javascript"></script>
 <script type="text/javascript">
 $(function() {
@@ -9,16 +9,22 @@ $(function() {
         collapsible: true
     });
     
-    $('.item').draggable({
+    $('.items').draggable({
         revert: true,
         proxy: 'clone',
-        onStartDrag: function() {
-            $(this).draggable('options').cursor = 'not-allowed';
-            $(this).draggable('proxy').css('z-index', 10);
-        },
-        onStopDrag: function() {
-            $(this).draggable('options').cursor = 'move';
-        }
+        containment : 'document',
+        cursor : 'crosshair'
+    });
+    
+    $('.cart').droppable({
+    	drop:function(event,ui){
+    		$( this ).find( ".emptyRow" ).remove();
+    		var rowLen = $('.cart tr').length;
+    		alert('rowLength' + rowLen);
+    		$('<tr id=\"newRow'+rowLen+'\"></tr>').text('').appendTo(this);
+    		$('<td colspan=8></td>').text(ui.draggable.text()).appendTo($('#newRow'+rowLen));
+    		
+    	}
     });
     
 });
@@ -37,21 +43,22 @@ $(function() {
 			<div id="accordion">
 				<c:forEach items="${allList}" var="myLs">
 				<h3>${myLs.key}</h3>
-					<!-- <div> -->
-					<span>
+				<span>
 					<c:forEach var="item" items="${myLs.value}">
-					 <div class="item">${item.itemName} - ${item.product.productName} </div>
+					 <div class="items">${item.itemName} - ${item.product.productName}
+					 <input type="hidden" value="${item.itemName}" name="${item.itemName}"/> 
+					 </div>
 					</c:forEach>
-					</span>
-				<!-- </div> -->
+				</span>
 				</c:forEach>
 			</div>
 		</td>
 		<td valign="top" align="center">
 			<h2 align="center">Shopping Cart</h2>
 			<form action="<c:url value="/updateCartQuantities.do"/>" method="post" accept-charset="utf-8">
-				<div align="center">
-					<table style="background-color: #6468e7;border :0;">
+				<div align="center" style="border-color: black;border-style: solid;">
+					<table style="background-color: #6468e7;border :0;" class="cart">
+						<thead>
 						<tr bgcolor="#cccccc">
 							<td><b>Item ID</b></td>
 							<td><b>Product ID</b></td>
@@ -62,9 +69,9 @@ $(function() {
 							<td><b>Total Cost</b></td>
 							<td>&nbsp;</td>
 						</tr>
-
+						</thead>
 						<c:if test="${cartForm.cart.numberOfItems == 0}">
-						<tr bgcolor="#FFFF88">
+						<tr bgcolor="#FFFF88" class="emptyRow">
 							<td colspan="8"><b>Your cart is empty.</b></td>
 						</tr>
 						</c:if>
@@ -89,12 +96,13 @@ $(function() {
 							</td>
 						</tr>
 						</c:forEach>
-						<tr bgcolor="#FFFF88">
-							<td colspan="7" align="right"><b>Sub Total: <fmt:formatNumber value="${cartForm.cart.subTotal}" pattern="Rs #,##0.00" /></b><br/>
-								<input type="image" style="border: 0;" src="images/button_update_cart.gif" name="update" /></td>
-							<td>&nbsp;</td>
-						</tr>
+						
 					</table>
+					
+					<div align="right">
+						<b>Sub Total: <fmt:formatNumber value="${cartForm.cart.subTotal}" pattern="Rs #,##0.00" /></b><br />
+						<input type="image" style="border: 0;" src="images/button_update_cart.gif" name="update" />
+					</div>
 
 					<c:if test="${!cartForm.cart.cartItemList.firstPage}">
 						<a href="<c:url value="viewCart.do?page=previousCart"/>"><font color="green"><B>&lt;&lt; Prev</B></font></a>

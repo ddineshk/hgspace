@@ -6,7 +6,7 @@
 <hibernate-configuration>
   
   <session-factory>
-    <property name="connection.url">jdbc:sqlite:C:\\Users\\ddurairaj\\workspace\\PetApp\\sqlite\\college.db</property>
+    <property name="connection.url">jdbc:sqlite:C:\\Users\\ddurairaj\\workspace\\MegaApp\\sqlite\\college.db</property>
     <property name="dialect">com.dinesh.piloting.util.SQLiteDialect</property>
     <property name="connection.driver_class">org.sqlite.JDBC</property>
     
