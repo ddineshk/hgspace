@@ -9,43 +9,31 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
-import com.dinesh.piloting.mybatis.model.User;
 import com.dinesh.piloting.mybatis.model.UserMapper;
 
-public class MyBatisAction {
+public class MyBatisUtils {
 
-	/**
-	 * @param args
-	 */
-	public static void main(String[] args) {
-		SqlSessionFactory sqlSessionFactory = getSqlSessionFactory();
-		sqlSessionFactory.getConfiguration().addMapper(UserMapper.class);
-		SqlSession session = sqlSessionFactory.openSession();
-		try {
-			UserMapper mapper = session.getMapper(UserMapper.class);
-			User user = mapper.selectUser(1);
-			System.out.println(user.getFirstname());
-		} finally {
-			session.close();
-		}
-	}
 	/**
 	 * 
 	 * @return
 	 */
-	public static SqlSessionFactory getSqlSessionFactory() {
+	public static SqlSession getSqlSession() {
 		SqlSessionFactory sqlSessionFactory = null;
+		SqlSession session = null;
+		Reader reader = null;
 		try {
 			String resource = "com/dinesh/piloting/mybatis/resources/config.xml";
-			Reader reader = Resources.getResourceAsReader(resource);
-			
+			reader = Resources.getResourceAsReader(resource);
 			sqlSessionFactory = new SqlSessionFactoryBuilder().build(reader);
+			sqlSessionFactory.getConfiguration().addMapper(UserMapper.class);
+			session = sqlSessionFactory.openSession();
+			
 		} catch (FileNotFoundException fnfe) {
 			fnfe.printStackTrace();
 		} catch (IOException ioe) {
 			ioe.printStackTrace();
 		}
-		return sqlSessionFactory;
+		return session;
 	}
 	
 

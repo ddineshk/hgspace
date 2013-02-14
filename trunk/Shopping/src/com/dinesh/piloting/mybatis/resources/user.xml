@@ -6,4 +6,7 @@
 	<select id="selectUser" parameterType="int" resultType="com.dinesh.piloting.mybatis.model.User">
 		select * from User where userId = #{id}
 	</select>
+	<select id="selectUsers" parameterType="map">
+		select * from User where userName = #{userName} and password = #{password}
+	</select>
 </mapper>
