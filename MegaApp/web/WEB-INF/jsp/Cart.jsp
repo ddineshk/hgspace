@@ -125,7 +125,7 @@ $(function() {
 								<input type="text" size="3" name="<c:out value="${cartItem.item.itemName}"/>" value="<c:out value="${cartItem.quantity}"/>" />
 							</td>
 							<td align="right"><fmt:formatNumber value="${cartItem.item.listPrice}" pattern="Rs #,##0.00" /></td>
-							<td align="right"><fmt:formatNumber value="${cartItem.totalPrice}" pattern="Rs #,##0.00" /></td>
+							<td id="totCost${cartItem.item.itemName}" align="right"><fmt:formatNumber value="${cartItem.totalPrice}" pattern="Rs #,##0.00" /></td>
 							<td><a href="<c:url value="/removeItemFromCart.do"><c:param name="workingItemName" value="${cartItem.item.itemName}"/></c:url>">
 									<img border="0" src="images/button_remove.gif" /></a>
 							</td>
