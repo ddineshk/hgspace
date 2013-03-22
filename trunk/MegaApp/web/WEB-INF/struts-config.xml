@@ -38,6 +38,8 @@
         <action path="/index" type="org.ddk.spring.store.web.struts.MyDefaultAction" validate="false">
             <forward name="success" path="/WEB-INF/jsp/index.jsp"/>
         </action>
+        <action path="/itemInfo" type="org.ddk.spring.store.web.struts.ItemInfoAction" validate="false"
+        	name="cartForm" scope="session"></action>
         <action path="/help" type="org.ddk.spring.store.web.struts.MyDefaultAction" validate="false">
             <forward name="success" path="/WEB-INF/jsp/help.jsp"/>
         </action>

@@ -16,13 +16,50 @@ $(function() {
         cursor : 'crosshair'
     });
     
+    Number.prototype.formatMoney = function(c, d, t){
+    	var n = this, c = isNaN(c = Math.abs(c)) ? 2 : c, d = d == undefined ? "," : d, t = t == undefined ? "." : t, s = n < 0 ? "-" : "", i = parseInt(n = Math.abs(+n || 0).toFixed(c)) + "", j = (j = i.length) > 3 ? j % 3 : 0;
+    	   return s + (j ? i.substr(0, j) + t : "") + i.substr(j).replace(/(\d{3})(?=\d)/g, "$1" + t) + (c ? d + Math.abs(n - i).toFixed(c).slice(2) : "");
+    	 };
+    
     $('.cart').droppable({
     	drop:function(event,ui){
     		$( this ).find( ".emptyRow" ).remove();
     		var rowLen = $('.cart tr').length;
-    		alert('rowLength' + rowLen);
-    		$('<tr id=\"newRow'+rowLen+'\"></tr>').text('').appendTo(this);
-    		$('<td colspan=8></td>').text(ui.draggable.text()).appendTo($('#newRow'+rowLen));
+    		
+    		$.ajax({
+                type: "POST",
+                url: "/MegaApp/itemInfo.do",
+                data: "itemId=" + ui.draggable.attr('id'),
+                success: function(res){
+                	if(res.item!=null){
+		                  $('<tr id=\"newRow'+rowLen+'\" bgcolor=\"#FFFF88\"></tr>').text('').appendTo($('.cart'));
+		                  $('<td></td>').html('<b><a href=\"viewItem.do?itemName='+res.item.itemName+'\">'+res.item.itemName+'</a></b>').appendTo($('#newRow'+rowLen));
+		                  $('<td></td>').html(res.item.product.productNumber).appendTo($('#newRow'+rowLen));
+		                  $('<td></td>').html(res.item.attr1+' '+res.item.attr2+' '+res.item.attr3+' '+res.item.attr4+' '+res.item.attr5+' '+res.item.product.productName).appendTo($('#newRow'+rowLen));
+		                  if(res.isInStock){
+		                  	$('<td align=\"center\"></td>').html('true').appendTo($('#newRow'+rowLen));
+		                  }else{
+		                	  $('<td align=\"center\"></td>').html('false').appendTo($('#newRow'+rowLen));
+		                  }
+		                  $('<td align=\"center\"></td>').html('<input type=\"text\" size=3 name=\"'+res.item.itemName+'" value=\"1\" />').appendTo($('#newRow'+rowLen));
+		                  $('<td align=\"right\"></td>').html('Rs '+(res.item.listPrice).formatMoney(2,'.',',')).appendTo($('#newRow'+rowLen));
+		                  var cost = Number(res.item.listPrice) * Number($('input[name="'+res.itemName+'"]').val());
+		                  $('<td id=\"totCost'+res.item.itemName+'\" align=\"right\"></td>').html('Rs '+(cost).formatMoney(2,'.',',')).appendTo($('#newRow'+rowLen));
+		                  $('<td></td>').html('<a href=\"removeItemFromCart.do?workingItemName='+res.item.itemName+'\"><img border=\"0\" src=\"images/button_remove.gif\"/></a>').appendTo($('#newRow'+rowLen));
+		                  $('#subTot').html('Rs '+(res.total).formatMoney(2,'.',','));
+                	}else{
+                		var qty = $('input[name="'+res.itemName+'"]').val();
+                		$('input[name="'+res.itemName+'"]').val(Number(qty)+1);
+                		
+                		var totalCost = Number(res.listPrice) * (Number(qty)+1);
+                		$('#totCost'+res.itemName).html('Rs '+(totalCost).formatMoney(2,'.',','));
+                		$('#subTot').html('Rs '+(res.total).formatMoney(2,'.',','));
+                	}
+                },
+                error: function(e){
+                    alert('Error: ' + e);
+                }
+            });
     		
     	}
     });
@@ -45,9 +82,7 @@ $(function() {
 				<h3>${myLs.key}</h3>
 				<span>
 					<c:forEach var="item" items="${myLs.value}">
-					 <div class="items">${item.itemName} - ${item.product.productName}
-					 <input type="hidden" value="${item.itemName}" name="${item.itemName}"/> 
-					 </div>
+					 <div class="items" id="${item.itemName}">${item.itemName} - ${item.product.productName}</div>
 					</c:forEach>
 				</span>
 				</c:forEach>
@@ -100,7 +135,7 @@ $(function() {
 					</table>
 					
 					<div align="right">
-						<b>Sub Total: <fmt:formatNumber value="${cartForm.cart.subTotal}" pattern="Rs #,##0.00" /></b><br />
+						<b>Sub Total: <span id="subTot"><fmt:formatNumber value="${cartForm.cart.subTotal}" pattern="Rs #,##0.00" /></span></b><br />
 						<input type="image" style="border: 0;" src="images/button_update_cart.gif" name="update" />
 					</div>
 
