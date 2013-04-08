@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping SYSTEM "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="org.ddk.spring.store.domain">
+	<class name="Banner" table="Banner">
+		<cache usage="read-only" />
+		<id name="id" type="long" column="bannerId" unsaved-value="null"
+			access="field">
+			<generator class="native" />
+		</id>
+		<version name="version" access="org.hibernate.property.DirectPropertyAccessor" />
+		<many-to-one name="favCategory" column="favCategoryId"
+			cascade="none" class="Category" not-null="true" fetch="join" />
+		<property name="bannerName" type="string" not-null="false" />
+	</class>
+</hibernate-mapping>

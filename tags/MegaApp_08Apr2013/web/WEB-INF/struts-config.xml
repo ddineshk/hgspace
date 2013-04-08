@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="GBK"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN"
+"http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+
+<struts-config>
+    
+    <form-beans>
+        <form-bean name="accountForm" type="org.ddk.spring.store.web.struts.AccountActionForm"/>
+        <form-bean name="cartForm" type="org.ddk.spring.store.web.struts.CartActionForm"/>
+        <form-bean name="emptyForm" type="org.ddk.spring.store.web.struts.BaseActionForm"/>
+        <form-bean name="workingAccountForm" type="org.ddk.spring.store.web.struts.AccountActionForm"/>
+        <form-bean name="workingOrderForm" type="org.ddk.spring.store.web.struts.OrderActionForm"/>
+    </form-beans>
+    
+    <global-forwards>
+        <forward name="failure" path="/WEB-INF/jsp/Error.jsp" redirect="false"/>
+        <forward name="unknown-error" path="/WEB-INF/jsp/Error.jsp"/>
+        <forward name="global-signon" path="/WEB-INF/jsp/SignonForm.jsp"/>
+    </global-forwards>
+    
+    <action-mappings>
+        <action path="/addItemToCart" type="org.ddk.spring.store.web.struts.AddItemToCartAction"
+                name="cartForm" scope="session" validate="false">
+            <forward name="success" path="/WEB-INF/jsp/Cart.jsp"/>
+        </action>
+        <action path="/checkout" type="org.ddk.spring.store.web.struts.ViewCartAction"
+                name="cartForm" scope="session" validate="false">
+            <forward name="success" path="/WEB-INF/jsp/Checkout.jsp"/>
+        </action>
+        <action path="/editAccount" type="org.ddk.spring.store.web.struts.EditAccountAction"
+                name="workingAccountForm" scope="session" validate="true" input="/WEB-INF/jsp/EditAccountForm.jsp">
+            <forward name="success" path="/index.do"/>
+        </action>
+        <action path="/editAccountForm" type="org.ddk.spring.store.web.struts.EditAccountFormAction"
+                name="workingAccountForm" scope="session"	validate="false">
+            <forward name="success" path="/WEB-INF/jsp/EditAccountForm.jsp"/>
+        </action>
+        <action path="/index" type="org.ddk.spring.store.web.struts.MyDefaultAction" validate="false">
+            <forward name="success" path="/WEB-INF/jsp/index.jsp"/>
+        </action>
+        <action path="/itemInfo" type="org.ddk.spring.store.web.struts.ItemInfoAction" validate="false"
+        	name="cartForm" scope="session"></action>
+        <action path="/help" type="org.ddk.spring.store.web.struts.MyDefaultAction" validate="false">
+            <forward name="success" path="/WEB-INF/jsp/help.jsp"/>
+        </action>
+        <action path="/listOrders" type="org.ddk.spring.store.web.struts.ListOrdersAction"
+                name="accountForm" scope="session" validate="false">
+            <forward name="success" path="/WEB-INF/jsp/ListOrders.jsp"/>
+        </action>
+        <action path="/newAccount" type="org.ddk.spring.store.web.struts.NewAccountAction"
+                name="workingAccountForm" scope="session" validate="true" input="/WEB-INF/jsp/NewAccountForm.jsp">
+            <forward name="success" path="/index.do"/>
+        </action>
+        <action path="/newAccountForm" type="org.ddk.spring.store.web.struts.NewAccountFormAction"
+                name="workingAccountForm" scope="session" validate="false">
+            <forward name="success" path="/WEB-INF/jsp/NewAccountForm.jsp"/>
+        </action>
+        <action path="/newOrderForm" type="org.ddk.spring.store.web.struts.NewOrderFormAction"
+                name="workingOrderForm" scope="session" validate="false">
+            <forward name="success" path="/WEB-INF/jsp/NewOrderForm.jsp"/>
+        </action>
+        <action path="/newOrderStep1" type="org.ddk.spring.store.web.struts.NewOrderAction"
+                name="workingOrderForm" scope="session" validate="true" input="/newOrderForm.do">
+            <forward name="confirm" path="/WEB-INF/jsp/ConfirmOrder.jsp"/>
+            <forward name="shipping" path="/WEB-INF/jsp/ShippingForm.jsp"/>
+        </action>
+        <action path="/newOrderStep2" type="org.ddk.spring.store.web.struts.NewOrderAction"
+                name="workingOrderForm" scope="session" validate="true" input="/WEB-INF/jsp/ShippingForm.jsp">
+            <forward name="confirm" path="/WEB-INF/jsp/ConfirmOrder.jsp"/>
+        </action>
+        <action path="/newOrderStep3" type="org.ddk.spring.store.web.struts.NewOrderAction"
+                name="workingOrderForm" scope="session" validate="true" input="/WEB-INF/jsp/NewOrderForm.jsp">
+            <forward name="success" path="/WEB-INF/jsp/ViewOrder.jsp"/>
+        </action>
+        <action path="/removeItemFromCart" type="org.ddk.spring.store.web.struts.RemoveItemFromCartAction"
+                name="cartForm" scope="session" validate="false">
+            <forward name="success" path="/WEB-INF/jsp/Cart.jsp"/>
+        </action>
+        <action path="/searchProducts" type="org.ddk.spring.store.web.struts.SearchProductsAction"
+                name="emptyForm" scope="session" validate="false">
+            <forward name="success" path="/WEB-INF/jsp/SearchProducts.jsp"/>
+        </action>
+        <action path="/signon" type="org.ddk.spring.store.web.struts.SignonAction"
+                name="accountForm" scope="session" validate="false">
+            <forward name="success" path="/index.do"/>
+        </action>
+        <action path="/signonForm" type="org.ddk.spring.store.web.struts.MyDefaultAction" validate="false">
+            <forward name="success" path="/WEB-INF/jsp/SignonForm.jsp"/>
+        </action>
+        <action path="/updateCartQuantities" type="org.ddk.spring.store.web.struts.UpdateCartQuantitiesAction"
+                name="cartForm" scope="session" validate="false">
+            <forward name="success" path="/WEB-INF/jsp/Cart.jsp"/>
+        </action>
+        <action path="/viewCart" type="org.ddk.spring.store.web.struts.ViewCartAction"
+                name="cartForm" scope="session" validate="false">
+            <forward name="success" path="/WEB-INF/jsp/Cart.jsp"/>
+        </action>
+        <action path="/viewCategory" type="org.ddk.spring.store.web.struts.ViewCategoryAction"
+                name="emptyForm" scope="session" validate="true" input="/WEB-INF/jsp/index.jsp">
+            <forward name="success" path="/WEB-INF/jsp/Category.jsp"/>
+        </action>
+        <action path="/viewItem" type="org.ddk.spring.store.web.struts.ViewItemAction"
+                name="emptyForm" scope="session" validate="true" input="/WEB-INF/jsp/Product.jsp">
+            <forward name="success" path="/WEB-INF/jsp/Item.jsp"/>
+        </action>
+        <action path="/viewOrder" type="org.ddk.spring.store.web.struts.ViewOrderAction"
+                name="accountForm" scope="session" validate="false">
+            <forward name="success" path="/WEB-INF/jsp/ViewOrder.jsp"/>
+        </action>
+        <action path="/viewProduct" type="org.ddk.spring.store.web.struts.ViewProductAction"
+                name="emptyForm" scope="session" validate="true" input="/WEB-INF/jsp/index.jsp">
+            <forward name="success" path="/WEB-INF/jsp/Product.jsp"/>
+        </action>
+    </action-mappings>
+</struts-config>

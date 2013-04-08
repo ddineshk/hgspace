@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping SYSTEM "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="org.ddk.spring.store.domain">
+	<class name="LineItem" table="LineItem">
+		<cache usage="read-write" />
+		<id name="id" type="long" column="lineItemId" unsaved-value="null" access="field">
+			<generator class="native" />
+		</id>
+		<version name="version" access="org.hibernate.property.DirectPropertyAccessor" />
+		<property name="quantity" type="integer" not-null="true" />
+		<property name="lineNumber" type="integer" access="field" not-null="true" length="10" />
+		<many-to-one name="order" column="orderId" not-null="true"
+			access="field" insert="false" update="false" />
+		<many-to-one name="item" column="itemId" not-null="true"
+			access="field" update="false" />
+	</class>
+</hibernate-mapping>

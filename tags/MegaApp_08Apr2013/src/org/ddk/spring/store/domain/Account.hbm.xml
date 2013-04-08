@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping SYSTEM "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="org.ddk.spring.store.domain">
+	<class name="Account" table="Account" lazy="true">
+		<cache usage="read-write" />
+		<id name="id" type="long" column="accountId" unsaved-value="null" access="field">
+			<generator class="native" />
+		</id>
+		<version name="version" access="org.hibernate.property.DirectPropertyAccessor" />
+		<property name="username" type="string" length="80" update="false" access="field">
+			<column name="username" length="80" not-null="true" unique="true" />
+		</property>
+		<property name="password" type="string" column="`password`" length="80" not-null="true" />
+		<property name="firstname" type="string" length="80" not-null="true" />
+		<property name="lastname" type="string" length="80" not-null="true" />
+		<property name="email" type="string" length="80" not-null="true" />
+		<property name="status" type="string" length="2" not-null="true" />
+		<component name="userAddr" class="Address">
+			<property name="addr1" type="string" length="80" not-null="true" />
+			<property name="addr2" type="string" length="40" not-null="true" />
+			<property name="city" type="string" length="80" not-null="true" />
+			<property name="state" type="string" length="80" not-null="true" />
+			<property name="zipcode" type="string" length="20" not-null="true" />
+			<property name="country" type="string" length="20" not-null="true" />
+		</component>
+		<property name="phone" type="string" length="80" not-null="true" />
+		<property name="langPreference" type="string" length="80" not-null="true" />
+		<many-to-one name="favCategory" column="favCategoryId" class="Category" foreign-key="FK_favCategoryId" />
+		<property name="displayMyList" type="boolean" />
+		<property name="displayBanner" type="boolean" />
+		<set name="orders" inverse="true" cascade="save-update" access="field">
+			<key column="userId" />
+			<one-to-many class="Order" />
+		</set>
+	</class>
+</hibernate-mapping>

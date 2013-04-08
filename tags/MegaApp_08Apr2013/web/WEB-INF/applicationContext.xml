@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.0.xsd">
+
+	<bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations">
+			<list>
+				<value>WEB-INF/mail.properties</value>
+				<value>WEB-INF/jdbc.properties</value>
+			</list>
+		</property>
+	</bean>
+	<bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+		<!-- <property name="host" value="${mail.host}" />
+		<property name="port" value="${mail.port}"/>
+		<property name="username" value="${mail.username}" />
+    	<property name="password" value="${mail.password}" />
+    	<property name="javaMailProperties">
+    		<props>
+        		<prop key="mail.smtp.starttls.enable">true</prop>
+    		</props>
+		</property> -->
+		<property name="host" value="${mail.host}" />
+        <property name="port" value="${mail.port}" />
+        <property name="protocol" value="${mail.protocol}" />
+        <property name="username" value="${mail.username}" />
+        <property name="password" value="${mail.password}" />
+        <property name="javaMailProperties">
+            <props>
+                <prop key="mail.smtp.auth">true</prop>
+                <prop key="mail.smtp.starttls.enable">true</prop>
+                <prop key="mail.smtp.quitwait">false</prop>
+            </props>
+        </property>
+	</bean>
+	<bean id="accountValidator" class="org.ddk.spring.store.domain.logic.AccountValidator" />
+	<bean id="orderValidator" class="org.ddk.spring.store.domain.logic.OrderValidator" />
+	<bean id="store" class="org.ddk.spring.store.domain.logic.StoreImpl">
+		<property name="accountDao" ref="accountDao" />
+		<property name="categoryDao" ref="categoryDao" />
+		<property name="productDao" ref="productDao" />
+		<property name="itemDao" ref="itemDao" />
+		<property name="orderDao" ref="orderDao" />
+	</bean>
+	<aop:config>
+		<aop:advisor pointcut="execution(* *..StoreFacade.*(..))" advice-ref="txAdvice" />
+		<aop:advisor pointcut="execution(* *..StoreFacade.insertOrder(*..Order))" advice-ref="emailAdvice" />
+	</aop:config>
+	<tx:advice id="txAdvice">
+		<tx:attributes>
+			<tx:method name="insert*" />
+			<tx:method name="update*" />
+			<tx:method name="*" read-only="true" />
+		</tx:attributes>
+	</tx:advice>
+	<bean id="emailAdvice" class="org.ddk.spring.store.domain.logic.SendOrderConfirmationEmailAdvice">
+		<property name="mailSender" ref="mailSender" />
+	</bean>
+</beans>

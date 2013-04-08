@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping SYSTEM "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="org.ddk.spring.store.domain">
+	<typedef class="org.ddk.spring.store.domain.StringEnumUserType" name="ship_status">
+		<param name="enumClassname">org.ddk.spring.store.domain.ShipStatus</param>
+	</typedef>
+	<class name="Order" table="Orders" lazy="true">
+		<cache usage="read-write" />
+		<id name="id" type="long" column="orderId" unsaved-value="null" access="field">
+			<generator class="native" />
+		</id>
+		<version name="version" access="org.hibernate.property.DirectPropertyAccessor" />
+		<many-to-one name="user" column="userId" not-null="true" update="false" access="field" />
+		<property name="orderDate" type="timestamp" update="false" not-null="true" access="field" />
+		<component name="shipAddr" class="Address">
+			<property name="addr1" column="shipAddr1" type="string" length="80" not-null="true" />
+			<property name="addr2" column="shipAddr2" type="string" length="80" not-null="true" />
+			<property name="city" column="shipCity" type="string" length="80" not-null="true" />
+			<property name="state" column="shipState" type="string" length="80" not-null="true" />
+			<property name="zipcode" column="shipZipcode" type="string" length="20" not-null="true" />
+			<property name="country" column="shipCountry" type="string" length="20" not-null="true" />
+		</component>
+		<component name="billAddr" class="Address">
+			<property name="addr1" column="billAddr1" type="string" length="80" not-null="true" />
+			<property name="addr2" column="billAddr2" type="string" length="40" not-null="true" />
+			<property name="city" column="billCity" type="string" length="80" not-null="true" />
+			<property name="state" column="billState" type="string" length="80" not-null="true" />
+			<property name="zipcode" column="billZipcode" type="string" length="20" not-null="true" />
+			<property name="country" column="billCountry" type="string" length="20" not-null="true" />
+		</component>
+		<property name="courier" type="string" length="80" not-null="true" />
+		<property name="totalPrice" type="double" precision="10" scale="2" />
+		<property name="billToFirstname" type="string" length="80" not-null="true" />
+		<property name="billToLastname" type="string" length="80" not-null="true" />
+		<property name="shipToFirstname" type="string" length="80" not-null="true" />
+		<property name="shipToLastname" type="string" length="80" not-null="true" />
+		<property name="cardNumber" type="string" length="80" not-null="true" />
+		<property name="expireDate" type="string" length="7" not-null="true" />
+		<property name="cardType" type="string" length="80" not-null="true" />
+		<property name="shipStatus" column="shipStatus" type="ship_status" not-null="true" access="field" length="20" />
+		<property name="locale" type="locale" not-null="true" length="5" />
+		<list name="lineItems" cascade="all-delete-orphan" access="field"
+			batch-size="10" fetch="join" lazy="false">
+			<key not-null="true">
+				<column name="orderId" />
+			</key>
+			<list-index column="lineItemPosition" />
+			<one-to-many class="LineItem" />
+		</list>
+	</class>
+</hibernate-mapping>

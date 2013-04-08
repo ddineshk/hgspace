@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping SYSTEM "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="org.ddk.spring.store.domain">
+	<class name="Item" table="Item" lazy="true">
+		<cache usage="read-write" />
+		<id name="id" type="long" column="itemId" unsaved-value="null" access="field">
+			<generator class="native" />
+		</id>
+		<version name="version" access="org.hibernate.property.DirectPropertyAccessor" />
+		<property name="itemName" type="string">
+			<column name="itemName" not-null="true" length="10" unique="true" />
+		</property>
+		<many-to-one name="product" lazy="no-proxy" class="Product" column="productId" 
+		update="false" not-null="true" access="field" foreign-key="FK_productId" />
+		<property name="listPrice" type="double" precision="10" scale="2" />
+		<property name="unitCost" type="double" precision="10" scale="2" />
+		<many-to-one name="supplier" lazy="no-proxy" class="Supplier" column="supplierId" not-null="false" access="field" />
+		<property name="status" type="string" length="2" />
+		<property name="attr1" type="string" length="80" />
+		<property name="attr2" type="string" length="80" />
+		<property name="attr3" type="string" length="80" />
+		<property name="attr4" type="string" length="80" />
+		<property name="attr5" type="string" length="80" />
+	</class>
+</hibernate-mapping>

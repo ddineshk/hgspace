@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping SYSTEM "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="org.ddk.spring.store.domain">
+	<class name="Supplier" table="Supplier" lazy="true">
+		<cache usage="read-only" />
+		<id name="id" type="long" column="supplierId" unsaved-value="null" access="field">
+			<generator class="native" />
+		</id>
+		<version name="version" access="org.hibernate.property.DirectPropertyAccessor" />
+		<property name="supplierName" type="string">
+			<column name="supplierName" not-null="true" length="80" unique="true" />
+		</property>
+		<property name="status" type="string" length="2" not-null="true" />
+		<component name="supplierAddr" class="Address">
+			<property name="addr1" type="string" length="80" />
+			<property name="addr2" type="string" length="80" />
+			<property name="city" type="string" length="80" />
+			<property name="state" type="string" length="80" />
+			<property name="zipcode" type="string" length="20" />
+			<property name="country" type="string" length="20" />
+		</component>
+		<property name="phone" type="string" length="80" not-null="true" />
+		<set name="items" inverse="true" cascade="save-update" access="field">
+			<key column="supplierId" />
+			<one-to-many class="Item" />
+		</set>
+	</class>
+</hibernate-mapping>

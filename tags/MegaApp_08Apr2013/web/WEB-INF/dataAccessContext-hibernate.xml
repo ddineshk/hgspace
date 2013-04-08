@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+
+<beans>
+	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
+		<property name="driverClass" value="${jdbc.driverClassName}" />
+		<property name="jdbcUrl" value="${jdbc.url}" />
+	</bean>
+	<bean id="sessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="mappingResources">
+			<list>
+				<value>org/ddk/spring/store/domain/Account.hbm.xml</value>
+				<value>org/ddk/spring/store/domain/Banner.hbm.xml</value>
+				<value>org/ddk/spring/store/domain/Category.hbm.xml</value>
+				<value>org/ddk/spring/store/domain/Inventory.hbm.xml</value>
+				<value>org/ddk/spring/store/domain/Item.hbm.xml</value>
+				<value>org/ddk/spring/store/domain/LineItem.hbm.xml</value>
+				<value>org/ddk/spring/store/domain/Order.hbm.xml</value>
+				<value>org/ddk/spring/store/domain/Product.hbm.xml</value>
+				<value>org/ddk/spring/store/domain/Supplier.hbm.xml</value>
+			</list>
+		</property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">${hibernate.dialect}</prop>
+				<prop key="hibernate.show_sql">true</prop>
+				<prop key="hibernate.format_sql">true</prop>
+				<prop key="hibernate.generate_statistics">true</prop>
+				<prop key="hibernate.transaction.factory_class">org.hibernate.transaction.JDBCTransactionFactory</prop>
+				<prop key="hibernate.max_fetch_depth">2</prop>
+				<prop key="hibernate.cache.use_query_cache">true</prop>
+				<prop key="hibernate.cache.provider_class">org.hibernate.cache.OSCacheProvider</prop>
+				
+			</props>
+		</property>
+		<property name="eventListeners">
+			<map>
+				<entry key="merge">
+					<bean class="org.springframework.orm.hibernate3.support.IdTransferringMergeEventListener" />
+				</entry>
+			</map>
+		</property>
+	</bean>
+
+	<bean id="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	
+	<bean id="accountDao" class="org.ddk.spring.store.dao.hibernate.HibernateAccountDao">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean id="categoryDao" class="org.ddk.spring.store.dao.hibernate.HibernateCategoryDao">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean id="productDao" class="org.ddk.spring.store.dao.hibernate.HibernateProductDao">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean id="itemDao" class="org.ddk.spring.store.dao.hibernate.HibernateItemDao">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean id="orderDao" class="org.ddk.spring.store.dao.hibernate.HibernateOrderDao">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+</beans>
