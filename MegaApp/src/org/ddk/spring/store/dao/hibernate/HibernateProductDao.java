@@ -32,7 +32,7 @@ public class HibernateProductDao extends HibernateDaoSupport implements
 			likeString.append(" OR upper(p.productDesc) like '%" + keyword+ "%'");
 			likeString.append(" OR upper(c.categoryName) like '%" + keyword+ "%'");
 		}
-
+		s.close();
 		return getHibernateTemplate().find(
 				"select distinct p " + "from Product p, Category c "+ "where c.id = p.category.id and ( "+ likeString.toString() + " )");
 	}
