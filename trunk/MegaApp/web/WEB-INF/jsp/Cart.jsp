@@ -1,6 +1,32 @@
 <%@ include file="IncludeTop.jsp"%>
 <link rel="stylesheet" href="css/jquery-ui.css"/>
 <!-- <script src="js/jquery-1.7.2.js" type="text/javascript"></script> -->
+<style>
+.cart {
+	font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+	font-size: 12px;
+	text-align: left;
+	border-collapse: collapse;
+	margin: 20px;
+	
+	
+}
+.cart thead tr {
+	background: #d0dafd;
+}
+
+.cart td {
+	background: #e8edff;
+	border-top: 1px solid #fff;
+	
+	color: #669;
+	padding: 2px;
+}
+
+.cart tbody tr:hover td {
+	background: #d0dafd;
+}
+</style>
 <script src="js/jquery-ui.js" type="text/javascript"></script>
 <script type="text/javascript">
 $(function() {
@@ -9,11 +35,57 @@ $(function() {
         collapsible: true
     });
     
+    
+   	$( "#accordion-resizer" ).resizable({
+	   	minHeight: 140,
+	   	minWidth: 200,
+	   	resize: function() {
+		   	$( "#accordion" ).accordion( "refresh" );
+	   	}
+   	});
+   	
+    
     $('.items').draggable({
         revert: true,
         proxy: 'clone',
         containment : 'document',
         cursor : 'crosshair'
+    });
+
+    var previous ='';
+    $('input[id^="qty"]').focus(function(){
+    	previous = $.trim($(this).val());
+    	}).change(function(){
+    	
+    	var trimqty = $.trim($(this).val());
+    	if(trimqty==''){
+    		alert('Enter a number');
+    		$(this).val(previous);
+    		return false;
+    	}
+    	if(trimqty=='0'){
+    		alert('User delete button to Remove the Item');
+    		$(this).val(previous);
+    		return false;
+    	}
+    	if(isNaN(trimqty)){
+    		alert('Enter only numbers for quantity');
+    		$(this).val(previous);
+    		return false;
+    	}
+    		
+    	var currRow = $(this).attr("id");
+    	
+    	var currRowArr = currRow.match(/([A-Z]){3}-(\d){1,2}/);
+    	
+    	var listPriceStr = $(this).parent().next().html();
+        
+        var listPriceArrr = listPriceStr.match(/(\d{1,3})(\.\d{1,3})?/);
+    	
+		var listPrice = Number(trimqty)*Number(listPriceArrr[0]);
+		
+    	$('#totCost'+currRowArr[0]).html('Rs '+(listPrice).formatMoney(2,'.',','));
+		
     });
     
     Number.prototype.formatMoney = function(c, d, t){
@@ -32,7 +104,7 @@ $(function() {
                 data: "itemId=" + ui.draggable.attr('id'),
                 success: function(res){
                 	if(res.item!=null){
-		                  $('<tr id=\"newRow'+rowLen+'\" bgcolor=\"#FFFF88\"></tr>').text('').appendTo($('.cart'));
+		                  $('<tr id=\"newRow'+rowLen+'\" ></tr>').text('').appendTo($('.cart'));
 		                  $('<td></td>').html('<b><a href=\"viewItem.do?itemName='+res.item.itemName+'\">'+res.item.itemName+'</a></b>').appendTo($('#newRow'+rowLen));
 		                  $('<td></td>').html(res.item.product.productNumber).appendTo($('#newRow'+rowLen));
 		                  $('<td></td>').html(res.item.attr1+' '+res.item.attr2+' '+res.item.attr3+' '+res.item.attr4+' '+res.item.attr5+' '+res.item.product.productName).appendTo($('#newRow'+rowLen));
@@ -41,7 +113,7 @@ $(function() {
 		                  }else{
 		                	  $('<td align=\"center\"></td>').html('false').appendTo($('#newRow'+rowLen));
 		                  }
-		                  $('<td align=\"center\"></td>').html('<input type=\"text\" size=3 name=\"'+res.item.itemName+'" value=\"1\" />').appendTo($('#newRow'+rowLen));
+		                  $('<td align=\"center\"></td>').html('<input id=\"qty'+res.item.itemName+'\" type=\"text\" size=3 name=\"'+res.item.itemName+'\" value=\"1\" />').appendTo($('#newRow'+rowLen));
 		                  $('<td align=\"right\"></td>').html('Rs '+(res.item.listPrice).formatMoney(2,'.',',')).appendTo($('#newRow'+rowLen));
 		                  var cost = Number(res.item.listPrice) * Number($('input[name="'+res.itemName+'"]').val());
 		                  $('<td id=\"totCost'+res.item.itemName+'\" align=\"right\"></td>').html('Rs '+(cost).formatMoney(2,'.',',')).appendTo($('#newRow'+rowLen));
@@ -77,22 +149,27 @@ $(function() {
 					</td>
 				</tr>
 			</table>
+			<div id="accordion-resizer" class="ui-widget-content">
 			<div id="accordion">
 				<c:forEach items="${allList}" var="myLs">
 				<h3>${myLs.key}</h3>
-				<span>
+				<table>
 					<c:forEach var="item" items="${myLs.value}">
-					 <div class="items" id="${item.itemName}">${item.itemName} - ${item.product.productName}</div>
+					<tr>
+					<td><div class="items" id="${item.itemName}">${item.itemName} - ${item.product.productName}</div></td>
+					 </tr>
 					</c:forEach>
-				</span>
+					
+				</table>
 				</c:forEach>
+			</div>
 			</div>
 		</td>
 		<td valign="top" align="center">
 			<h2 align="center">Shopping Cart</h2>
 			<form action="<c:url value="/updateCartQuantities.do"/>" method="post" accept-charset="utf-8">
 				<div align="center" style="border-color: black;border-style: solid;">
-					<table style="background-color: #6468e7;border :0;" class="cart">
+					<table class="cart">
 						<thead>
 						<tr bgcolor="#cccccc">
 							<td><b>Item ID</b></td>
@@ -106,12 +183,12 @@ $(function() {
 						</tr>
 						</thead>
 						<c:if test="${cartForm.cart.numberOfItems == 0}">
-						<tr bgcolor="#FFFF88" class="emptyRow">
+						<tr class="emptyRow">
 							<td colspan="8"><b>Your cart is empty.</b></td>
 						</tr>
 						</c:if>
 						<c:forEach var="cartItem" items="${cartForm.cart.cartItemList.pageList}">
-						<tr bgcolor="#FFFF88">
+						<tr >
 							<td><b><a href="<c:url value="/viewItem.do"><c:param name="itemName" value="${cartItem.item.itemName}"/></c:url>">
 									<c:out value="${cartItem.item.itemName}" /></a></b>
 							</td>
@@ -122,7 +199,7 @@ $(function() {
 							</td>
 							<td align="center"><c:out value="${cartItem.inStock}" /></td>
 							<td align="center">
-								<input type="text" size="3" name="<c:out value="${cartItem.item.itemName}"/>" value="<c:out value="${cartItem.quantity}"/>" />
+								<input id="qty${cartItem.item.itemName}" type="text" size="3" name="<c:out value="${cartItem.item.itemName}"/>" value="<c:out value="${cartItem.quantity}"/>" />
 							</td>
 							<td align="right"><fmt:formatNumber value="${cartItem.item.listPrice}" pattern="Rs #,##0.00" /></td>
 							<td id="totCost${cartItem.item.itemName}" align="right"><fmt:formatNumber value="${cartItem.totalPrice}" pattern="Rs #,##0.00" /></td>
