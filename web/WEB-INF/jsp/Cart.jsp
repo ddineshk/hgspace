@@ -76,20 +76,28 @@ $(function() {
     		
     	var currRow = $(this).attr("id");
     	
-    	var currRowArr = currRow.match(/([A-Z]){3}-(\d){1,2}/);
+    	var currRowId = getVal(currRow,/([A-Z]){3}-(\d){1,2}/);
     	
     	var listPriceStr = $(this).parent().next().html();
-        
-        var listPriceArrr = listPriceStr.match(/(\d{1,3})(\.\d{1,3})?/);
     	
-		var listPrice = Number(trimqty)*Number(listPriceArrr[0]);
+        var listPriceVal = getVal(listPriceStr ,/(\d{1,3})(\.\d{1,3})?/);
+        
+		var listPrice = Number(trimqty)*Number(listPriceVal);
+				
+		$('#totCost'+currRowId).html('Rs '+(listPrice).formatMoney(2,'.',','));
 		
-    	$('#totCost'+currRowArr[0]).html('Rs '+(listPrice).formatMoney(2,'.',','));
-		
+		var subTotal = 0;
+		$('td[id^="totCost"]').each(function() {
+			subTotal += Number((getVal($(this).html(),/((\d{0,3})[,]?)(\d{1,3})(\.\d{1,3})?/)).replace(',',''));
+			//alert(subTotal);
+		});
+		$('#subTot').html('Rs '+(subTotal).formatMoney(2,'.',','));
     });
     
     function getVal(str,regEx){
-    	
+    	var arr = str.match(regEx);
+    	//alert(arr[0]+' , '+arr[1]+' , '+arr[2]);
+    	return arr[0];
     }
     
     Number.prototype.formatMoney = function(c, d, t){
@@ -117,7 +125,7 @@ $(function() {
 		                  }else{
 		                	  $('<td align=\"center\"></td>').html('false').appendTo($('#newRow'+rowLen));
 		                  }
-		                  $('<td align=\"center\"></td>').html('<input id=\"qty'+res.item.itemName+'\" type=\"text\" size=3 name=\"'+res.item.itemName+'\" value=\"1\" />').appendTo($('#newRow'+rowLen));
+		                  $('<td align=\"center\"></td>').html('<input id=\"qty'+res.item.itemName+'\" type=\"text\" maxlength=3 size=3 name=\"'+res.item.itemName+'\" value=\"1\" />').appendTo($('#newRow'+rowLen));
 		                  $('<td align=\"right\"></td>').html('Rs '+(res.item.listPrice).formatMoney(2,'.',',')).appendTo($('#newRow'+rowLen));
 		                  var cost = Number(res.item.listPrice) * Number($('input[name="'+res.itemName+'"]').val());
 		                  $('<td id=\"totCost'+res.item.itemName+'\" align=\"right\"></td>').html('Rs '+(cost).formatMoney(2,'.',',')).appendTo($('#newRow'+rowLen));
@@ -203,7 +211,7 @@ $(function() {
 							</td>
 							<td align="center"><c:out value="${cartItem.inStock}" /></td>
 							<td align="center">
-								<input id="qty${cartItem.item.itemName}" type="text" size="3" name="<c:out value="${cartItem.item.itemName}"/>" value="<c:out value="${cartItem.quantity}"/>" />
+								<input id="qty${cartItem.item.itemName}" type="text" maxlength="3" size="3" name="<c:out value="${cartItem.item.itemName}"/>" value="<c:out value="${cartItem.quantity}"/>" />
 							</td>
 							<td align="right"><fmt:formatNumber value="${cartItem.item.listPrice}" pattern="Rs #,##0.00" /></td>
 							<td id="totCost${cartItem.item.itemName}" align="right"><fmt:formatNumber value="${cartItem.totalPrice}" pattern="Rs #,##0.00" /></td>
