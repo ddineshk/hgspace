@@ -84,12 +84,21 @@ $(function() {
     	
 		var listPrice = Number(trimqty)*Number(listPriceArrr[0]);
 		
+		var subTotal = 0;
+		$('td[id^="totCost"]').each(function() {
+			subTotal += Number((getVal($(this).html(),/((\d{0,3})[,]?)(\d{1,3})(\.\d{1,3})?/)).replace(',',''));
+			
+		});
+		
+		$('#subTot').html('Rs '+(subTotal).formatMoney(2,'.',','));
+		
     	$('#totCost'+currRowArr[0]).html('Rs '+(listPrice).formatMoney(2,'.',','));
 		
     });
     
     function getVal(str,regEx){
-    	
+    	var arr = str.match(regEx);
+    	return arr[0];
     }
     
     Number.prototype.formatMoney = function(c, d, t){
