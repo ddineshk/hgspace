@@ -35,3 +35,23 @@ java.lang.NoSuchMethodException: com.dinesh.piloting.action.LanguageSelectionAct
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:908)
 	at java.lang.Thread.run(Thread.java:662)
 12:38:55,533 ERROR MyExceptionHandler:20 - com.dinesh.piloting.exp.MyException: MyStruts : null
+12:51:31,182 ERROR ValidatorPlugIn:173 - Skipping validation rules file from '/WEB-INF/validator-rules.xml'.  No url could be located.
+javax.servlet.ServletException: Skipping validation rules file from '/WEB-INF/validator-rules.xml'.  No url could be located.
+	at org.apache.struts.validator.ValidatorPlugIn.initResources(ValidatorPlugIn.java:231)
+	at org.apache.struts.validator.ValidatorPlugIn.init(ValidatorPlugIn.java:164)
+	at org.apache.struts.action.ActionServlet.initModulePlugIns(ActionServlet.java:871)
+	at org.apache.struts.action.ActionServlet.init(ActionServlet.java:359)
+	at javax.servlet.GenericServlet.init(GenericServlet.java:160)
+	at org.apache.catalina.core.StandardWrapper.initServlet(StandardWrapper.java:1266)
+	at org.apache.catalina.core.StandardWrapper.loadServlet(StandardWrapper.java:1185)
+	at org.apache.catalina.core.StandardWrapper.load(StandardWrapper.java:1080)
+	at org.apache.catalina.core.StandardContext.loadOnStartup(StandardContext.java:5027)
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5314)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:150)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1559)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1549)
+	at java.util.concurrent.FutureTask$Sync.innerRun(FutureTask.java:303)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:138)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:886)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:908)
+	at java.lang.Thread.run(Thread.java:662)
