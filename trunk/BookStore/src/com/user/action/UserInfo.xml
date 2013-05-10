@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<constant name="struts.devMode" value="true" />
+	<package name="user" namespace="/user" extends="struts-default">
+		<action name="register">
+			<result name="success">/WEB-INF/user/registerForm.jsp</result>
+		</action>
+		<action name="registerAction" class="registerAction">
+			<result name="success">/WEB-INF/user/MainPage.jsp</result>
+			<result name="error">/WEB-INF/user/registerForm.jsp</result>
+			<result name="input">/WEB-INF/user/registerForm.jsp</result>
+		</action>
+		<action name="userLogin">
+			<result>/WEB-INF/user/login.jsp</result>
+		</action>
+		<action name="userLoginAction" class="userLoginAction">
+			<result name="success">/WEB-INF/user/MainPage.jsp</result>
+			<result name="input">/WEB-INF/user/login.jsp</result>
+			<result name="error">/WEB-INF/user/login.jsp</result>
+		</action>
+		<action name="userViewBooks" class="userViewBooks">
+			<result name="success">/WEB-INF/user/userViewBooksPage.jsp</result>
+			<result name="error">/WEB-INF/user/userViewBooksPage.jsp</result>
+		</action>
+		<action name="userQueryByBookName" class="userQueryByBookName" method="queryByBookName">
+			<result name="success">/WEB-INF/user/userViewBooksPage.jsp</result>
+			<result name="input">/WEB-INF/user/userViewBooksPage.jsp</result>
+			<result name="error">/WEB-INF/user/userViewBooksPage.jsp</result>
+		</action>
+		<action name="userQueryByBookType" class="userQueryByBookType" method="queryByBookType">
+			<result name="success">/WEB-INF/user/userViewBooksPage.jsp</result>
+			<result name="input">/WEB-INF/user/userViewBooksPage.jsp</result>
+			<result name="error">/WEB-INF/user/userViewBooksPage.jsp</result>
+		</action>
+		<action name="userViewBooksDetail" class="userViewBooksDetail">
+			<result name="success">/WEB-INF/user/userViewBooksDetailPage.jsp
+			</result>
+		</action>
+		<action name="viewCart" class="viewCart">
+			<result name="success">/WEB-INF/user/viewCart.jsp</result>
+		</action>
+		<action name="updateBookQuantity" class="updateBookQuantity">
+			<result name="success">/WEB-INF/user/viewCart.jsp</result>
+			<result name="input">/WEB-INF/user/viewCart.jsp</result>
+			<result name="error">/WEB-INF/user/viewCart.jsp</result>
+		</action>
+		<action name="cancelOder" class="cancelOder">
+			<result name="success">/WEB-INF/user/viewCart.jsp</result>
+			<result name="input">/WEB-INF/user/viewCart.jsp</result>
+			<result name="error">/WEB-INF/user/viewCart.jsp</result>
+		</action>
+		<action name="processOrder">
+			<result name="success">/WEB-INF/user/viewOrderConfirm.jsp</result>
+		</action>
+		<action name="addOrder" class="addOrder">
+			<result name="success" type="redirectAction">
+				<param name="namespace">/user</param>
+				<param name="actionName">UserMainPage</param>
+			</result>
+			<result name="error">/WEB-INF/user/viewOrderConfirm.jsp</result>
+		</action>
+		<action name="userQueryAllOrder" class="userQueryAllOrder">
+			<result name="success">/WEB-INF/user/allOrder.jsp</result>
+		</action>
+		<action name="userQueryOrderDetail" class="userQueryOrderDetail" method="queryOrderBooks">
+			<result name="success">/WEB-INF/user/orderDetail.jsp</result>
+		</action>
+		<action name="userDeleteUnProcessOrder" class="userDeleteUnProcessOrder" method="deleteOrders">
+			<result name="success">/WEB-INF/user/allOrder.jsp</result>
+		</action>
+		<action name="updateUserInfo">
+			<result name="success">/WEB-INF/user/updateUserInfo.jsp</result>
+		</action>
+		<action name="updateUserInfoForm" class="updateUserInfoForm">
+			<result name="input">/WEB-INF/user/updateUserInfo.jsp</result>
+			<result name="error">/WEB-INF/user/updateUserInfo.jsp</result>
+			<result name="success" type="redirectAction">
+				<param name="namespace">/user</param>
+				<param name="actionName">UserMainPage</param>
+			</result>
+		</action>
+		<action name="userLogout" class="com.user.action.UserLogoutAction">
+			<result name="success" type="redirectAction">
+				<param name="namespace">/user</param>
+				<param name="actionName">userLogin</param>
+			</result>
+		</action>
+		<action name="UserMainPage">
+			<result name="success">/WEB-INF/user/MainPage.jsp</result>
+		</action>
+	</package>
+</struts>
