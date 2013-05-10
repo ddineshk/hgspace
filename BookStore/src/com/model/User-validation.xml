@@ -1,0 +1,47 @@
+<!DOCTYPE validators PUBLIC "-//OpenSymphony Group//XWork Validator 1.0.2//EN"
+"http://www.opensymphony.com/xwork/xwork-validator-1.0.2.dtd">
+<validators>
+	<field name="name">
+		<field-validator type="requiredstring">
+			<message>User name can not be blank</message>
+		</field-validator>
+	</field>
+	<field name="userRealName">
+		<field-validator type="requiredstring">
+			<message>Real name can not be blank</message>
+		</field-validator>
+	</field>
+	<field name="password">
+		<field-validator type="requiredstring" short-circuit="true">
+			<message>Password can not be blank</message>
+		</field-validator>
+		<field-validator type="stringlength">
+			<param name="minLength">6</param>
+			<param name="maxLength">10</param>
+			<message>Password length can not be less than 6 and more than 10</message>
+		</field-validator>
+	</field>
+	<field name="address">
+		<field-validator type="requiredstring">
+			<message>Address can not be blank</message>
+		</field-validator>
+	</field>
+	<field name="email">
+		<field-validator type="requiredstring" short-circuit="true">
+			<message>Email can not be blank</message>
+		</field-validator>
+		<field-validator type="email">
+			<message>Email format is incorrect</message>
+		</field-validator>
+	</field>
+	<field name="phone">
+		<field-validator type="requiredstring">
+			<message>Phone number can not be blank</message>
+		</field-validator>
+	</field>
+	<field name="mobilePhone">
+		<field-validator type="requiredstring">
+			<message>Mobile phone can not be blank</message>
+		</field-validator>
+	</field>
+</validators>

@@ -1,0 +1,21 @@
+<!DOCTYPE validators PUBLIC "-//OpenSymphony Group//XWork Validator 1.0.2//EN"
+"http://www.opensymphony.com/xwork/xwork-validator-1.0.2.dtd">
+<validators>
+	<field name="name">
+		<field-validator type="requiredstring">
+			<message>Name can not be blank</message>
+		</field-validator>
+	</field>
+	<field name="password">
+
+		<field-validator type="requiredstring" short-circuit="true">
+			<message>Do not use a blank password</message>
+		</field-validator>
+
+		<field-validator type="stringlength">
+			<param name="minLength">6</param>
+			<param name="maxLength">10</param>
+			<message>Password length can not be less than 6 and greater than 10</message>
+		</field-validator>
+	</field>
+</validators>

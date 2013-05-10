@@ -1,0 +1,82 @@
+<!DOCTYPE validators PUBLIC "-//OpenSymphony Group//XWork Validator 1.0.2//EN"
+"http://www.opensymphony.com/xwork/xwork-validator-1.0.2.dtd">
+<validators>
+
+	<field name="bookNumber">
+		<field-validator type="required">
+			<message>書籍編號不能空白</message>
+		</field-validator>
+
+	</field>
+
+	<field name="isbn">
+		<field-validator type="requiredstring">
+			<message>isbn不能空白</message>
+		</field-validator>
+
+	</field>
+
+
+	<field name="bookName">
+		<field-validator type="requiredstring">
+			<message>書名不能空白</message>
+		</field-validator>
+	</field>
+
+
+	<field name="author">
+		<field-validator type="requiredstring">
+			<message>作者不能空白</message>
+		</field-validator>
+	</field>
+
+
+	<field name="bookPress">
+		<field-validator type="requiredstring">
+			<message>出版社不能空白</message>
+		</field-validator>
+	</field>
+
+
+	<field name="language">
+		<field-validator type="requiredstring">
+			<message> 語言不能空白</message>
+		</field-validator>
+	</field>
+
+	<field name="price">
+
+		<field-validator type="required">
+			<message>價格不能空白</message>
+		</field-validator>
+
+	</field>
+
+	<field name="pages">
+		<field-validator type="required">
+			<message>頁數不能空白</message>
+		</field-validator>
+	</field>
+
+	<field name="bookDiscription">
+		<field-validator type="requiredstring">
+			<message>書籍簡介不能空白</message>
+		</field-validator>
+	</field>
+
+	<field name="bookAmount">
+		<field-validator type="required">
+			<message>書籍數量不能空白</message>
+		</field-validator>
+	</field>
+
+
+	<field name="bookSales">
+		<field-validator type="required">
+			<message>書籍銷售量不能空白</message>
+		</field-validator>
+
+	</field>
+
+</validators>
+
