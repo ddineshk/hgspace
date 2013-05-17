@@ -51,11 +51,17 @@ body {
 
 .errorMessage {
 	border: 1px solid;
-	margin: 10px 0px;
-	padding:15px 10px 15px 50px;
-	background-position: 10px center;
+	margin: 0px 0px;
+	padding:0px 0px 0px 40px;
+	background-position: 1px center;
 	color: #D8000C;
 	background-color: #FFBABA;
 	background-image: url(../images/error.png);
     background-repeat: no-repeat;
+}
+
+#header { 
+	background-color: #fa8328;
+	background-repeat: repeat-x;
+	background: -moz-linear-gradient(top, #a85b12, #fa8328);
 }

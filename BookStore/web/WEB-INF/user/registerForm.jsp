@@ -4,6 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html;">
+<link rel="stylesheet" type="text/css" href="../css/books.css"/>
 <title>Registration User</title>
 </head>
 <body>
