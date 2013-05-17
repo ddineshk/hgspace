@@ -7,32 +7,10 @@
 <meta http-equiv="Content-Type" content="text/html;">
 <title>Browse Books</title>
 <script type="text/javascript" src="../js/jquery-1.9.1.js"></script>
-<script type="text/javascript" src="../js/tagcloud.jquery.js"></script>
-<script type="text/javascript">
-    var settings = {
-    		height: 400, 
-    		width: 400,
-    		radius: 150,
-    		speed: 3,
-    		slower: 0.9,
-    		timer: 5,
-    		fontMultiplier: 15,
-    		hoverStyle: { border: 'none', color: '#0b2e6f' },
-    		mouseOutStyle: { border: '', color: ''}
-    };
-    $(document).ready(function(){
-        $('#tagcloud').tagoSphere(settings);
-    });
-</script>
-
+<% session = request.getSession(false);if(session.getAttribute("user")==null ){response.sendRedirect("userLogin.action");}	%>
 </head>
 <body>
-	<% 
-	   session = request.getSession(false);
-	   if(session.getAttribute("user")==null ){
-		   response.sendRedirect("userLogin.action");
-	   }
-	%>
+	
 	<jsp:include page="header.jsp" />
 	<s:form action="userQueryByBookName">
 		<s:textfield name="bookName" label="Enter Book Name" />
@@ -55,7 +33,7 @@
 		<display:column property="language" title="Language" sortable="true" />
 		<display:setProperty name="paging.banner.placement" value="bottom" />
 	</display:table>
-	<div id="tagcloud">
+	<div>
 		<ul>
 			<s:iterator value="books">
 				<li><a href=""><s:property value="bookName" /></a></li>

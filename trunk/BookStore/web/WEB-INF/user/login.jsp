@@ -8,7 +8,11 @@
 <title>Login</title>
 </head>
 <body>
+	<div id="header">
+	<br/>
 	<h3 align="center">User Login</h3>
+	<br/>
+	</div>
 	<a href="/BookStore/index.jsp">Home</a>
 	<br>
 	<br>
