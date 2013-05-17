@@ -7,6 +7,9 @@
 	<constant name="struts.devMode" value="true" />
 	<constant name="struts.multipart.saveDir" value="/tmp" />
 	<package name="admin" namespace="/admin" extends="struts-default">
+	<result-types>
+		<result-type name="json" class="org.apache.struts2.json.JSONResult"/>
+	</result-types>
 
 		<action name="adminLogin">
 			<result>/WEB-INF/admin/adminlogin.jsp</result>
@@ -86,6 +89,13 @@
 		</action>
 		<action name="adminViewUsers" class="adminViewUsers">
 			<result>/WEB-INF/admin/viewUsers.jsp</result>
+		</action>
+		<action name="delUsers" class="adminViewUsers" method="deleteUser">
+			<result name="success" type="json" >
+				<param name="excludeProperties">dao</param>
+		        <param name="ignoreHierarchy">false</param>
+		        <param name="excludeNullProperties">true</param>
+			</result>
 		</action>
 		<action name="adminlogout" class="com.admin.action.AdminLogoutAction">
 			<result name="success" type="redirectAction">
