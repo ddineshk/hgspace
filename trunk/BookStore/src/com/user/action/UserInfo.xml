@@ -63,6 +63,7 @@
 		</action>
 		<action name="userQueryAllOrder" class="userQueryAllOrder">
 			<result name="success">/WEB-INF/user/allOrder.jsp</result>
+			<result name="error">/WEB-INF/user/login.jsp</result>
 		</action>
 		<action name="userQueryOrderDetail" class="userQueryOrderDetail" method="queryOrderBooks">
 			<result name="success">/WEB-INF/user/orderDetail.jsp</result>

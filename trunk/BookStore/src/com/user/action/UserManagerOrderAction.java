@@ -26,7 +26,9 @@ public class UserManagerOrderAction extends ActionSupport {
 		HttpSession session = request.getSession();
 
 		User user = (User) session.getAttribute("user");
-
+		if(user==null){
+			return ERROR;
+		}
 		Integer user_id = user.getId();
 		List<Orders> orders = orderManagerServiceImpl.queryByUserId(user_id);
 		session.setAttribute("orders", orders);
