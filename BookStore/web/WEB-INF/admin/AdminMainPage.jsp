@@ -13,9 +13,6 @@
 	%>
 </head>
 <body>
-
-	<h2 style="text-align: center;">Spring Book Sore</h2>
-	<br />
 	<jsp:include page="header.jsp"></jsp:include>
 	<p style="text-align: center;">
 		<span style="font-weight: bold;"> Administrator Page</span><br />

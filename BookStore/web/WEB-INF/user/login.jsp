@@ -7,14 +7,10 @@
 <meta http-equiv="Content-Type" content="text/html;">
 <title>Login</title>
 </head>
-<body>
-	<div id="header">
-	<br/>
+<body style="background: url('../images/graph.png');background-repeat: repeat;">
 	<h3 align="center">User Login</h3>
 	<br/>
-	</div>
 	<a href="/BookStore/index.jsp">Home</a>
-	<br>
 	<br>
 	<center>
 		<s:form action="userLoginAction">

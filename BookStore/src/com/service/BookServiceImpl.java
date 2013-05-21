@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.dao.BookDAOImpl;
 import com.model.Book;
+import com.model.BookType;
 
 public class BookServiceImpl implements BookService{
 	
@@ -28,7 +29,7 @@ public class BookServiceImpl implements BookService{
 	}
 
 	@Override
-	public List<Book> queryByBookType(String bookType) {
+	public List<Book> queryByBookType(Integer bookType) {
 		return bookDAOImpl.queryByBookType(bookType);
 	}
 
@@ -50,6 +51,11 @@ public class BookServiceImpl implements BookService{
 	@Override
 	public Book queryByBookId(Integer id) {
 		return bookDAOImpl.queryByBookId(id);
+	}
+
+	@Override
+	public List<BookType> showAllTypes() {
+		return bookDAOImpl.showAllTypes();
 	}
 
 }

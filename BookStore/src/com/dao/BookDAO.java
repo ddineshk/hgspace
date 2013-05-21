@@ -3,6 +3,7 @@ package com.dao;
 import java.util.List;
 
 import com.model.Book;
+import com.model.BookType;
 
 public interface BookDAO {
 	
@@ -10,7 +11,9 @@ public interface BookDAO {
 	
 	List<Book> showAll();
 	
-	List<Book> queryByBookType(String bookType);
+	List<BookType> showAllTypes();
+	
+	List<Book> queryByBookType(Integer bookType);
 	
 	List<Book> queryByBookName(String bookName);
 	

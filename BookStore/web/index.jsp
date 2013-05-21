@@ -26,7 +26,7 @@
 		});
 		</script>
 	</head>
-	<body>
+	<body style="background: url('images/graph.png');background-repeat: repeat;">
 		<a href="http://www.springsource.org/">
 			<!-- <img style="border: 0px solid; width: 1221px; height: 130px;" src="images/banner4.jpg" alt=""> -->
 			<img style="border: 0px solid;" src="images/banner4.jpg" alt=""></a>

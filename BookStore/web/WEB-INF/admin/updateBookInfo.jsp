@@ -8,14 +8,7 @@
 <title>Update Book Information</title>
 </head>
 <body>
-	<h2 style="text-align: center;">Spring Book Sore</h2>
-	<br />
-	<%
-	   session = request.getSession(false);
-	   if(session.getAttribute("AdminName")==null){
-		   response.sendRedirect("adminLogin.action");
-	   }
-	%>
+<%session = request.getSession(false);if(session.getAttribute("AdminName")==null){response.sendRedirect("adminLogin.action");}%>
 	<jsp:include page="header.jsp"></jsp:include>
 	<h3>Update Book Information</h3>
 	<s:form action="updateBookInfoForm" method="POST" enctype="multipart/form-data">

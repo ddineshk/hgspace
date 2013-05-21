@@ -8,7 +8,8 @@ public class Book {
 	private Integer bookNumber;
 	private String isbn;
 	private String bookName;
-	private String bookType;
+	//private String bookType;
+	private BookType bookType;
 	private String author;
 	private String bookPress;
 	private Date publishDate;
@@ -106,10 +107,10 @@ public class Book {
 	public void setBookNumber(Integer bookNumber) {
 		this.bookNumber = bookNumber;
 	}
-	public String getBookType() {
+	public BookType getBookType() {
 		return bookType;
 	}
-	public void setBookType(String bookType) {
+	public void setBookType(BookType bookType) {
 		this.bookType = bookType;
 	}
 

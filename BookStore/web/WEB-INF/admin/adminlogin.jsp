@@ -4,9 +4,10 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html;">
+<link rel="stylesheet" type="text/css" href="../css/books.css" />
 <title>Administrator Login</title>
 </head>
-<body>
+<body style="background: url('../images/graph.png');background-repeat: repeat;">
 	<h3 align="center">Administrator Login</h3>
 	<a href="/BookStore/index.jsp">Home</a>
 	<br>

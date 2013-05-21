@@ -6,21 +6,9 @@
 <meta http-equiv="Content-Type" content="text/html;">
 <title>Book Details</title>
 </head>
-<body>
-	<%
-   session = request.getSession(false);
-   if(session.getAttribute("AdminName")==null){
-	   response.sendRedirect("adminLogin.action");
-   }
-%>
-
-	<h2 style="text-align: center;">Spring Book Sore</h2>
-	<br>
-
+<body><%session = request.getSession(false);if(session.getAttribute("AdminName")==null){response.sendRedirect("adminLogin.action");}%>
 	<jsp:include page="header.jsp"></jsp:include>
-
 	<h3>Book Details</h3>
-
 	<img align="right" src=<s:property value = "imgPath"/>>
 	<table align="center" cellpadding="5" cellspacing="15">
 		<tr>
