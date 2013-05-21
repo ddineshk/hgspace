@@ -16,9 +16,9 @@
         <property name="bookName" type="java.lang.String">
             <column name="bookName" />
         </property>
-         <property name="bookType" type="java.lang.String">
-            <column name="bookType" />
-        </property>
+        <many-to-one name="bookType" class="com.model.BookType" fetch="join" lazy="false">
+        	<column name="bookType_id"></column>
+        </many-to-one>
         
         <property name="author" type="java.lang.String">
             <column name="author" />

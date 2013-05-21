@@ -7,15 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html;">
 <title>Find Books</title>
 </head>
-<body>
-	<%
-	   session = request.getSession(false);
-	   if(session.getAttribute("AdminName")==null){
-		   response.sendRedirect("adminLogin.action");
-	   }
-	%>
-	<h2 style="text-align: center;">Spring Book Sore</h2>
-	<br>
+<body><%session = request.getSession(false);if(session.getAttribute("AdminName")==null){response.sendRedirect("adminLogin.action");}%>
 	<jsp:include page="header.jsp"></jsp:include>
 	<h3>Query Book Form</h3>
 	<s:form action="queryByBookName">
@@ -33,8 +25,8 @@
 		<display:column property="author" title="Author" sortable="true" />
 		<display:column property="bookPress" title="Press" sortable="true" />
 		<display:column property="language" title="Language" sortable="true" />
-		<display:column property="bookName" title="Delete" sortable="true" paramId="id" paramProperty="id" url="/admin/deleteBookById.action" />
-		<display:column property="bookName" title="Update" sortable="true" paramId="id" paramProperty="id" url="/admin/updateBookInfo.action" />
+		<display:column value="delete" title="Delete" sortable="true" paramId="id" paramProperty="id" url="/admin/deleteBookById.action" />
+		<display:column value="update" title="Update" sortable="true" paramId="id" paramProperty="id" url="/admin/updateBookInfo.action" />
 		<display:setProperty name="paging.banner.placement" value="bottom" />
 	</display:table>
 </body>

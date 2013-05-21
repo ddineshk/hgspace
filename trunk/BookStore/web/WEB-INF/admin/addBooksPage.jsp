@@ -5,21 +5,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html;">
 <title>New Book Page</title>
-	<%
-	   session = request.getSession(false);
-	   if(session.getAttribute("AdminName")==null){
-		   response.sendRedirect("adminLogin.action");
-	   }
-	%>
+<%session = request.getSession(false);if(session.getAttribute("AdminName")==null){response.sendRedirect("adminLogin.action");}%>
 </head>
 <body>
-	<h2 style="text-align: center;">Spring Book Sore</h2>
-	<br>
 	<jsp:include page="header.jsp"/>
 	<h3>New Books Form</h3>
-
 	<s:form action="addBooks" method="POST" enctype="multipart/form-data">
-	
 		<s:textfield name="bookNumber" label="Book Number" />
 		<s:textfield name="isbn" label=" ISBN" />
 		<s:textfield name="bookName" label="Book Name" />

@@ -63,5 +63,6 @@ body {
 #header { 
 	background-color: #fa8328;
 	background-repeat: repeat-x;
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#a85b12', endColorstr='#fa8328');
 	background: -moz-linear-gradient(top, #a85b12, #fa8328);
 }

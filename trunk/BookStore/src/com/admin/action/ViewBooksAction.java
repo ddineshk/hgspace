@@ -24,7 +24,7 @@ public class ViewBooksAction extends ActionSupport implements ModelDriven{
     
     HttpServletRequest request = ServletActionContext.getRequest();
     String bookName = request.getParameter("bookName");
-    String bookType = request.getParameter("bookType");
+    String bookTypeId = request.getParameter("bookTypeId");
     
 	@Override
 	public String execute() throws Exception {
@@ -42,7 +42,7 @@ public class ViewBooksAction extends ActionSupport implements ModelDriven{
 	}
 	
 	public String queryByBookType(){
-		books = bookServiceImpl.queryByBookType(bookType);
+		books = bookServiceImpl.queryByBookType(new Integer(bookTypeId));
 		request.setAttribute("books", books);
 		setBooks(books);
 		return SUCCESS;

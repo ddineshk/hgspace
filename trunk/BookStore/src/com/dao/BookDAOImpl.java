@@ -8,6 +8,7 @@ import org.springframework.orm.hibernate3.HibernateCallback;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
 import com.model.Book;
+import com.model.BookType;
 
 public class BookDAOImpl extends HibernateDaoSupport implements BookDAO{
 
@@ -35,14 +36,14 @@ public class BookDAOImpl extends HibernateDaoSupport implements BookDAO{
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<Book> queryByBookType(String bookType) {
-	    return getHibernateTemplate().findByNamedParam("from Book book where book.bookType = :bookType","bookType",bookType);
+	public List<Book> queryByBookType(Integer bookType) {
+	    return getHibernateTemplate().findByNamedParam("from Book book where book.bookType.id = :bookType","bookType",bookType);
 	}
 
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Book> queryByBookName(String bookName) {
-		return getHibernateTemplate().findByNamedParam("from Book book where book.bookName = :bookName" ,"bookName", bookName);
+		return getHibernateTemplate().findByNamedParam("from Book book where book.bookName like :bookName" ,"bookName", bookName+"%");
 	}
 
 	@Override
@@ -60,6 +61,18 @@ public class BookDAOImpl extends HibernateDaoSupport implements BookDAO{
 	@Override
 	public Book queryByBookId(Integer id) {
 		return getHibernateTemplate().get(Book.class, id);
+	}
+
+	@Override
+	public List<BookType> showAllTypes() {
+		return getHibernateTemplate().executeFind(new HibernateCallback(){
+			@Override
+			public Object doInHibernate(Session session)
+					throws HibernateException, SQLException {
+				List<BookType> bookTypes = session.createQuery("From BookType bookType").list();	
+				return bookTypes;
+			}
+		});	
 	}
 
 }

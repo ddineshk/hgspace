@@ -31,7 +31,7 @@ public class AddBookAction extends ActionSupport{
 	private Integer bookNumber;
 	private String isbn;
 	private String bookName;
-	private String bookType;
+	private Integer bookTypeId;
 	private String author;
 	private String bookPress;
 	private Date publishDate;
@@ -98,7 +98,7 @@ public class AddBookAction extends ActionSupport{
 		book.setIsbn(isbn);
 		book.setAuthor(author);
 		book.setBookName(bookName);
-		book.setBookType(bookType);
+//		book.setBookType(bookType);
 		book.setBookAmount(bookAmount);
 		book.setBookDiscription(bookDiscription);
 		book.setBookPress(bookPress);
@@ -146,12 +146,12 @@ public class AddBookAction extends ActionSupport{
 		this.bookName = bookName;
 	}
 
-	public String getBookType() {
-		return bookType;
+	public Integer getBookTypeId() {
+		return bookTypeId;
 	}
 
-	public void setBookType(String bookType) {
-		this.bookType = bookType;
+	public void setBookTypeId(Integer bookTypeId) {
+		this.bookTypeId = bookTypeId;
 	}
 
 	public String getAuthor() {

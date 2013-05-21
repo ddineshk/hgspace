@@ -42,22 +42,11 @@ $(document).ready(function () {
 
 </script>
 </head>
-<body>
-	<%
-   session = request.getSession(false);
-   if(session.getAttribute("AdminName")==null){
-	   response.sendRedirect("adminLogin.action");
-   }
-%>
-	<h2 style="text-align: center;">Spring Book Sore</h2>
-	<br />
+<body><%session = request.getSession(false);if(session.getAttribute("AdminName")==null){response.sendRedirect("adminLogin.action");}%>
 	<jsp:include page="header.jsp"></jsp:include>
 	<br>
 	<br>
-	<br>
-	<br>
 	<h3>User List</h3>
-
 	<p></p>
 	<table width="80%" border="1">
 		<tbody>

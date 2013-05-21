@@ -6,17 +6,8 @@
 <meta http-equiv="Content-Type" content="text/html;">
 <title>View All Orders</title>
 </head>
-<body>
-<%
-   session = request.getSession(false);
-   if(session.getAttribute("AdminName")==null){
-	   response.sendRedirect("adminLogin.action");
-   }
-%>
-<h2 style="text-align: center;">Spring Book Sore</h2>
-      <br />
+<body><%session = request.getSession(false);if(session.getAttribute("AdminName")==null){response.sendRedirect("adminLogin.action");}%>
 <jsp:include page="header.jsp"></jsp:include>
-<br>
 <br>
 <br>
 <table border="1" style="width: 938px; height: 30px;">

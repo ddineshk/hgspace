@@ -6,16 +6,7 @@
 <meta http-equiv="Content-Type" content="text/html;">
 <title>New Book Type</title>
 </head>
-<body>
-	<h2 style="text-align: center;">Spring Book Sore</h2>
-	<br />
-
-	<%
-	   session = request.getSession(false);
-	   if(session.getAttribute("AdminName")==null){
-		   response.sendRedirect("adminLogin.action");
-	   }
-	%>
+<body><%session = request.getSession(false);if(session.getAttribute("AdminName")==null){response.sendRedirect("adminLogin.action");}%>
 	<jsp:include page="header.jsp"></jsp:include>
 	<h3>New Book Type form</h3>
 	<s:form action="addBookTypes">

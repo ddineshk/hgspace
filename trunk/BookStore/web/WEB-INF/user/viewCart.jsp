@@ -5,15 +5,33 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html;">
 <title>Shopping Detail</title>
+<script type="text/javascript">
+
+	function updateBookAmount(Id){
+		var pattern = /^[1-9][0-9]{0,}$/;
+		var bookAmount = document.getElementById("bookAmount"+Id).value;
+		if(pattern.test(bookAmount)){
+			location.href = "updateBookQuantity.action?Id="+Id+"&bookAmount="+bookAmount;
+		}else{
+			alert('Quantity cannot be 0 or is invalid');
+		}
+	}
+	
+	function checkForEmptyRow(){
+		var flag = "false";
+		$('input[id^="bookAmount"]').each(function(){
+			flag="true";
+		});
+		if(flag ==="true"){
+			window.location.href='processOrder.action';
+		}else{
+			alert('There are no items in the cart');
+		}
+	}
+</script>
 </head>
 <body>
-	<% 
-   session = request.getSession(false);
-   if(session.getAttribute("user")==null ){
-	   response.sendRedirect("userLogin.action");
-   }
-
-%>
+	<%session = request.getSession(false);if(session.getAttribute("user")==null){response.sendRedirect("userLogin.action");}%>
 	<jsp:include page="header.jsp" />
 	<p></p>
 	<br>
@@ -52,20 +70,8 @@
 	<br>
 	<br>
 	<s:a href="userViewBooks.action">Continue Shopping</s:a>
-	<s:a href="processOrder.action">Checkout</s:a>
+	<s:a href="javascript:void(0)" onclick="checkForEmptyRow()">Checkout</s:a>
 </body>
 
-<SCRIPT type="text/javascript">
-<!--
-	function updateBookAmount(Id){
-		var pattern = /^[1-9][0-9]{0,}$/;
-		var bookAmount = document.getElementById("bookAmount"+Id).value;
-		if(pattern.test(bookAmount)){
-			location.href = "updateBookQuantity.action?Id="+Id+"&bookAmount="+bookAmount;
-		}
-	}
-	
-//-->
-</SCRIPT>
 
 </html>

@@ -7,16 +7,8 @@
 <title>Order Information</title>
 </head>
 <body>
-	<h2 style="text-align: center;">Spring Book Sore</h2>
-	<br />
-	<%
-	   session = request.getSession(false);
-	   if(session.getAttribute("AdminName")==null){
-		   response.sendRedirect("adminLogin.action");
-	   }
-	%>
+<%session = request.getSession(false);if(session.getAttribute("AdminName")==null){response.sendRedirect("adminLogin.action");}%>
 	<jsp:include page="header.jsp"></jsp:include>
-	<br>
 	<br>
 	<br>
 	<h3>Order Information</h3>
