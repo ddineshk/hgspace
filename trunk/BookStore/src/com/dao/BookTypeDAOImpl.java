@@ -21,4 +21,11 @@ public class BookTypeDAOImpl  extends HibernateDaoSupport implements BookTypeDAO
 	
 	}
 
+	@Override
+	public void delete(Integer bookTypeId) {
+		BookType bookType = new BookType();
+		bookType.setId(bookTypeId);
+		getHibernateTemplate().delete(bookType);
+	}
+
 }

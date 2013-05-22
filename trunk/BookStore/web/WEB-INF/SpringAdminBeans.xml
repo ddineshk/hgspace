@@ -17,6 +17,7 @@
 	  </bean>
 	  <bean id = "addBookTypes" class = "com.admin.action.AddBookTypesAction" scope = "prototype">
 		  <property name="bookTypeServiceImpl" ref = "bookTypeServiceImpl"/>
+		  <property name="bookServiceImpl" ref = "bookServiceImpl"/>
 	  </bean>
 	  <bean id = "viewBooks" class = "com.admin.action.ViewBooksAction" scope = "prototype">
           <property name="bookServiceImpl" ref = "bookServiceImpl"/>

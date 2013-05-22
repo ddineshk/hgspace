@@ -17,7 +17,7 @@
 		</tr>
 		<tr>
 			<td>Book Type</td>
-			<td><s:property value="book.bookType" /></td>
+			<td><s:property value="book.bookType.bookType" /></td>
 		</tr>
 		<tr>
 			<td>Author</td>

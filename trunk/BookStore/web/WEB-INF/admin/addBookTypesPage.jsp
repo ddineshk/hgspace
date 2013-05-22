@@ -6,13 +6,17 @@
 <meta http-equiv="Content-Type" content="text/html;">
 <title>New Book Type</title>
 </head>
-<body><%session = request.getSession(false);if(session.getAttribute("AdminName")==null){response.sendRedirect("adminLogin.action");}%>
+<body onload="document.getElementById('addBookTypes_bookType_bookType').value='';">
+<%session = request.getSession(false);if(session.getAttribute("AdminName")==null){response.sendRedirect("adminLogin.action");}%>
 	<jsp:include page="header.jsp"></jsp:include>
 	<h3>New Book Type form</h3>
 	<s:form action="addBookTypes">
-		<s:textfield name="bookType.bookType" label="New Book Type" />
-		<s:submit />
-		<s:reset></s:reset>
+		<s:textfield name="bookType.bookType" label="Add Book Type" labelposition="top"/>
+		<s:submit value="Add"/>
+	</s:form>
+	<s:form action="deleteBookTypes">
+		<s:select list="bookTypes" listKey="id" listValue="bookType" name="bookTypeId" label="Delete Book Type" labelposition="top" />
+		<s:submit value="Delete"/>
 	</s:form>
 </body>
 </html>

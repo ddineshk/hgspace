@@ -15,12 +15,11 @@
 		<s:submit value="Submit" />
 	</s:form>
 	<s:form action="queryByBookType">
-		<s:select list="{'Java','Scala','Groovy','JRuby','Spring framework','Seam framework','Play! framework','Tomcat','WebLogic','JBOSS','WebShpere'}"
-			label="Book Type" name="bookType" />
+		<s:select name="bookTypeId" list="bookTypes" listKey="id" listValue="bookType" label="Book Type" />
 		<s:submit value="Submit" />
 	</s:form>
 	<display:table id="books" name="books" pagesize="5" export="false" requestURI="viewBooks">
-		<display:column property="bookType" title="Book Type" sortable="true" />
+		<display:column property="bookType.bookType" title="Book Type" sortable="true" />
 		<display:column property="bookName" title="Book Name" sortable="true" paramId="id" paramProperty="id" url="/admin/viewBookDetail.action" />
 		<display:column property="author" title="Author" sortable="true" />
 		<display:column property="bookPress" title="Press" sortable="true" />

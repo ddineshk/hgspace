@@ -14,7 +14,7 @@
 		<s:textfield name="bookNumber" label="Book Number" />
 		<s:textfield name="isbn" label=" ISBN" />
 		<s:textfield name="bookName" label="Book Name" />
-		<s:select name="bookType" list="{'Java','Scala','Groovy','JRuby','Spring framework','Seam framework','Play! framework','Tomcat','WebLogic','JBOSS','WebShpere'}" label="Book Type" />
+		<s:select name="bookTypeId" list="bookTypes" listKey="id" listValue="bookType" label="Book Type" />
 		<s:textfield name="author" label="Author" />
 		<s:textfield name="bookPress" label="Press" />
 		<s:textfield name="language" label="Language" />

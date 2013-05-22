@@ -19,16 +19,24 @@
 			<result name="success">/WEB-INF/admin/AdminMainPage.jsp</result>
 			<result name="error">/WEB-INF/admin/adminlogin.jsp</result>
 		</action>
-		<action name="addBookTypesForm">
+		<action name="addBookTypesForm" class="addBookTypes">
 			<result name="success">/WEB-INF/admin/addBookTypesPage.jsp</result>
 		</action>
-		<action name="addBookTypes" class="addBookTypes">
+		<action name="addBookTypes" class="addBookTypes" method="addBookType">
 			<result name="success">/WEB-INF/admin/addBookTypesPage.jsp</result>
 			<result name="input">/WEB-INF/admin/addBookTypesPage.jsp</result>
 			<result name="error">/WEB-INF/admin/addBookTypesPage.jsp</result>
 		</action>
-		<action name="addBooksForm">
+		<action name="deleteBookTypes" class="addBookTypes" method="deleteBookType">
+			<result name="success">/WEB-INF/admin/addBookTypesPage.jsp</result>
+			<result name="input">/WEB-INF/admin/addBookTypesPage.jsp</result>
+			<result name="error">/WEB-INF/admin/addBookTypesPage.jsp</result>
+		</action>
+		
+		<action name="addBooksForm" class="addBooks" method="setTypes">
 			<result name="success">/WEB-INF/admin/addBooksPage.jsp</result>
+			<result name="input">/WEB-INF/admin/addBooksPage.jsp</result>
+			<!-- <result name="error">/WEB-INF/admin/addBooksPage.jsp</result> -->
 		</action>
 		<action name="addBooks" class="addBooks">
 			<interceptor-ref name="fileUpload">
