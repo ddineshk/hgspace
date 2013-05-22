@@ -15,8 +15,8 @@
 	<br>
 	<center>
 		<s:form action="adminLoginAction">
-			<s:textfield name="name" label="User Name" />
-			<s:password name="password" label="Password" />
+			<s:textfield name="name" label="User Name" value="admin" />
+			<s:password name="password" label="Password" value="admin123"/>
 			<s:submit value="Submit" />
 		</s:form>
 	</center>

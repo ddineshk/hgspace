@@ -27,5 +27,10 @@ public class BookTypeServiceImpl implements BookTypeService{
 	public List<String> findBookTypes() {
 		return bookTypeDAOImpl.findBookTypes();
 	}
+
+	@Override
+	public void delete(Integer bookTypeId) {
+		bookTypeDAOImpl.delete(bookTypeId);
+	}
 	
 }

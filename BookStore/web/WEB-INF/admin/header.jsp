@@ -14,7 +14,7 @@
 	<ul>
 		<li><s:a href="AdminMainPage.action">Admin Main Page</s:a></li>
 		<li><s:a href="addBooksForm.action">Add Books</s:a></li>
-		<li><s:a href="addBookTypesForm.action">Add Book type</s:a></li>
+		<li><s:a href="addBookTypesForm.action">Add/Delete Book type</s:a></li>
 		<li><s:a href="viewBooks.action">View Books</s:a></li>
 		<li><s:a href="adminViewAllOrder.action">View All Order</s:a></li>
 		<li><s:a href="adminViewUsers.action">View All User</s:a></li>

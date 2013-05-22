@@ -1,13 +1,18 @@
 package com.admin.action;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Random;
+
+import javax.servlet.http.HttpServletRequest;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.struts2.ServletActionContext;
 
 import com.model.Book;
+import com.model.BookType;
 import com.opensymphony.xwork2.ActionSupport;
 import com.service.BookService;
 
@@ -23,7 +28,14 @@ public class AddBookAction extends ActionSupport{
 	Random rand = new Random();
 	static int num = 100;
 	int randnum = rand.nextInt(num + 1);
-    private Book book;
+    /**
+	 * @param book the book to set
+	 */
+	public void setBook(Book book) {
+		this.book = book;
+	}
+
+	private Book book;
 	private File bookImageFile;
 	private String bookImageContextType;
 	private String bookImageName = "";
@@ -42,6 +54,8 @@ public class AddBookAction extends ActionSupport{
 	private Integer bookAmount;
 	private Integer bookSales;
 
+	private List<BookType> bookTypes = new ArrayList<BookType>();
+	HttpServletRequest request = ServletActionContext.getRequest();
 	public File getBookImageFile() {
 		return bookImageFile;
 	}
@@ -84,11 +98,21 @@ public class AddBookAction extends ActionSupport{
 
 	@Override
 	public String execute() throws Exception {
+		bookTypes = bookServiceImpl.showAllTypes();
+		request.setAttribute("bookTypes", bookTypes);
+		setBookTypes(bookTypes);
 		String path = getSavePath();
 		bookImageName= +randnum + removeSpaces(bookImageName)+".jpg";
 		File file = new File(path,bookImageName);
 		FileUtils.copyFile(this.bookImageFile, file);
 		bookServiceImpl.insert(getBook());
+		return SUCCESS;
+	}
+	
+	public String setTypes() throws Exception{
+		bookTypes = bookServiceImpl.showAllTypes();
+		request.setAttribute("bookTypes", bookTypes);
+		setBookTypes(bookTypes);
 		return SUCCESS;
 	}
 	
@@ -99,6 +123,9 @@ public class AddBookAction extends ActionSupport{
 		book.setAuthor(author);
 		book.setBookName(bookName);
 //		book.setBookType(bookType);
+		BookType bookType = new BookType();
+		bookType.setId(bookTypeId);
+		book.setBookType(bookType);
 		book.setBookAmount(bookAmount);
 		book.setBookDiscription(bookDiscription);
 		book.setBookPress(bookPress);
@@ -224,6 +251,14 @@ public class AddBookAction extends ActionSupport{
 
 	public void setBookSales(Integer bookSales) {
 		this.bookSales = bookSales;
+	}
+
+	public List<BookType> getBookTypes() {
+		return bookTypes;
+	}
+
+	public void setBookTypes(List<BookType> bookTypes) {
+		this.bookTypes = bookTypes;
 	}
 
 }
