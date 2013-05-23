@@ -29,7 +29,7 @@
 				$("#addBooks_publishDate").datepicker();
 			});
 		</script>
-		<s:textfield name="publishDate" label="Publish Date"></s:textfield>
+		<s:textfield name="publishDate" label="Publish Date" readonly="true"></s:textfield>
 		<s:textfield name="bookSales" label="Sales" />
 		<s:submit value="Submit" />
 	</s:form>
