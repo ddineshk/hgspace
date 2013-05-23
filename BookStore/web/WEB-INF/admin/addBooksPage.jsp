@@ -22,7 +22,14 @@
 		<s:textfield name="pages" label="Pages" />
 		<s:textarea name="bookDiscription" label="Description" />
 		<s:file name="bookImageFile" label="Image File" />
-		<s:textfield name="bookAmount" label="Amount" />
+		<link rel="stylesheet" type="text/css" href="../css/jquery-ui.css" />
+		<script type="text/javascript" src="../js/jquery-ui.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function() {
+				$("#addBooks_publishDate").datepicker();
+			});
+		</script>
+		<s:textfield name="publishDate" label="Publish Date"></s:textfield>
 		<s:textfield name="bookSales" label="Sales" />
 		<s:submit value="Submit" />
 	</s:form>
