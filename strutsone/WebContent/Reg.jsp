@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-    <%@taglib uri="http://struts.apache.org/tags-bean" prefix="bean"%>
+	pageEncoding="ISO-8859-1"%>
+<%@taglib uri="http://struts.apache.org/tags-bean" prefix="bean"%>
 <%@taglib uri="http://struts.apache.org/tags-logic" prefix="logic"%>
 <%@taglib uri="http://struts.apache.org/tags-html" prefix="html"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -10,16 +10,18 @@
 <title>Registration Form</title>
 </head>
 <body>
-<html:form action="/reg.do?method=sel">
-<div align="center">
-<html:select name="regForm" property="selPerson" multiple="multiple">
-	<logic:iterate id="pplist" name="regForm" property="personList">
-		<option value=<bean:write name="pplist" property="ssNum"/>><bean:write name="pplist"     
-      property="name"/></option>
-	</logic:iterate>
-</html:select><br/>
-<button>submit</button>
-</div>
-</html:form>
+	<html:form action="/reg.do?method=sel">
+		<div align="center">
+			<html:select name="regForm" property="selPerson" multiple="multiple">
+				<logic:iterate id="pplist" name="regForm" property="personList">
+					<option value=<bean:write name="pplist" property="ssNum"/>>
+						<bean:write name="pplist" property="name" />
+					</option>
+				</logic:iterate>
+			</html:select>
+			<br />
+			<button>submit</button>
+		</div>
+	</html:form>
 </body>
 </html>
