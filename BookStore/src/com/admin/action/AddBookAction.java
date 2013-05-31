@@ -122,11 +122,10 @@ public class AddBookAction extends ActionSupport{
 		book.setIsbn(isbn);
 		book.setAuthor(author);
 		book.setBookName(bookName);
-//		book.setBookType(bookType);
 		BookType bookType = new BookType();
 		bookType.setId(bookTypeId);
 		book.setBookType(bookType);
-		book.setBookAmount(bookAmount);
+		book.setBookAmount(price);
 		book.setBookDiscription(bookDiscription);
 		book.setBookPress(bookPress);
 		book.setBookSales(bookSales);
