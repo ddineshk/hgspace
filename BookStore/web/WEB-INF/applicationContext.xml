@@ -11,5 +11,5 @@
         <import resource="SpringService.xml"/>
         <import resource="SpringUserBeans.xml"/>
         <import resource="SpringAdminBeans.xml"/>
-        
+        <import resource="SpringConfigmanBeans.xml"/>
 </beans>

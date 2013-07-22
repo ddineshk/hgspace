@@ -36,6 +36,7 @@
 			<div class="hdiv" style="background: #ccc;"><s:a href="user/userLogin.action">Login</s:a></div>
 			<div class="hdiv" style="background: #999;"><s:a href="user/register.action">Register</s:a></div>
 			<div class="hdiv" style="background: #666;"><s:a href="admin/adminLogin.action">Admin Login</s:a></div>
+			<div class="hdiv" style="background: #fff;"><s:a href="configman/main.action">Configuration Management</s:a></div>
 		</div>
 	</body>
 </html>

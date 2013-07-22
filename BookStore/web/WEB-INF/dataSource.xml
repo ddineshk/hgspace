@@ -20,6 +20,7 @@
 				<value>com/model/BookType.hbm.xml</value>
 				<value>com/model/OrderBooks.hbm.xml</value>
 				<value>com/model/Orders.hbm.xml</value>
+				<value>com/model/Application.hbm.xml</value>
 			</list>
 		</property>
 		<property name="dataSource" ref="dataSource" />
