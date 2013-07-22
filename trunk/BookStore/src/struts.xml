@@ -5,4 +5,5 @@
    <constant name="struts.devMode" value="true" />
 	<include file="com/user/action/UserInfo.xml"></include>
 	<include file="com/admin/action/AdminInfo.xml"></include>
+	<include file="com/configman/action/ConfigmanInfo.xml"></include>
 </struts>

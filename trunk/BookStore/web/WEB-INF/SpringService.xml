@@ -48,5 +48,13 @@
 		<bean id  = "bookServiceImpl" class = "com.service.BookServiceImpl">
 		   <property name="bookDAOImpl" ref = "bookDAOImpl"/>
 		</bean>
+		
+		<bean id="configmanDAOImpl" class="com.dao.ConfigmanDAOImpl">
+			<property name="sessionFactory" ref="sessionFactory"/>
+		</bean>
+		
+		<bean id="configmanServiceImpl" class="com.service.ConfigmanServiceImpl">
+			<property name="configmanDAOImpl" ref="configmanDAOImpl"/>
+		</bean>
 
 </beans>
