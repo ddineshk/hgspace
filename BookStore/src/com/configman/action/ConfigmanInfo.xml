@@ -4,6 +4,9 @@
 <struts>
 	<constant name="struts.devMode" value="true" />
 	<package name="configman" namespace="/configman" extends="struts-default">
+		<action name="configmanLogin">
+			<result>/WEB-INF/configman/CMLogin.jsp</result>
+		</action>
 		<action name="main" class="mainAction">
 			<result>/WEB-INF/configman/main.jsp</result>
 		</action>
