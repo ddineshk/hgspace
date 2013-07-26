@@ -16,7 +16,7 @@
 	<br>
 	<center>
 		<s:form action="configmanLoginAction">
-			<s:textfield name="name" label="User Name" value="admin" />
+			<s:textfield name="name" label="User Name" value="configman" />
 			<s:password name="password" label="Password" />
 			<s:submit value="Submit" />
 		</s:form>

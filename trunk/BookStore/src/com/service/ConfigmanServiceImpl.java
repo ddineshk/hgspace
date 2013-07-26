@@ -28,5 +28,10 @@ public class ConfigmanServiceImpl implements ConfigmanService {
 		this.configmanDAOImpl = configmanDAOImpl;
 	}
 
+	@Override
+	public List setConfigmanCertification(String userName, String password) {
+		return configmanDAOImpl.setConfigmanCertification(userName, password);
+	}
+
 	
 }

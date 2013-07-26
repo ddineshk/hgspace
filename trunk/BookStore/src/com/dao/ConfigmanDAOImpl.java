@@ -24,4 +24,9 @@ public class ConfigmanDAOImpl extends HibernateDaoSupport implements ConfigmanDA
 		});	
 	}
 
+	@Override
+	public List setConfigmanCertification(String name, String password) {
+		return getHibernateTemplate().findByNamedParam("from User user where name= :name and password = :password", new String[]{"name","password"}, new String[]{name,password});
+	}
+
 }
