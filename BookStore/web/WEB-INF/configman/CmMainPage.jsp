@@ -7,12 +7,12 @@
 <title>Configuration Management</title>
 </head>
 <body>
-	<%-- <% 
+	<% 
 	   session = request.getSession(false);
 	   if(session.getAttribute("user")==null ){
-		   response.sendRedirect("userLogin.action");
+		   response.sendRedirect("configmanLogin.action");
 	   }
-	%> --%>
+	%> 
 	<jsp:include page="cmheader.jsp" />
 </body>
 </html>

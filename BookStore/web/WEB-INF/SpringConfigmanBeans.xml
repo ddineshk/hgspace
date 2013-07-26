@@ -11,7 +11,11 @@
 		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd">
     	
-    	<bean id = "mainAction" class = "com.configman.action.MainAction" scope = "prototype">
+    	<bean id = "configmanLoginAction" class = "com.configman.action.ConfigmanLoginAction" scope = "prototype">
 			  <property name="configmanServiceImpl" ref = "configmanServiceImpl"/>
 		</bean>
+		<bean id = "mainAction" class = "com.configman.action.MainAction" scope = "prototype">
+			  <property name="configmanServiceImpl" ref = "configmanServiceImpl"/>
+		</bean>
+		
 </beans>
