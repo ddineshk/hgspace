@@ -28,7 +28,7 @@ public class MainAction extends ActionSupport {
 	@Override
 	public String execute() throws Exception {
 		System.out.println(configmanServiceImpl.getAllApps().size());
-		return super.execute();
+		return ERROR;
 	}
 
 }
