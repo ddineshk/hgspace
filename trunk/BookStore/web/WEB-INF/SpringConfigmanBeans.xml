@@ -14,8 +14,8 @@
     	<bean id = "configmanLoginAction" class = "com.configman.action.ConfigmanLoginAction" scope = "prototype">
 			  <property name="configmanServiceImpl" ref = "configmanServiceImpl"/>
 		</bean>
-		<!-- <bean id = "mainAction" class = "com.configman.action.MainAction" scope = "prototype">
+		<bean id = "mainAction" class = "com.configman.action.MainAction" scope = "prototype">
 			  <property name="configmanServiceImpl" ref = "configmanServiceImpl"/>
-		</bean> -->
+		</bean>
 		
 </beans>
