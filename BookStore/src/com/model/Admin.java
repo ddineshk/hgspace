@@ -1,7 +1,13 @@
 package com.model;
 
-public class Admin {
+import java.io.Serializable;
+
+public class Admin implements Serializable{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 247326581764708422L;
 	private Integer id;
 	private String name;
 	private String password;

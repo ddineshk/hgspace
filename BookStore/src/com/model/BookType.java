@@ -1,6 +1,12 @@
 package com.model;
 
-public class BookType {
+import java.io.Serializable;
+
+public class BookType implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -2307391593287853880L;
 	private Integer id;
 	private String bookType;
 	

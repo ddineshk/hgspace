@@ -1,6 +1,13 @@
 package com.model;
 
-public class OrderBooks {
+import java.io.Serializable;
+
+public class OrderBooks implements Serializable{
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -1010433034375654814L;
 	private Integer id;
 	private Book book;
 	private Orders order;

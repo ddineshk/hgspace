@@ -3,13 +3,18 @@
  */
 package com.model;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
  * @author ddurairaj
  * 
  */
-public class Application {
+public class Application implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 4351057811990928676L;
 	/**
 	 * @return the id
 	 */
