@@ -1,9 +1,14 @@
 package com.model;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Orders {
+public class Orders implements Serializable{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 9162296195715379475L;
 	private Integer id;
 	private  String orderNumber;
 	private User user;

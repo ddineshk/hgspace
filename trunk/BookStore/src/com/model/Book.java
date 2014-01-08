@@ -1,9 +1,14 @@
 package com.model;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Book {
+public class Book implements Serializable{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -3558853213059900777L;
 	private Integer id;
 	private Integer bookNumber;
 	private String isbn;
