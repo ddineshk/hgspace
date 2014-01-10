@@ -1,0 +1,68 @@
+<project name="myapp" default="main">
+	<tstamp />
+	<property file="project.properties" />
+	<property file="deploy.properties" />
+	<!-- Main Target-->
+	<target name="main" depends="build, full.deploy" />
+	<!-- Build -->
+	<target name="build">
+		<echo>${basedir}</echo>
+		<ant antfile="build.xml" target="build"/>
+	</target>
+	<!-- Full deploy application -->
+	<target name="full.deploy" depends="dist, backup, deploy, install, cleanup" />
+	<!-- Distribute Files -->
+	<target name="dist" depends="dist.web, dist.was" />
+	<target name="dist.web">
+		<ant antfile="dist.xml" target="dist.web" />
+	</target>
+	<target name="dist.was">
+		<ant antfile="dist.xml" target="dist.was" />
+	</target>
+
+	<!-- Backup Files -->
+	<target name="backup" depends="backup.web, backup.was" />
+	<target name="backup.web">
+		<sshexec host="${web.host}" username="${web.userId}" password="${web.password}" command="${web.ant.deploy} backup.web" trust="true" />
+	</target>
+	<target name="backup.was">
+		<sshexec host="${was.host}" username="${was.userId}" password="${was.password}" command="${was.ant.deploy} backup.was" trust="true" />
+		<sshexec host="${was.host}" username="${was.userId}" password="${was.password}" command="${was.ant.install} export.app" trust="true" />
+	</target>
+
+	<!-- Deploy Files -->
+	<target name="deploy" depends="deploy.web, deploy.was" />
+	<target name="deploy.web">
+		<sshexec host="${web.host}" username="${web.userId}" password="${web.password}" command="${web.ant.deploy} deploy.web" trust="true" />
+	</target>
+	<target name="deploy.was">
+		<sshexec host="${was.host}" username="${was.userId}" password="${was.password}" command="${was.ant.deploy} deploy.was" trust="true" />
+	</target>
+
+	<!-- Install application to WebSphere -->
+	<target name="install">
+		<sshexec host="${was.host}" username="${was.userId}" password="${was.password}" command="${was.ant.install} install" trust="true" />
+	</target>
+
+	<!-- Cleanup Files -->
+	<target name="cleanup" depends="clean.unix, clean.loc" />
+	<target name="clean.unix">
+		<sshexec host="${web.host}" username="${web.userId}" password="${web.password}" command="rm -rf ${web.tmp.dir}" trust="true" />
+		<sshexec host="${was.host}" username="${was.userId}" password="${was.password}" command="rm -rf ${was.tmp.dir}" trust="true" />
+	</target>
+	<target name="clean.loc">
+		<delete dir="${src.dir}" />
+		<delete dir="${classes.dir}" />
+		<delete dir="${build.dir}" />
+	</target>
+
+	<!-- Backout Files if deployment fails -->
+	<target name="backout" depends="backout.web, backout.was" />
+	<target name="backout.web">
+		<sshexec host="${web.host}" username="${web.userId}" password="${web.password}" command="${web.ant.deploy} backout.web" trust="true" />
+	</target>
+	<target name="backout.was">
+		<sshexec host="${was.host}" username="${was.userId}" password="${was.password}" command="${was.ant.deploy} backout.was" trust="true" />
+		<sshexec host="${was.host}" username="${was.userId}" password="${was.password}" command="${was.ant.install} backout" trust="true" />
+	</target>
+</project>
