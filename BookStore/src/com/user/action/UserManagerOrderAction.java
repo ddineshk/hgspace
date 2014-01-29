@@ -41,8 +41,7 @@ public class UserManagerOrderAction extends ActionSupport {
 		HttpSession session = request.getSession();
 		String id = request.getParameter("id");
 		Integer order_id = Integer.parseInt(id);
-		List<OrderBooks> orderBooks = orderManagerServiceImpl
-				.queryBooksByOrderId(order_id);
+		List<OrderBooks> orderBooks = orderManagerServiceImpl.queryBooksByOrderId(order_id);
 		Orders singleOrders = orderManagerServiceImpl.queryByOrdersId(order_id);
 
 		totalPrice = singleOrders.getTotalPrice();
