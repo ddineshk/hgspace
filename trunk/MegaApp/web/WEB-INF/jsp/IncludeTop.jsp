@@ -59,26 +59,25 @@
 <body bgcolor="white" topmargin="0" style="padding:0px; margin:0px;" 
 	<%-- <c:if test="${empty accountForm.account}"> onload="drawMyText('user','Guest');"</c:if>
 	<c:if test="${!empty accountForm.account}"> onload="drawMyText('user','${accountForm.account.firstname}');"</c:if> --%>>
-	<table style="width: 100%;/* background-color: #27B600; */">
+	<table style="width: 100%;/* background-color: #27B600; */" class="banner">
 		<tr>
 			<td><a href="<c:url value="/index.do"/>">Home<%-- <img border="0" src="images/logo-topbar1.gif" /> --%></a></td>
 			<td align="right">
-				<table>
+				<table border="1">
 					<tr>
 						<td>
 						<c:if test="${empty accountForm.account}">
 							<%-- <canvas id="user" width="100" height="15"></canvas> --%>
-							Guest
-							<img border="0" src="images/separator.gif" />
+							<img border="0" src="images/guest.png" />
+							<%-- <img border="0" src="images/separator.gif" /> --%>
 						</c:if>
 						<c:if test="${!empty accountForm.account}">
 							<a href="<c:url value="/editAccountForm.do"/>">
 							${accountForm.account.firstname}
 							<%-- <canvas id="user" width="110" height="15"></canvas> --%></a>
-							<img border="0" src="images/separator.gif" />
-						</c:if>
+						</c:if><img border="0" src="images/separator.gif" />
 						</td>
-						<td ><a href="<c:url value="/viewCart.do"/>"><img border="0" name="img_cart" src="images/cart.gif"/></a>
+						<td style="vertical-align:bottom; display: table-cell;"><a href="<c:url value="/viewCart.do"/>"><img border="0" align="bottom" name="img_cart" src="images/cart.gif"/></a>
 							<img border="0" src="images/separator.gif" />
 						</td>
 						<td>
