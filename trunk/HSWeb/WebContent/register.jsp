@@ -8,11 +8,13 @@
 <title>Register</title>
 </head>
 <body>
+<html:errors/>
 <html:form action="/register" method="post">
 	<h1>Register</h1>
 	<table>
 	<tr><td>First Name </td><td><html:text property="firstName" styleId="firstName"/></td></tr>
 	<tr><td>Last Name </td><td><html:text property="lastName" styleId="lastName"/></td></tr>
+	<tr><td>User Name </td><td><html:text property="userName" styleId="userName"/></td></tr>
 	<tr><td>Password </td><td><html:password property="password" styleId="password"/></td></tr>
 	<tr><td>Re-Enter Password </td><td><html:password property="rePass" styleId="rePass"/></td></tr>
 	<tr><td>Email</td><td><html:text property="email" styleId="email"/></td></tr>

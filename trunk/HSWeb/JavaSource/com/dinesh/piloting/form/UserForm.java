@@ -1,14 +1,6 @@
 package com.dinesh.piloting.form;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
-
-import org.apache.struts.action.ActionErrors;
 import org.apache.struts.action.ActionForm;
-import org.apache.struts.action.ActionMapping;
-import org.apache.struts.action.ActionMessage;
-
-import com.dinesh.piloting.servlet.CaptchaServlet;
 
 public class UserForm extends ActionForm {
 	/**
@@ -18,6 +10,7 @@ public class UserForm extends ActionForm {
 	private Integer id;
 	private String firstName;
 	private String lastName;
+	private String userName;
 	private String password;
 	private String email;
 	private String rePass;
@@ -57,6 +50,12 @@ public class UserForm extends ActionForm {
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
+	public String getUserName() {
+		return userName;
+	}
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
 	/**
 	 * @return the email
 	 */
@@ -94,20 +93,5 @@ public class UserForm extends ActionForm {
 		this.rePass = rePass;
 	}
 	
-	@Override
-	public ActionErrors validate(ActionMapping mapping,
-			HttpServletRequest request) {
-		ActionErrors errors = new ActionErrors();
-		HttpSession session = request.getSession();
-        String parm = request.getParameter("j_captcha_response");
-        String c= (String)session.getAttribute(CaptchaServlet.CAPTCHA_KEY);
-        if(!parm.equals(c)){
-        	errors.add("register.captcha",new ActionMessage("register.captcha"));
-        }
-        if(!password.equals(rePass)){
-        	errors.add("register.password",new ActionMessage("register.password"));
-        }
-		return errors;
-	}
 	
 }

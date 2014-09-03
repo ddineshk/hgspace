@@ -10,7 +10,7 @@
 <body>
 <html:form action="/login" method="post">
 <html:errors/><br/>
-	<label for="firstName">Name     : </label><html:text styleId="firstName" property="firstName"></html:text><br/>
+	<label for="userName">Name     : </label><html:text styleId="userName" property="userName"></html:text><br/>
 	<label for="password">Password : </label><html:password styleId="password" property="password"></html:password><br/>
 	<button>Submit</button>&nbsp;<a href="register.jsp">Register</a>
 </html:form>

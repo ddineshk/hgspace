@@ -8,7 +8,7 @@
 		<property name="format_sql">true</property>
 		<property name="dialect">com.dinesh.piloting.util.SQLiteDialect</property>
 		<property name="connection.driver_class">org.sqlite.JDBC</property>
-		<property name="connection.url">jdbc:sqlite:C:\Users\ddurairaj\College.db</property>
+		<property name="connection.url">jdbc:sqlite:C:\Users\ddurairaj\workspace\HSWeb\resources\college.db</property>
 		<property name="connection.username"></property>
 		<property name="connection.password"></property>
 

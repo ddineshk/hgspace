@@ -7,6 +7,7 @@
 <title>main</title>
 </head>
 <body>
-
+Main Page <br>
+<a href="logout.do"><b>Logout</b></a>
 </body>
 </html>
