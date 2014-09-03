@@ -17,6 +17,7 @@ public class User {
 	private String firstName;
 	private String lastName;
 	private String email;
+	private String userName;
 	private String password;
 
 	/**
@@ -94,11 +95,19 @@ public class User {
 		this.password = password;
 	}
 
+	public String getUserName() {
+		return userName;
+	}
+
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+
 	public String login() {
 		Session session = HibernateUtil.currentSession();
 		Transaction tx = session.beginTransaction();
 		Query query = session.createQuery((new StringBuilder(
-				"from User u where u.firstName = '")).append(firstName)
+				"from User u where u.userName = '")).append(userName)
 				.append("' and u.password = '"+password+"'").toString());
 		@SuppressWarnings("rawtypes")
 		List users = query.list();
@@ -109,12 +118,12 @@ public class User {
 		session.flush();
 		session.close();
 		HibernateUtil.shutdown();
-		if (user != null && user.getFirstName().equals(firstName)
+		if (user != null && user.getUserName().equals(userName)
 				&& user.getPassword().equals(password)) {
-			 log.info((new StringBuilder("someone successfully use username ")).append(firstName).append(" to log in.").toString());
+			 log.info((new StringBuilder("someone successfully use username ")).append(userName).append(" to log in.").toString());
 			return "success";
 		} else {
-		    log.info((new StringBuilder("someone failed to use username ")).append(firstName).append(" to log in.").toString());
+		    log.info((new StringBuilder("someone failed to use username ")).append(userName).append(" to log in.").toString());
 			return "failure";
 		}
 	}
@@ -129,6 +138,7 @@ public class User {
 		user.setLastName(lastName);
 		user.setEmail(email);
 		user.setPassword(password);
+		user.setUserName(userName);
 		@SuppressWarnings("rawtypes")
 		List list;
 		Query query = session.createQuery("select max(u.id) from User u");
