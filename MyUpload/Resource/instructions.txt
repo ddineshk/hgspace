@@ -1,1 +1,0 @@
-Create a DNS CustomeDSN and point to the Library.mdb database
