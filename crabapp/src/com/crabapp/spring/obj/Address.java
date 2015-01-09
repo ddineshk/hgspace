@@ -2,21 +2,20 @@ package com.crabapp.spring.obj;
 
 public class Address {
 
-	
-    private int empId;
-    private String geoCode;
+	private String geoCode;
     private String address1;
     private String address2;
     private String landMark;
     private String city;
     private String state;
     private String pincode;
+    private int addressId;
     
     
     
 	public Address() {
 		super();
-		this.empId = 0;
+		this.addressId = 0;
 		this.geoCode = "";
 		this.address1 = "";
 		this.address2 = "";
@@ -25,18 +24,7 @@ public class Address {
 		this.state = "";
 		this.pincode = "";
 	}
-	/**
-	 * @return the empId
-	 */
-	public int getEmpId() {
-		return empId;
-	}
-	/**
-	 * @param empId the empId to set
-	 */
-	public void setEmpId(int empId) {
-		this.empId = empId;
-	}
+	
 	/**
 	 * @return the geoCode
 	 */
@@ -120,6 +108,18 @@ public class Address {
 	 */
 	public void setPincode(String pincode) {
 		this.pincode = pincode;
+	}
+	/**
+	 * @return the addressId
+	 */
+	public int getAddressId() {
+		return addressId;
+	}
+	/**
+	 * @param addressId the addressId to set
+	 */
+	public void setAddressId(int addressId) {
+		this.addressId = addressId;
 	}
         
     

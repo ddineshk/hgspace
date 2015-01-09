@@ -19,7 +19,7 @@ tr {
 }
 </style>
 <div style="margin: 10px;">
-	<h4>List of Persons</h4>
+	<h4>List of Employees</h4>
 	<table style="width: 600px" class="reference">
 		<tbody>
 		<tr>
@@ -28,13 +28,13 @@ tr {
 			<th>Age</th>
 			<th>Email</th>
 		</tr>
-		<c:forEach var="person" items="${requestScope.persons}"
+		<c:forEach var="employee" items="${requestScope.employees}"
 			varStatus="loopCounter">
 		<tr>
 			<td><c:out value="${loopCounter.count}" /></td>
-			<td><c:out value="${person.name}" /></td>
-			<td><c:out value="${person.email}" /></td>
-			<td><c:out value="${person.age}" /></td>
+			<td><c:out value="${employee.name}" /></td>
+			<td><c:out value="${employee.email}" /></td>
+			<td><c:out value="${employee.age}" /></td>
 		</tr>
 		</c:forEach>
 		</tbody>
