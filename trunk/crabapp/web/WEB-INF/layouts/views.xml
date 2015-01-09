@@ -6,8 +6,8 @@
 	<definition name="index" extends="DefaultTemplate">
 	    <put-attribute name="body"	value="/WEB-INF/view/index.jsp" />
 	</definition>
-	<definition name="personList" extends="DefaultTemplate">
-	    <put-attribute name="body"	value="/WEB-INF/view/personList.jsp" />
+	<definition name="employeeList" extends="DefaultTemplate">
+	    <put-attribute name="body"	value="/WEB-INF/view/employeeList.jsp" />
 	</definition>
 	<definition name="distance" extends="DefaultTemplate">
 	    <put-attribute name="body"	value="/WEB-INF/view/distance.jsp" />

@@ -14,6 +14,7 @@
 	<style>
 		body{ margin-top:20px; margin-bottom:20px; background-color:#DFDFDF;}
 	</style>
+	<script type="text/javascript" src="resources/js/jquery-1.11.2.js"></script>
 </head>
 <body>
 	<div class="container" style="border: #C1C1C1 solid 1px; border-radius:10px;">

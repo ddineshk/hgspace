@@ -9,7 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.crabapp.spring.obj.Person;
+import com.crabapp.spring.obj.Employee;
 
 @Controller
 public class SpringTilesController {
@@ -19,11 +19,11 @@ public class SpringTilesController {
 		return "index";
 	}
 	
-	@RequestMapping(value="viewPerson")
-	public ModelAndView viewPerson(){
-		Map<String, List<Person>> persons = new HashMap<String, List<Person>>();
-		persons.put("persons", Person.createPersons());
-		return new ModelAndView("personList",persons);
+	@RequestMapping(value="viewEmployee")
+	public ModelAndView viewEmployee(){
+		Map<String, List<Employee>> employees = new HashMap<String, List<Employee>>();
+		employees.put("employees", Employee.createEmployees());
+		return new ModelAndView("employeeList",employees);
 	}
 	
 	@RequestMapping(value="distance")

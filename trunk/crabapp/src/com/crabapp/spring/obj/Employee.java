@@ -1,10 +1,15 @@
 package com.crabapp.spring.obj;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Person {
+public class Employee implements Serializable{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 8027642888460896491L;
 	private String name, email;
 	private int age;
 	private int empId;
@@ -12,10 +17,10 @@ public class Person {
 	
 	@Override
 	public String toString() {
-		return String.format("Person [name = %s, email = %s, age = %d, address = %s %s]",name, email, age,address.getAddress1(), address.getAddress2());
+		return String.format("Employee [name = %s, email = %s, age = %d, address = %s %s]",name, email, age,address.getAddress1(), address.getAddress2());
 	}
 
-	public Person(String name, String email, int age, Address address) {
+	public Employee(String name, String email, int age, Address address) {
 		super();
 		this.name = name;
 		this.email = email;
@@ -23,15 +28,15 @@ public class Person {
 		this.address = address;
 	}
 	
-	public static List<Person> createPersons(){
-		List<Person> persons = new ArrayList<Person>();
-        persons.add(new Person("Dinesh", "dinesh@mail.com", 32,new Address()));
-        persons.add(new Person("Ashok", "ashok@mail.com", 28,new Address()));
-        persons.add(new Person("Chitra", "chitra@mail.com", 26,new Address()));
-        persons.add(new Person("Raja", "raja@mail.com", 32,new Address()));
-        persons.add(new Person("Suresh", "suresh@mail.com", 33,new Address()));
-        persons.add(new Person("Divya", "divya@mail.com", 31,new Address()));
-        return persons;
+	public static List<Employee> createEmployees(){
+		List<Employee> employee = new ArrayList<Employee>();
+		employee.add(new Employee("Dinesh", "dinesh@mail.com", 32,new Address()));
+		employee.add(new Employee("Ashok", "ashok@mail.com", 28,new Address()));
+		employee.add(new Employee("Chitra", "chitra@mail.com", 26,new Address()));
+		employee.add(new Employee("Raja", "raja@mail.com", 32,new Address()));
+		employee.add(new Employee("Suresh", "suresh@mail.com", 33,new Address()));
+		employee.add(new Employee("Divya", "divya@mail.com", 31,new Address()));
+        return employee;
 	}
 	
 	/**
